@@ -20,10 +20,11 @@ jobs:
           path: translations
           fetch-depth: 0
 
-      - name: Checkout NTNH (main repo)
+      - name: Checkout NTNH (updates/upcoming branch)
         uses: actions/checkout@v4
         with:
           repository: NTNewHorizons/NTNH
+          ref: updates/upcoming
           path: ntnh
           fetch-depth: 1
 

@@ -86,16 +86,30 @@ jobs:
           EN_FILES=$(find config -type f 2>/dev/null | grep -E '/en_US\.(lang|properties|txt)$' || true)
           TOTAL=0
 
+          declare -A EN_KEYS_VALUES
+          declare -A EN_LINES
+
+          # First pass: calculate total translatable items
           while IFS= read -r en_file; do
             if [ ! -f "$en_file" ]; then continue; fi
+            BASE=$(basename "$en_file")
             if grep -q '=' "$en_file"; then
               # Key-value format
-              COUNT=$(grep -Ev '^\s*(#|$)' "$en_file" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//' | sort -u | wc -l)
+              while IFS= read -r line; do
+                if [[ "$line" =~ ^\s*# ]] || [[ -z "${line// }" ]]; then continue; fi
+                key=$(echo "$line" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//')
+                value=$(echo "$line" | cut -d= -f2- | sed 's/^\s*//; s/\s*$//')
+                if [ -n "$key" ]; then
+                  EN_KEYS_VALUES["$en_file:$key"]="$value"
+                  ((TOTAL++))
+                fi
+              done < <(cat "$en_file")
             else
               # Plain lines format
-              COUNT=$(grep -Ev '^\s*(#|$)' "$en_file" | wc -l)
+              mapfile -t lines < <(grep -Ev '^\s*(#|$)' "$en_file" | sed 's/^\s*//; s/\s*$//')
+              EN_LINES["$en_file"]="${lines[*]}"
+              TOTAL=$((TOTAL + ${#lines[@]}))
             fi
-            TOTAL=$((TOTAL + COUNT))
           done <<< "$EN_FILES"
 
           if [ "$TOTAL" -eq 0 ]; then
@@ -114,18 +128,38 @@ jobs:
               LANG_DIR=$(dirname "$en_file")
               EXT="${en_file##*.}"
               LANG_FILE="$LANG_DIR/${lang_code}.${EXT}"
-              if [ -f "$LANG_FILE" ]; then
-                if grep -q '=' "$en_file"; then
-                  EN_KEYS=$(grep -Ev '^\s*(#|$)' "$en_file" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//' | sort -u)
-                  LANG_KEYS=$(grep -Ev '^\s*(#|$)' "$LANG_FILE" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//' | sort -u)
-                  COMMON=$(comm -12 <(echo "$EN_KEYS") <(echo "$LANG_KEYS") | wc -l)
-                else
-                  COMMON=$(grep -Ev '^\s*(#|$)' "$LANG_FILE" | wc -l)
+              if [ ! -f "$LANG_FILE" ]; then continue; fi
+              if grep -q '=' "$en_file"; then
+                # Key-value
+                declare -A LANG_VALUES
+                while IFS= read -r line; do
+                  if [[ "$line" =~ ^\s*# ]] || [[ -z "${line// }" ]]; then continue; fi
+                  key=$(echo "$line" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//')
+                  value=$(echo "$line" | cut -d= -f2- | sed 's/^\s*//; s/\s*$//')
+                  if [ -n "$key" ] && [ -n "${EN_KEYS_VALUES["$en_file:$key"]}" ]; then
+                    en_value="${EN_KEYS_VALUES["$en_file:$key"]}"
+                    if [ "$value" != "$en_value" ] && [ -n "$value" ]; then
+                      ((TRANS++))
+                    fi
+                  fi
+                done < <(cat "$LANG_FILE")
+              else
+                # Plain lines
+                mapfile -t en_lines < <(grep -Ev '^\s*(#|$)' "$en_file" | sed 's/^\s*//; s/\s*$//')
+                mapfile -t lang_lines < <(grep -Ev '^\s*(#|$)' "$LANG_FILE" | sed 's/^\s*//; s/\s*$//')
+                len=${#en_lines[@]}
+                if [ ${#lang_lines[@]} -ne $len ]; then
+                  # If lengths differ, consider not translated
+                  continue
                 fi
-                TRANS=$((TRANS + COMMON))
+                for ((i=0; i<len; i++)); do
+                  if [ "${lang_lines[i]}" != "${en_lines[i]}" ] && [ -n "${lang_lines[i]}" ]; then
+                    ((TRANS++))
+                  fi
+                done
               fi
             done <<< "$EN_FILES"
-            PERCENTAGE=$(( (TRANS * 100 + TOTAL / 2) / TOTAL ))
+            PERCENTAGE=$(( (TRANS * 100 + TOTAL / 2) / TOTAL ))  # Rounded
             NAME=$(get_lang_name "$lang_code")
             TEMP_PERCENTAGES+="$NAME: $PERCENTAGE%\n"
           done <<< "$LANG_CODES"
@@ -184,10 +218,10 @@ jobs:
           name: NTNH-Translations-${{ steps.vars.outputs.release_name }}
           tag_name: NTNH-Translations-${{ steps.vars.outputs.release_name }}
           body: |
-            📦 Unified language pack for Nuclear Tech: New Horizons
+            📦 Unified language packs for Nuclear Tech: New Horizons
             🕒 Generated from branch `main` on ${{ steps.vars.outputs.release_name }}
           
-            Translation progress (excluding English):
+            Translation progress:
             ${{ steps.percentages.outputs.percentages }}
           
             This release contains a single ZIP archive with **all language packs**.

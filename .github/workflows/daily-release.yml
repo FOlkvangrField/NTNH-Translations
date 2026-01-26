@@ -117,6 +117,11 @@ jobs:
             🕒 Generated from branch `main` on ${{ steps.vars.outputs.release_name }}
             
             This release contains a single ZIP archive with all language packs organized by locale code (e.g., `config/ru_RU/`, `config/en_US/`, etc.).
+
+            How to use:
+            1. Download the ZIP file from the release assets.
+            2. Extract the contents to your Minecraft `config` directory.
+            3. Restart Minecraft to apply the new language packs.
           files: ${{ steps.zip.outputs.zip_file }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

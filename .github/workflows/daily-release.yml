@@ -54,7 +54,8 @@ jobs:
           
           function get_lang_name {
             case "$1" in
-              ar_SA) echo "Arabic" ;;
+              # Already existing
+              ar_SA) echo "Arabic (Saudi)" ;;
               cs_CZ) echo "Czech" ;;
               da_DK) echo "Danish" ;;
               de_DE) echo "German" ;;
@@ -69,7 +70,7 @@ jobs:
               nl_NL) echo "Dutch" ;;
               no_NO) echo "Norwegian" ;;
               pl_PL) echo "Polish" ;;
-              pt_BR) echo "Portuguese" ;;
+              pt_BR) echo "Portuguese (Brazil)" ;;
               ro_RO) echo "Romanian" ;;
               ru_RU) echo "Russian" ;;
               sv_SE) echo "Swedish" ;;
@@ -77,6 +78,27 @@ jobs:
               uk_UA) echo "Ukrainian" ;;
               zh_CN) echo "Chinese (Simplified)" ;;
               zh_TW) echo "Chinese (Traditional)" ;;
+              hi_IN) echo "Hindi" ;;
+              bn_BD) echo "Bengali" ;;
+              bn_IN) echo "Bengali (India)" ;;
+              pa_PK) echo "Punjabi (Western)" ;;
+              vi_VN) echo "Vietnamese" ;;
+              zh_HK) echo "Chinese (Cantonese)" ;;
+              yue_HK) echo "Chinese (Yue)" ;;
+              ar_EG) echo "Arabic (Egyptian)" ;;
+              wuu_CN) echo "Chinese (Wu)" ;;
+              mr_IN) echo "Marathi" ;;
+              te_IN) echo "Telugu" ;;
+              ta_IN) echo "Tamil" ;;
+              ur_PK) echo "Urdu" ;;
+              id_ID) echo "Indonesian" ;;
+              jv_ID) echo "Javanese" ;;
+              fa_IR) echo "Persian" ;;
+              ha_NG) echo "Hausa" ;;
+              gu_IN) echo "Gujarati" ;;
+              ar_SY) echo "Arabic (Levantine)" ;;
+              bh_IN) echo "Bhojpuri" ;;
+              
               *) echo "${1%%_*}" | tr 'a-z' 'A-Z' ;;
             esac
           }

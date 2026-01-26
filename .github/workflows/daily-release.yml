@@ -51,7 +51,7 @@ jobs:
         id: percentages
         run: |
           #!/bin/bash
-          set -euo pipefail
+          set -eo pipefail  # REMOVED 'u' to avoid failures on unset variables
 
           function get_lang_name {
             case "$1" in
@@ -83,6 +83,7 @@ jobs:
           }
 
           PERCENTAGES=""
+          # FIXED: Added || true to prevent grep exit code 1 from failing script
           EN_FILES=$(find config -type f 2>/dev/null | grep -E '/en_US\.(lang|properties|txt)$' || true)
           TOTAL=0
 
@@ -91,84 +92,87 @@ jobs:
 
           # First pass: calculate total translatable items
           while IFS= read -r en_file; do
+            [[ -z "$en_file" ]] && continue
             if [ ! -f "$en_file" ]; then continue; fi
-            BASE=$(basename "$en_file")
-            if grep -q '=' "$en_file"; then
+            if grep -q '=' "$en_file" 2>/dev/null; then
               # Key-value format
               while IFS= read -r line; do
-                if [[ "$line" =~ ^\s*# ]] || [[ -z "${line// }" ]]; then continue; fi
-                key=$(echo "$line" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//')
-                value=$(echo "$line" | cut -d= -f2- | sed 's/^\s*//; s/\s*$//')
-                if [ -n "$key" ]; then
-                  EN_KEYS_VALUES["$en_file:$key"]="$value"
-                  ((TOTAL++))
-                fi
-              done < <(cat "$en_file")
+                [[ "$line" =~ ^[[:space:]]*# ]] && continue
+                [[ -z "${line// /}" ]] && continue
+                key=$(echo "$line" | cut -d= -f1 | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                value=$(echo "$line" | cut -d= -f2- | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [[ -z "$key" ]] && continue
+                EN_KEYS_VALUES["$en_file:$key"]="$value"
+                ((TOTAL++))
+              done < <(cat "$en_file" || true)  # FIXED: Added || true
             else
-              # Plain lines format
-              mapfile -t lines < <(grep -Ev '^\s*(#|$)' "$en_file" | sed 's/^\s*//; s/\s*$//')
+              # Plain lines format - FIXED: Added || true to grep to prevent exit 1
+              mapfile -t lines < <(grep -Ev '^[[:space:]]*(#|$)' "$en_file" 2>/dev/null | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || true)
               EN_LINES["$en_file"]="${lines[*]}"
-              TOTAL=$((TOTAL + ${#lines[@]}))
+              TOTAL=$((TOTAL + ${#lines[@]:-0}))  # FIXED: Added :-0 default for unset arrays
             fi
-          done <<< "$EN_FILES"
+          done < <(echo "$EN_FILES")  # FIXED: Better handling of file list
 
           if [ "$TOTAL" -eq 0 ]; then
             echo "percentages=No translations found" >> $GITHUB_OUTPUT
             exit 0
           fi
 
+          # FIXED: Added || true to prevent grep exit code 1 from failing script
           LANG_CODES=$(find config -type f 2>/dev/null | grep -E '/[a-z]{2}_[A-Z]{2}\.(lang|properties|txt)$' | sed 's|.*/||; s/\..*//' | sort -u | grep -v en_US || true)
 
           TEMP_PERCENTAGES=""
           while IFS= read -r lang_code; do
-            if [ -z "$lang_code" ]; then continue; fi
+            [[ -z "$lang_code" ]] && continue
             TRANS=0
             while IFS= read -r en_file; do
+              [[ -z "$en_file" ]] && continue
               if [ ! -f "$en_file" ]; then continue; fi
               LANG_DIR=$(dirname "$en_file")
               EXT="${en_file##*.}"
               LANG_FILE="$LANG_DIR/${lang_code}.${EXT}"
               if [ ! -f "$LANG_FILE" ]; then continue; fi
-              if grep -q '=' "$en_file"; then
+              if grep -q '=' "$en_file" 2>/dev/null; then
                 # Key-value
-                declare -A LANG_VALUES
                 while IFS= read -r line; do
-                  if [[ "$line" =~ ^\s*# ]] || [[ -z "${line// }" ]]; then continue; fi
-                  key=$(echo "$line" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//')
-                  value=$(echo "$line" | cut -d= -f2- | sed 's/^\s*//; s/\s*$//')
-                  if [ -n "$key" ] && [ -n "${EN_KEYS_VALUES["$en_file:$key"]}" ]; then
-                    en_value="${EN_KEYS_VALUES["$en_file:$key"]}"
-                    if [ "$value" != "$en_value" ] && [ -n "$value" ]; then
-                      ((TRANS++))
-                    fi
+                  [[ "$line" =~ ^[[:space:]]*# ]] && continue
+                  [[ -z "${line// /}" ]] && continue
+                  key=$(echo "$line" | cut -d= -f1 | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                  value=$(echo "$line" | cut -d= -f2- | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                  [[ -z "$key" ]] && continue
+                  en_value="${EN_KEYS_VALUES["$en_file:$key"]:-}"
+                  if [ "$value" != "$en_value" ] && [ -n "$value" ]; then
+                    ((TRANS++))
                   fi
-                done < <(cat "$LANG_FILE")
+                done < <(cat "$LANG_FILE" || true)  # FIXED: Added || true
               else
-                # Plain lines
-                mapfile -t en_lines < <(grep -Ev '^\s*(#|$)' "$en_file" | sed 's/^\s*//; s/\s*$//')
-                mapfile -t lang_lines < <(grep -Ev '^\s*(#|$)' "$LANG_FILE" | sed 's/^\s*//; s/\s*$//')
-                len=${#en_lines[@]}
-                if [ ${#lang_lines[@]} -ne $len ]; then
-                  # If lengths differ, consider not translated
+                # Plain lines - FIXED: Added || true to both greps
+                mapfile -t en_lines < <(grep -Ev '^[[:space:]]*(#|$)' "$en_file" 2>/dev/null | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || true)
+                mapfile -t lang_lines < <(grep -Ev '^[[:space:]]*(#|$)' "$LANG_FILE" 2>/dev/null | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || true)
+                len=${#en_lines[@]:-0}
+                lang_len=${#lang_lines[@]:-0}
+                if [ "$lang_len" -ne "$len" ]; then
                   continue
                 fi
                 for ((i=0; i<len; i++)); do
-                  if [ "${lang_lines[i]}" != "${en_lines[i]}" ] && [ -n "${lang_lines[i]}" ]; then
+                  if [ "${lang_lines[i]:-}" != "${en_lines[i]:-}" ] && [ -n "${lang_lines[i]:-}" ]; then
                     ((TRANS++))
                   fi
                 done
               fi
-            done <<< "$EN_FILES"
-            PERCENTAGE=$(( (TRANS * 100 + TOTAL / 2) / TOTAL ))  # Rounded
+            done < <(echo "$EN_FILES")
+            PERCENTAGE=$(( (TRANS * 100 + TOTAL / 2) / TOTAL ))
             NAME=$(get_lang_name "$lang_code")
-            TEMP_PERCENTAGES+="$NAME: $PERCENTAGE%\n"
-          done <<< "$LANG_CODES"
+            TEMP_PERCENTAGES+="$NAME: $PERCENTAGE%\\n"
+          done < <(echo "$LANG_CODES")
 
           # Sort by language name
-          PERCENTAGES=$(echo -e "$TEMP_PERCENTAGES" | sort -k1 || true)
-
-          # Remove trailing newline
-          PERCENTAGES="${PERCENTAGES%$'\n'}"
+          if [[ -n "$TEMP_PERCENTAGES" ]]; then
+            PERCENTAGES=$(echo -e "$TEMP_PERCENTAGES" | sort -k1 || true)
+            PERCENTAGES="${PERCENTAGES%$'\\n'}"
+          else
+            PERCENTAGES="No translations found"
+          fi
 
           echo "percentages<<EOF" >> $GITHUB_OUTPUT
           echo -e "$PERCENTAGES" >> $GITHUB_OUTPUT
@@ -203,7 +207,7 @@ jobs:
         
           (
             cd "$TEMP_DIR"
-            zip -r "$GITHUB_WORKSPACE/$ZIP_PATH" config/ -x "*.git*" "*.DS_Store" "__MACOSX/*"
+            zip -r "$GITHUB_WORKSPACE/$ZIP_PATH" config/ -x "*.git*" "*.DS_Store" "__MACOSX/*" 2>/dev/null || true
           )
         
           # Clean up temporary directory

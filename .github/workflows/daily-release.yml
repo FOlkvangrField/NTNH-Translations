@@ -50,7 +50,6 @@ jobs:
       - name: Calculate translation percentages
         id: percentages
         run: |
-          #!/bin/bash
           set -euo pipefail
           function get_lang_name {
             case "$1" in
@@ -87,7 +86,7 @@ jobs:
           declare -A EN_LINES
           # First pass: calculate total translatable items
           while IFS= read -r en_file; do
-            if [ -z "$en_file" ] || [ ! -f "$en_file" ]; then continue; fi
+            if [ ! -f "$en_file" ]; then continue; fi
             BASE=$(basename "$en_file")
             if grep -q '=' "$en_file"; then
               # Key-value format
@@ -112,31 +111,24 @@ jobs:
             exit 0
           fi
           LANG_CODES=$(find config -type f 2>/dev/null | grep -E '/[a-z]{2}_[A-Z]{2}\.(lang|properties|txt)$' | sed 's|.*/||; s/\..*//' | sort -u | grep -v en_US || true)
-          
-          # Exit if no language codes found
-          if [ -z "$LANG_CODES" ]; then
-            echo "percentages=No language packs found" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-          
           TEMP_PERCENTAGES=""
           while IFS= read -r lang_code; do
             if [ -z "$lang_code" ]; then continue; fi
             TRANS=0
             while IFS= read -r en_file; do
-              if [ -z "$en_file" ] || [ ! -f "$en_file" ]; then continue; fi
+              if [ ! -f "$en_file" ]; then continue; fi
               LANG_DIR=$(dirname "$en_file")
               EXT="${en_file##*.}"
               LANG_FILE="$LANG_DIR/${lang_code}.${EXT}"
               if [ ! -f "$LANG_FILE" ]; then continue; fi
               if grep -q '=' "$en_file"; then
                 # Key-value
+                declare -A LANG_VALUES
                 while IFS= read -r line; do
                   if [[ "$line" =~ ^\s*# ]] || [[ -z "${line// }" ]]; then continue; fi
                   key=$(echo "$line" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//')
                   value=$(echo "$line" | cut -d= -f2- | sed 's/^\s*//; s/\s*$//')
-                  # Fix: Check if key exists in array before accessing
-                  if [ -n "$key" ] && [ -n "${EN_KEYS_VALUES["$en_file:$key"]+x}" ]; then
+                  if [ -n "$key" ] && [ -n "${EN_KEYS_VALUES["$en_file:$key"]}" ]; then
                     en_value="${EN_KEYS_VALUES["$en_file:$key"]}"
                     if [ "$value" != "$en_value" ] && [ -n "$value" ]; then
                       ((TRANS++))

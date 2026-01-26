@@ -15,14 +15,17 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            // Get all open PRs to main branch
             const { data: pulls } = await github.rest.pulls.list({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
               base: 'main'
             });
+            // Filter PRs from Bufka2011 and attempt to merge
             for (const pull of pulls) {
               if (pull.user.login !== 'Bufka2011') continue;
+            
               try {
                 await github.rest.pulls.merge({
                   owner: context.repo.owner,
@@ -33,6 +36,7 @@ jobs:
                 console.log(`✅ Successfully merged PR #${pull.number}`);
               } catch (error) {
                 console.log(`⚠️ Failed to merge PR #${pull.number}: ${error.message}`);
+                // Continue execution even if merge fails
               }
             }
       - name: Checkout updated repository
@@ -47,10 +51,7 @@ jobs:
         id: percentages
         run: |
           #!/bin/bash
-          set -eo pipefail
-          
-          shopt -s nullglob  # Prevent glob patterns from expanding to literal strings when empty
-          
+          set -euo pipefail
           function get_lang_name {
             case "$1" in
               ar_SA) echo "Arabic" ;;
@@ -79,170 +80,132 @@ jobs:
               *) echo "${1%%_*}" | tr 'a-z' 'A-Z' ;;
             esac
           }
-          
-          # Find English source files safely
-          EN_FILES=()
-          while IFS= read -r -d '' file; do
-            EN_FILES+=("$file")
-          done < <(find config -type f -regex '.*/en_US\.\(lang\|properties\|txt\)$' -print0 2>/dev/null || true)
-          
-          # Exit early if no English files found
-          if [ ${#EN_FILES[@]} -eq 0 ]; then
-            echo "percentages=No English source files found" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-          
-          # Count total translatable items
+          PERCENTAGES=""
+          EN_FILES=$(find config -type f 2>/dev/null | grep -E '/en_US\.(lang|properties|txt)$' || true)
           TOTAL=0
           declare -A EN_KEYS_VALUES
-          
-          for en_file in "${EN_FILES[@]}"; do
-            if [ ! -f "$en_file" ]; then continue; fi
-            
-            if grep -q '=' "$en_file" 2>/dev/null; then
-              # Key-value format (.properties/.lang)
+          declare -A EN_LINES
+          # First pass: calculate total translatable items
+          while IFS= read -r en_file; do
+            if [ -z "$en_file" ] || [ ! -f "$en_file" ]; then continue; fi
+            BASE=$(basename "$en_file")
+            if grep -q '=' "$en_file"; then
+              # Key-value format
               while IFS= read -r line; do
-                [[ "$line" =~ ^[[:space:]]*# ]] && continue
-                [[ -z "${line// /}" ]] && continue
-                key=$(echo "$line" | cut -d= -f1 | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
-                [[ -z "$key" ]] && continue
-                ((TOTAL++))
-                EN_KEYS_VALUES["$en_file:$key"]=1
-              done < <(grep -v '^[[:space:]]*#' "$en_file" 2>/dev/null | grep -v '^[[:space:]]*$' || true)
+                if [[ "$line" =~ ^\s*# ]] || [[ -z "${line// }" ]]; then continue; fi
+                key=$(echo "$line" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//')
+                value=$(echo "$line" | cut -d= -f2- | sed 's/^\s*//; s/\s*$//')
+                if [ -n "$key" ]; then
+                  EN_KEYS_VALUES["$en_file:$key"]="$value"
+                  ((TOTAL++))
+                fi
+              done < <(cat "$en_file")
             else
-              # Plain text format (.txt)
-              while IFS= read -r line; do
-                [[ "$line" =~ ^[[:space:]]*# ]] && continue
-                [[ -z "${line// /}" ]] && continue
-                ((TOTAL++))
-              done < <(grep -v '^[[:space:]]*#' "$en_file" 2>/dev/null | grep -v '^[[:space:]]*$' || true)
+              # Plain lines format
+              mapfile -t lines < <(grep -Ev '^\s*(#|$)' "$en_file" | sed 's/^\s*//; s/\s*$//')
+              EN_LINES["$en_file"]="${lines[*]}"
+              TOTAL=$((TOTAL + ${#lines[@]}))
             fi
-          done
-          
+          done <<< "$EN_FILES"
           if [ "$TOTAL" -eq 0 ]; then
-            echo "percentages=No translatable items found" >> $GITHUB_OUTPUT
+            echo "percentages=No translations found" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          LANG_CODES=$(find config -type f 2>/dev/null | grep -E '/[a-z]{2}_[A-Z]{2}\.(lang|properties|txt)$' | sed 's|.*/||; s/\..*//' | sort -u | grep -v en_US || true)
+          
+          # Exit if no language codes found
+          if [ -z "$LANG_CODES" ]; then
+            echo "percentages=No language packs found" >> $GITHUB_OUTPUT
             exit 0
           fi
           
-          # Find all language codes (excluding en_US)
-          LANG_CODES=()
-          while IFS= read -r -d '' file; do
-            lang=$(basename "$file" | sed 's/\.\(lang\|properties\|txt\)$//')
-            [[ "$lang" == "en_US" ]] && continue
-            LANG_CODES+=("$lang")
-          done < <(find config -type f -regex '.*/[a-z][a-z]_[A-Z][A-Z]\.\(lang\|properties\|txt\)$' -print0 2>/dev/null || true)
-          
-          LANG_CODES=($(printf '%s\n' "${LANG_CODES[@]}" | sort -u))
-          
-          if [ ${#LANG_CODES[@]} -eq 0 ]; then
-            echo "percentages=No translation files found (other than en_US)" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-          
-          # Calculate percentages for each language
-          declare -a RESULTS
-          for lang_code in "${LANG_CODES[@]}"; do
+          TEMP_PERCENTAGES=""
+          while IFS= read -r lang_code; do
+            if [ -z "$lang_code" ]; then continue; fi
             TRANS=0
-            
-            for en_file in "${EN_FILES[@]}"; do
+            while IFS= read -r en_file; do
+              if [ -z "$en_file" ] || [ ! -f "$en_file" ]; then continue; fi
               LANG_DIR=$(dirname "$en_file")
               EXT="${en_file##*.}"
               LANG_FILE="$LANG_DIR/${lang_code}.${EXT}"
-              
               if [ ! -f "$LANG_FILE" ]; then continue; fi
-              
-              if grep -q '=' "$en_file" 2>/dev/null; then
-                # Key-value comparison
+              if grep -q '=' "$en_file"; then
+                # Key-value
                 while IFS= read -r line; do
-                  [[ "$line" =~ ^[[:space:]]*# ]] && continue
-                  [[ -z "${line// /}" ]] && continue
-                  key=$(echo "$line" | cut -d= -f1 | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
-                  [[ -z "$key" ]] && continue
-                  
-                  # Check if this key exists in the translation file with a non-empty value different from source
-                  if grep -q "^${key}[[:space:]]*=" "$LANG_FILE" 2>/dev/null; then
-                    trans_value=$(grep "^${key}[[:space:]]*=" "$LANG_FILE" | head -n1 | cut -d= -f2- | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
-                    if [ -n "$trans_value" ]; then
+                  if [[ "$line" =~ ^\s*# ]] || [[ -z "${line// }" ]]; then continue; fi
+                  key=$(echo "$line" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//')
+                  value=$(echo "$line" | cut -d= -f2- | sed 's/^\s*//; s/\s*$//')
+                  # Fix: Check if key exists in array before accessing
+                  if [ -n "$key" ] && [ -n "${EN_KEYS_VALUES["$en_file:$key"]+x}" ]; then
+                    en_value="${EN_KEYS_VALUES["$en_file:$key"]}"
+                    if [ "$value" != "$en_value" ] && [ -n "$value" ]; then
                       ((TRANS++))
                     fi
                   fi
-                done < <(grep -v '^[[:space:]]*#' "$en_file" 2>/dev/null | grep -v '^[[:space:]]*$' || true)
+                done < <(cat "$LANG_FILE")
               else
-                # Line-by-line comparison for .txt files
-                en_count=$(grep -v '^[[:space:]]*#' "$en_file" 2>/dev/null | grep -v '^[[:space:]]*$' | wc -l || echo 0)
-                lang_count=$(grep -v '^[[:space:]]*#' "$LANG_FILE" 2>/dev/null | grep -v '^[[:space:]]*$' | wc -l || echo 0)
-                
-                # Only count if line counts match
-                if [ "$en_count" -eq "$lang_count" ] && [ "$en_count" -gt 0 ]; then
-                  mapfile -t en_lines < <(grep -v '^[[:space:]]*#' "$en_file" 2>/dev/null | grep -v '^[[:space:]]*$' || true)
-                  mapfile -t lang_lines < <(grep -v '^[[:space:]]*#' "$LANG_FILE" 2>/dev/null | grep -v '^[[:space:]]*$' || true)
-                  
-                  for i in "${!en_lines[@]}"; do
-                    if [ "${lang_lines[$i]:-}" != "${en_lines[$i]:-}" ] && [ -n "${lang_lines[$i]:-}" ]; then
-                      ((TRANS++))
-                    fi
-                  done
+                # Plain lines
+                mapfile -t en_lines < <(grep -Ev '^\s*(#|$)' "$en_file" | sed 's/^\s*//; s/\s*$//')
+                mapfile -t lang_lines < <(grep -Ev '^\s*(#|$)' "$LANG_FILE" | sed 's/^\s*//; s/\s*$//')
+                len=${#en_lines[@]}
+                if [ ${#lang_lines[@]} -ne $len ]; then
+                  # If lengths differ, consider not translated
+                  continue
                 fi
+                for ((i=0; i<len; i++)); do
+                  if [ "${lang_lines[i]}" != "${en_lines[i]}" ] && [ -n "${lang_lines[i]}" ]; then
+                    ((TRANS++))
+                  fi
+                done
               fi
-            done
-            
-            PERCENTAGE=$(( (TRANS * 100 + TOTAL / 2) / TOTAL ))
+            done <<< "$EN_FILES"
+            PERCENTAGE=$(( (TRANS * 100 + TOTAL / 2) / TOTAL ))  # Rounded
             NAME=$(get_lang_name "$lang_code")
-            RESULTS+=("$NAME: $PERCENTAGE%")
-          done
-          
-          # Sort and format results
-          if [ ${#RESULTS[@]} -eq 0 ]; then
-            echo "percentages=Unable to calculate percentages" >> $GITHUB_OUTPUT
-          else
-            SORTED=$(printf '%s\n' "${RESULTS[@]}" | sort)
-            echo "percentages<<EOF" >> $GITHUB_OUTPUT
-            echo "$SORTED" >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
-          fi
+            TEMP_PERCENTAGES+="$NAME: $PERCENTAGE%\n"
+          done <<< "$LANG_CODES"
+          # Sort by language name
+          PERCENTAGES=$(echo -e "$TEMP_PERCENTAGES" | sort -k1 || true)
+          # Remove trailing newline
+          PERCENTAGES="${PERCENTAGES%$'\n'}"
+          echo "percentages<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$PERCENTAGES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
         shell: bash
       - name: Create unified language packs ZIP (excluding en_US)
         id: zip
         run: |
           # Create temporary directory for clean archive structure
           TEMP_DIR=$(mktemp -d)
-          
+        
           # Copy entire config directory if it exists
           if [ -d "config" ]; then
             cp -r config "$TEMP_DIR/"
           else
-            echo "⚠️ No config directory found, creating empty structure"
-            mkdir -p "$TEMP_DIR/config"
+            echo "No config directory found, skipping ZIP creation"
+            exit 0
           fi
-          
+        
           # Remove all en_US files
-          find "$TEMP_DIR/config" -type f \( -name "en_US.lang" -o -name "en_US.properties" -o -name "en_US.txt" \) -delete 2>/dev/null || true
-          
+          find "$TEMP_DIR/config" -type f -name "en_US.*" -delete 2>/dev/null || true
+        
           # Convert all .properties files to .lang
-          while IFS= read -r -d '' f; do
+          find "$TEMP_DIR/config" -type f -name "*.properties" | while read -r f; do
             mv "$f" "${f%.properties}.lang" 2>/dev/null || true
-          done < <(find "$TEMP_DIR/config" -type f -name "*.properties" -print0 2>/dev/null || true)
-          
+          done
+        
           # Create the unified ZIP archive
           ZIP_NAME="NTNH-Translations-${{ steps.vars.outputs.release_name }}.zip"
           ZIP_PATH="build_artifacts/$ZIP_NAME"
           mkdir -p build_artifacts
-          
+        
           (
-            cd "$TEMP_DIR" || exit 1
-            # Only create ZIP if there are files to include
-            if [ -n "$(find config -type f 2>/dev/null)" ]; then
-              zip -q -r "$GITHUB_WORKSPACE/$ZIP_PATH" config/ -x "*.git*" "*.DS_Store" "__MACOSX/*" "*.gitignore" 2>/dev/null || true
-            else
-              echo "⚠️ No translation files to package (only en_US found)"
-              # Create empty ZIP to avoid release failure
-              touch "$GITHUB_WORKSPACE/$ZIP_PATH"
-            fi
+            cd "$TEMP_DIR"
+            zip -r "$GITHUB_WORKSPACE/$ZIP_PATH" config/ -x "*.git*" "*.DS_Store" "__MACOSX/*"
           )
-          
+        
           # Clean up temporary directory
           rm -rf "$TEMP_DIR"
-          
+        
           # Output ZIP path for release step
           echo "zip_file=$ZIP_PATH" >> $GITHUB_OUTPUT
         shell: bash
@@ -258,12 +221,12 @@ jobs:
             Translation progress:
             ${{ steps.percentages.outputs.percentages }}
           
-            This release contains a single ZIP archive with **all language packs** (excluding en_US).
+            This release contains a single ZIP archive with **all language packs**.
            
             How to use:
-            1. Download the ZIP file from the release assets
-            2. Extract contents to your Minecraft `config` directory
-            3. Restart Minecraft to apply translations
+            1. Download the ZIP file from the release assets.
+            2. Extract the contents to your Minecraft `config` directory.
+            3. Restart Minecraft to apply the new language packs.
           files: ${{ steps.zip.outputs.zip_file }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

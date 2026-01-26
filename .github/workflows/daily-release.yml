@@ -25,12 +25,11 @@ jobs:
               state: 'open',
               base: 'main'
             });
-
             // Filter PRs from Bufka2011 and attempt to merge
             for (const pull of pulls) {
               if (pull.user.login !== 'Bufka2011') continue;
-              else if (pull.user.login !== 'BufkaSecond') continue;
-              
+              // Removed the impossible second condition (BufkaSecond)
+             
               try {
                 await github.rest.pulls.merge({
                   owner: context.repo.owner,
@@ -51,58 +50,48 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Clean up automatic backslashes from Crowdin
-        run: |
-          echo "🧹 Cleaning up automatic backslashes added by Crowdin..."
-          
-          # Remove backslashes before special characters: !, #, :, =
-          find . -type f -name "*.properties" -exec sed -i 's/\\\([!#:=]\)/\1/g' {} \;
-          
-          echo "✅ Automatic backslashes cleaned up successfully"
-        shell: bash
-
       - name: Set release name
         id: vars
         run: echo "release_name=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
-      - name: Create unified language packs ZIP
+      - name: Create unified language packs ZIP (excluding en_US)
         id: zip
         run: |
           # Create temporary directory for clean archive structure
           TEMP_DIR=$(mktemp -d)
           DEST_DIR="$TEMP_DIR/config"
           mkdir -p "$DEST_DIR"
-          
-          # Copy all language directories (excluding .github and config files)
+         
+          # Copy all language directories (excluding .github, .git and en_US)
           for dir in */; do
             dir_name="${dir%/}"
-            # Skip non-language directories
-            if [[ "$dir_name" == ".github" || "$dir_name" == ".git" || ! -d "$dir_name/config" ]]; then
+            # Skip non-language directories and en_US
+            if [[ "$dir_name" == ".github" || "$dir_name" == ".git" || "$dir_name" == "en_US" || ! -d "$dir_name/config" ]]; then
               continue
             fi
-            
+           
             # Copy language config directory preserving structure
             cp -r "$dir_name/config" "$DEST_DIR/$dir_name" 2>/dev/null || true
-            
+           
             # Convert all .properties files to .lang within the copied structure
             find "$DEST_DIR/$dir_name" -type f -name "*.properties" | while read -r f; do
               mv "$f" "${f%.properties}.lang" 2>/dev/null || true
             done
           done
-          
+         
           # Create the unified ZIP archive
           ZIP_NAME="NTNH-Translations-${{ steps.vars.outputs.release_name }}.zip"
           ZIP_PATH="build_artifacts/$ZIP_NAME"
           mkdir -p build_artifacts
-          
+         
           (
             cd "$TEMP_DIR"
             zip -r "$GITHUB_WORKSPACE/$ZIP_PATH" config/ -x "*.git*" "*.DS_Store" "__MACOSX/*"
           )
-          
+         
           # Clean up temporary directory
           rm -rf "$TEMP_DIR"
-          
+         
           # Output ZIP path for release step
           echo "zip_file=$ZIP_PATH" >> $GITHUB_OUTPUT
         shell: bash
@@ -113,11 +102,11 @@ jobs:
           name: NTNH-Translations-${{ steps.vars.outputs.release_name }}
           tag_name: NTNH-Translations-${{ steps.vars.outputs.release_name }}
           body: |
-            📦 Unified language packs for Minecraft mods  
+            📦 Unified language packs for Minecraft mods (en_US excluded)
             🕒 Generated from branch `main` on ${{ steps.vars.outputs.release_name }}
+           
+            This release contains a single ZIP archive with **all language packs except en_US**, organized by locale code (e.g., `config/ru_RU/`, `config/uk_UA/`, etc.).
             
-            This release contains a single ZIP archive with all language packs organized by locale code (e.g., `config/ru_RU/`, `config/en_US/`, etc.).
-
             How to use:
             1. Download the ZIP file from the release assets.
             2. Extract the contents to your Minecraft `config` directory.

@@ -1,4 +1,4 @@
-name: Daily Language Packs Release
+name: Daily Language Pack Release
 on:
   schedule:
     - cron: '0 0 * * *'
@@ -39,95 +39,127 @@ jobs:
                 // Continue execution even if merge fails
               }
             }
-
       - name: Checkout updated repository
         uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
-
       - name: Set release name
         id: vars
         run: echo "release_name=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-
       - name: Calculate translation percentages
         id: percentages
         run: |
-          #!/usr/bin/env bash
+          #!/bin/bash
           set -euo pipefail
 
+          function get_lang_name {
+            case "$1" in
+              ar_SA) echo "Arabic" ;;
+              cs_CZ) echo "Czech" ;;
+              da_DK) echo "Danish" ;;
+              de_DE) echo "German" ;;
+              el_GR) echo "Greek" ;;
+              es_ES) echo "Spanish" ;;
+              fi_FI) echo "Finnish" ;;
+              fr_FR) echo "French" ;;
+              hu_HU) echo "Hungarian" ;;
+              it_IT) echo "Italian" ;;
+              ja_JP) echo "Japanese" ;;
+              ko_KR) echo "Korean" ;;
+              nl_NL) echo "Dutch" ;;
+              no_NO) echo "Norwegian" ;;
+              pl_PL) echo "Polish" ;;
+              pt_BR) echo "Portuguese" ;;
+              ro_RO) echo "Romanian" ;;
+              ru_RU) echo "Russian" ;;
+              sv_SE) echo "Swedish" ;;
+              tr_TR) echo "Turkish" ;;
+              uk_UA) echo "Ukrainian" ;;
+              zh_CN) echo "Chinese (Simplified)" ;;
+              zh_TW) echo "Chinese (Traditional)" ;;
+              *) echo "${1%%_*}" | tr 'a-z' 'A-Z' ;;
+            esac
+          }
+
           PERCENTAGES=""
+          EN_FILES=$(find config -type f 2>/dev/null | grep -E '/en_US\.(lang|properties|txt)$' || true)
+          TOTAL=0
 
-          # Find all en_US.lang files (reference files)
-          find . -type f -name "en_US.lang" | while read -r en_file; do
-            # Get the directory containing this language pack
-            lang_dir=$(dirname "$en_file")
-            
-            # Skip if no other .lang files exist in this folder
-            if ! ls "$lang_dir"/*.lang >/dev/null 2>&1; then
-              continue
+          while IFS= read -r en_file; do
+            if [ ! -f "$en_file" ]; then continue; fi
+            if grep -q '=' "$en_file"; then
+              # Key-value format
+              COUNT=$(grep -Ev '^\s*(#|$)' "$en_file" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//' | sort -u | wc -l)
+            else
+              # Plain lines format
+              COUNT=$(grep -Ev '^\s*(#|$)' "$en_file" | wc -l)
             fi
+            TOTAL=$((TOTAL + COUNT))
+          done <<< "$EN_FILES"
 
-            # Total translatable keys/lines from en_US
-            total=$(grep -v '^\s*#' "$en_file" | grep -v '^\s*$' | wc -l)
+          if [ "$TOTAL" -eq 0 ]; then
+            echo "percentages=No translations found" >> $GITHUB_OUTPUT
+            exit 0
+          fi
 
-            if [ "$total" -eq 0 ]; then
-              continue
-            fi
+          LANG_CODES=$(find config -type f 2>/dev/null | grep -E '/[a-z]{2}_[A-Z]{2}\.(lang|properties|txt)$' | sed 's|.*/||; s/\..*//' | sort -u | grep -v en_US || true)
 
-            # Find all other language files in the same folder
-            for lang_file in "$lang_dir"/*.lang; do
-              lang_code=$(basename "$lang_file" .lang)
-              
-              # Skip en_US itself
-              if [ "$lang_code" = "en_US" ]; then
-                continue
+          TEMP_PERCENTAGES=""
+          while IFS= read -r lang_code; do
+            if [ -z "$lang_code" ]; then continue; fi
+            TRANS=0
+            while IFS= read -r en_file; do
+              if [ ! -f "$en_file" ]; then continue; fi
+              LANG_DIR=$(dirname "$en_file")
+              EXT="${en_file##*.}"
+              LANG_FILE="$LANG_DIR/${lang_code}.${EXT}"
+              if [ -f "$LANG_FILE" ]; then
+                if grep -q '=' "$en_file"; then
+                  EN_KEYS=$(grep -Ev '^\s*(#|$)' "$en_file" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//' | sort -u)
+                  LANG_KEYS=$(grep -Ev '^\s*(#|$)' "$LANG_FILE" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//' | sort -u)
+                  COMMON=$(comm -12 <(echo "$EN_KEYS") <(echo "$LANG_KEYS") | wc -l)
+                else
+                  COMMON=$(grep -Ev '^\s*(#|$)' "$LANG_FILE" | wc -l)
+                fi
+                TRANS=$((TRANS + COMMON))
               fi
+            done <<< "$EN_FILES"
+            PERCENTAGE=$(( (TRANS * 100 + TOTAL / 2) / TOTAL ))
+            NAME=$(get_lang_name "$lang_code")
+            TEMP_PERCENTAGES+="$NAME: $PERCENTAGE%\n"
+          done <<< "$LANG_CODES"
 
-              # Count translated lines (non-empty, non-comment lines that exist in en_US)
-              translated=$(comm -12 \
-                <(grep -v '^\s*#' "$en_file" | grep -v '^\s*$' | cut -d= -f1 | sort -u) \
-                <(grep -v '^\s*#' "$lang_file" | grep -v '^\s*$' | cut -d= -f1 | sort -u) \
-                | wc -l)
+          # Sort by language name
+          PERCENTAGES=$(echo -e "$TEMP_PERCENTAGES" | sort -k1 || true)
 
-              percentage=$(( (translated * 100 + total / 2) / total ))
-
-              # Capitalize first letter of language code for nicer display
-              display_name="${lang_code^}"
-
-              PERCENTAGES="$PERCENTAGES- **$display_name**: $percentage%\n"
-            done
-          done
-
-          # Remove trailing newline and save to output
+          # Remove trailing newline
           PERCENTAGES="${PERCENTAGES%$'\n'}"
+
           echo "percentages<<EOF" >> $GITHUB_OUTPUT
           echo -e "$PERCENTAGES" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-
+        shell: bash
       - name: Create unified language packs ZIP (excluding en_US)
         id: zip
         run: |
           # Create temporary directory for clean archive structure
           TEMP_DIR=$(mktemp -d)
-          DEST_DIR="$TEMP_DIR/config"
-          mkdir -p "$DEST_DIR"
         
-          # Copy all language directories (excluding .github, .git and en_US)
-          for dir in */; do
-            dir_name="${dir%/}"
-            # Skip non-language directories and en_US
-            if [[ "$dir_name" == ".github" || "$dir_name" == ".git" || "$dir_name" == "en_US" || ! -d "$dir_name/config" ]]; then
-              continue
-            fi
-          
-            # Copy language config directory preserving structure
-            cp -r "$dir_name/config" "$DEST_DIR/$dir_name" 2>/dev/null || true
-          
-            # Convert all .properties files to .lang within the copied structure
-            find "$DEST_DIR/$dir_name" -type f -name "*.properties" | while read -r f; do
-              mv "$f" "${f%.properties}.lang" 2>/dev/null || true
-            done
+          # Copy entire config directory if it exists
+          if [ -d "config" ]; then
+            cp -r config "$TEMP_DIR/"
+          else
+            echo "No config directory found, skipping ZIP creation"
+            exit 0
+          fi
+        
+          # Remove all en_US files
+          find "$TEMP_DIR/config" -type f -name "en_US.*" -delete 2>/dev/null || true
+        
+          # Convert all .properties files to .lang
+          find "$TEMP_DIR/config" -type f -name "*.properties" | while read -r f; do
+            mv "$f" "${f%.properties}.lang" 2>/dev/null || true
           done
         
           # Create the unified ZIP archive
@@ -146,20 +178,18 @@ jobs:
           # Output ZIP path for release step
           echo "zip_file=$ZIP_PATH" >> $GITHUB_OUTPUT
         shell: bash
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           name: NTNH-Translations-${{ steps.vars.outputs.release_name }}
           tag_name: NTNH-Translations-${{ steps.vars.outputs.release_name }}
           body: |
-            📦 Unified language packs for Minecraft mods (en_US excluded)
+            📦 Unified language pack for Nuclear Tech: New Horizons
             🕒 Generated from branch `main` on ${{ steps.vars.outputs.release_name }}
-            
-            **Translation progress:**
-            
+          
+            Translation progress (excluding English):
             ${{ steps.percentages.outputs.percentages }}
-            
+          
             This release contains a single ZIP archive with **all language packs**.
            
             How to use:

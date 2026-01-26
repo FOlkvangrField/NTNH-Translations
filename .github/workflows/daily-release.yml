@@ -28,7 +28,6 @@ jobs:
             // Filter PRs from Bufka2011 and attempt to merge
             for (const pull of pulls) {
               if (pull.user.login !== 'Bufka2011') continue;
-              // Removed the impossible second condition (BufkaSecond)
              
               try {
                 await github.rest.pulls.merge({

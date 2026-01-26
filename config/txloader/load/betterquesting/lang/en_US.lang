@@ -51,13 +51,17 @@ betterquesting.quest.-7rSSbm6Q-qSPUPH2dapXA.desc=Storage Drawers§r are an easy 
 betterquesting.quest.-OxoBRz7Spqm0rVUNxRVpA.name=Stirling Engine
 betterquesting.quest.-OxoBRz7Spqm0rVUNxRVpA.desc=The §3Stirling Engine§r uses heat from a §3Heating Oven§r or a §3§r§3Firebox§r to produce power. If a Heating Oven is used to heat a Stirling engine, it will likely over-speed and damage it, sending the main gear flying. The heavy Stirling engine does not have this issue.%n%nA firebox running on coal with a stirling engine produces §e2kHE/s§r, while a heating oven with a heavy stirling engine produces §e10kHE/s§r.
 
-# Quest: Waystones
-betterquesting.quest.-YTKfE9oSJuVowjvBCNvsA.name=Waystones
-betterquesting.quest.-YTKfE9oSJuVowjvBCNvsA.desc=§dWaystones§r are a method of teleporation that work in one dimension. They can be set to global to make them accessable by othe players. Additionally, the §dWarpstone§r can be used to teleport to any waystone from anywhere at the cost of a 5m cooldown.
-
 # Quest: Steam Engine
 betterquesting.quest.1WdjJYUsRMKgt4MYnlmM7A.name=Steam Engine
 betterquesting.quest.1WdjJYUsRMKgt4MYnlmM7A.desc=The §3Steam Engine§r is an early game method of turning §bSteam§r into energy. It requires an external source to provide steam and a way to dump or reprocess the §bLow-Pressure Steam§r it produces. %n%nThe Steam Engine has an energy efficiency of §e85%%§r, making it better than the §3Stirling Engine§r. However, it still has a throughput limit as it can only hold up to 2000 mB of steam. Its maximum processing rate is 2000 mB/t, producing a considerable §e3400 HE/t§r or §e68 kHE/s§r. It is therefore the best generator available before §3Steam Surbines§r.%n%nA boiler being heated up by a heating oven using coal will produce §e17kHE/s§r.
+
+# Quest: Batteries
+betterquesting.quest.5Cydbu41QH-GnEo1um0Qjw.name=Batteries
+betterquesting.quest.5Cydbu41QH-GnEo1um0Qjw.desc=§3Battery Socket§r is a device for working with §3Batteries§r and §3Capacitors§r.%n%n§3Batteries§r themselves are portable power sources, but it is often more convenient to send power through wires via ports. This device provides just that opportunity.%n%nThe rules for operation are simple: energy is supplied to or from the array using §3Wires§r. Consumers can also be installed close together, port to port. The device interface has a slot for batteries and other items that consume electricity.%n%n§3Battery Socket§r cannot store energy from a battery or capacitor (the energy in the buffer will only be available when there is an internal or external source). If the source is removed, the buffer will, of course, be emptied.%n%nBy default, the energy storage device is set to input energy. You can reconfigure it by pressing the top button on the right (it is blue by default), thus switching the storage device to simultaneous energy input and output mode. Pressing it again will set the device to energy output mode. To stop the storage from receiving and outputting electricity, press it once more. Operating modes:%n%n    §9Blue§r - input only%n    §aGreen§r - both input and output%n    §6Orange§r - output only%n    §7Gray§r - off (neither input nor output)%n%n§2The button below is responsible for modes controlled by the red stone signal. 
+
+# Quest: Cable Network Analysis Tool
+betterquesting.quest.9FPuQxhjSHmPmrCwdfRZRw.name=Cable Network Analysis Tool
+betterquesting.quest.9FPuQxhjSHmPmrCwdfRZRw.desc=The §6Cable Network Analysis Tool§r is used to check the integrity of power grids and analyze their main functional components. To perform a test, right-click the analyzer on wires or mechanisms in the power grid. The device displays the following data:%n%n§eLinks§r - these include wires and mechanisms that can conduct energy (e.g., energy storage units, utility poles).%n%n§cProviders§r - all mechanisms capable of producing energy and/or feeding it into the grid (energy storage units in "§agreen§r" and "§6orange§r" modes, turbines, etc.).%n%n§9Receivers§r - everything that absorbs energy from the grid (energy storage units in "§9blue§r" mode, grinders, and other mechanisms).%n%n§2The analyzer not only displays the above components but also counts them. Each grid is assigned a unique code.%n%nParticles only spawn in a 20 block radius!
 
 # Quest: Automatic Buzz Saw
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAA0A.name=Automatic Buzz Saw
@@ -69,7 +73,7 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAAA0w.desc=The §3Industrial Mixer§r is a
 
 # Quest: NTM: Introduction
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAAQ.name=NTM: Introduction
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAAAQ.desc=This is the begining of the tech tree of §dHBM's Nuclear Tech Mod§r. Before proceeding it is recommended that you stock up on materials such as §6Iron§r, §6Coal§r, §6Copper§r and §6Redstone§r.%n%n§a§2Some advanced machinery can be obtained by salvaging them from structures scattered across the world, such as Centrifuges from abandoned nuclear powerplants found in deserts, or by rare mob drops such as a Geiger Counter.%n%nFor those who want more of a challenge, Expensive mode can be enabled in the hbm.cfg file. Progression will be slightly changed due to new components.%n%nMartian Mode is also available in the world creation screen.
+betterquesting.quest.AAAAAAAAAAAAAAAAAAAAAQ.desc=This is the begining of the tech tree of §dHBM's Nuclear Tech Mod§r. Before proceeding it is recommended that you stock up on materials such as §6Iron§r, §6Coal§r, §6Copper§r and §6Redstone§r.%n%n§a§2Some advanced machinery can be obtained by salvaging them from structures scattered across the world, such as Centrifuges from abandoned nuclear powerplants found in deserts, or by rare mob drops such as a Geiger Counter.%n%nMartian Mode is also available in the world creation screen.
 
 # Quest: Template Folder
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAAg.name=Template Folder
@@ -82,10 +86,6 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAAAAw.desc=§3Anvils§r are a tiered craft
 # Quest: Burner Press
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAABA.name=Burner Press
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAABA.desc=The §3Presses§r are machines that can be used to make §6Plates§r, §6Wires§r, §6Circuits§r, §6Bullet Casings§r as well as §6Compressing§r non-smeltable powders back into their normal form. They require §6Stamps§r to work, which can be made from the basic §6Flat Stamp§r and a §6Template Folder§r. %n%n§2A preheater can be placed next to the Burner Press to increase its speed.
-
-# Quest: Modpack Information
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAABw.name=Modpack Information
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAABw.desc=Welcome to §5Space Tech: Integrated§r! %n%nPlease read the following information before starting out.%n%n1) Manually updating §3§dNTM§r will cause new/changed recipes to not load. To update either wait for a new pack release, or better yet, head over to the config folder to the file named "Custom Recipes" and read the instructions form there.%n%n2) Remember to Claim your base and Chunkload your reactors using §3§dServer Utilities§r (from the inventory).%n%n3) Normal world generation is available in the world creation tab for those that feel like §3§dRTG§r may be affecting their performance.%n%n4) If shaders are glitching out try to use fancy textures.%n%n5) If you are encountering any rendering problems, try to scroll around in §dNEI§r.%n%nThis version of the Quest book was made by _SkippyPlaysMC_ on NTM version X5491.%n%nNotes:%n%n1) This quest book does not contain all the content from the mod, such as the guns, many armor sets and others. Make sure to browse NEI.%n%n2) When updating the modpack to newer versions that has introduced changes to the quest book, in case the quests dont update, delete the betterquesting folder in the world file.%nAfter it is deleted, turn on cheats and do "/bq_admin edit true", head over to the chapter of your choice, press the designer button (the one with many squares), click on your quest of choice and finally press the autocomplete button (checkmark) to complete the quests previously completed.%n%n3) If you are playing with friends, make sure to invite them in your BetterQuesting Party as to share progression and rewards.%n%n§4Do not use the quests for a modpack that is to be published, unless given explicit permission.§r%n%n§a§2Special thanks to everyone on discord who helped out with questions and recommendations while making the quests, aswell as the official NTM Wiki for providing information used in the quests.
 
 # Quest: Blast Furnace
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAACQ.name=Blast Furnace
@@ -117,11 +117,11 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAAAFA.desc=The §6Analog Circuit§r is the
 
 # Quest: Assembly Machine
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAGQ.name=Assembly Machine
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAAGQ.desc=The §3Assembly Machine§r is used in every stage of the game, with it being used to manufacture practically every other complex machine. Recipes for it can be chosen inside the GUI.
+betterquesting.quest.AAAAAAAAAAAAAAAAAAAAGQ.desc=The §3Assembly Machine§r is used in every stage of the game, with it being used to manufacture practically every other complex machine. Recipes for it can be chosen inside the GUI.%n%n§2Some unique recipes require blueprints, that can be found in dungeons and/or bought from Bobmazon.
 
 # Quest: Shredder
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAGg.name=Shredder
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAAGg.desc=The §3Shredder§r is a machine that shreds resourses into their powder form, or in many cases, their crafting materials. It can also be used to double ores.%n%n§2Shredder blades are require in order for the machine to work.
+betterquesting.quest.AAAAAAAAAAAAAAAAAAAAGg.desc=The §3Shredder§r is a machine that shreds resourses into their powder form, or in many cases, their crafting materials. It can also be used to double ores.%n%n§2Shredder blades are required in order for the machine to work.
 
 # Quest: Soldering Station
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAHA.name=Soldering Station
@@ -211,10 +211,6 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAABdg.desc=The §3Drainage Pipe§r allows 
 betterquesting.quest.D0bv2vfWSkK1soyqHDwqjQ.name=Charm of Protection
 betterquesting.quest.D0bv2vfWSkK1soyqHDwqjQ.desc=The §6Charm of Protection§r diverts meteorites away from the player and prevents them from destoying blocks. It is recommended that one is obtained as soon as possible as to prevent costly damages in the future.
 
-# Quest: Additional Modpack Information
-betterquesting.quest.DDGA7ogvQieyGYaS8YVgsA.name=Additional Modpack Information
-betterquesting.quest.DDGA7ogvQieyGYaS8YVgsA.desc=§5Space Tech: Integrated§r comes packed with many qol mods aswell as some mods that arent very apparent at first.%n%n1) §dSimpleHarvest§r allows for crop harvesting without breaking the crop itself, simply by just right clicking.%n%n2) §dFindIt§r allows one to find any item stored in their storage area. Hover over the item of choice in NEI and press T. The container will become outlined.%n%n3) §dRandomThings§r adds Blood Moons, semi-rare events where mob spawning is increased and the player cant sleep. Blood Moons can be quite useful, if one is prepared, as rare mob drops such as §6Launch Codes§r and §6Geiger Counters§r can be obtained early on.%n%n4) §dMutant Creatures§r adds rare spawning buffed base minecraft mobs which have had their attack strength and health increased.%n%n5) §dBackhand§r backports minecraft's off-hand. Use your off-hand to hold torches, or even food while mining.
-
 # Quest: Nature's Compass
 betterquesting.quest.FmtITPC3QiuMRrIhIkfHFw.name=Nature's Compass
 betterquesting.quest.FmtITPC3QiuMRrIhIkfHFw.desc=A §dNature's Compass§r can be used to easily locate biomes of interest.
@@ -222,6 +218,10 @@ betterquesting.quest.FmtITPC3QiuMRrIhIkfHFw.desc=A §dNature's Compass§r can be
 # Quest: Steel Furnace
 betterquesting.quest.GOACXA8jRc-SMNzk2CsNUQ.name=Steel Furnace
 betterquesting.quest.GOACXA8jRc-SMNzk2CsNUQ.desc=The §3Steel Furnace§r, unlike the other furnaces, runs off of §eTU§r. It can also process up to 3 items at a time, but each slot consumes more TU, which makes it slow without a strong heat source. It also has a bonus output for ores and wood, where every smelted item gives §e25%%§r to the bonus output meter, which means every 4 items give an extra 5th item for free (§e+15 items from a single stack§r).
+
+# Quest: Electric Furnace
+betterquesting.quest.HONUf7SQRl-jcf3BC5242A.name=Electric Furnace
+betterquesting.quest.HONUf7SQRl-jcf3BC5242A.desc=The §3Electric Furnace§r is a furnace that is powered by electricity. it is slightly faster than the vanilla furnace without upgrades. it consumes from §e1 kHE/s§r without upgrades up to §e4 kHE/s§r.%n%nDue to it only being slightly faster than the vanilla furnace, it isn't used much beyond early game, but it can be used in automation, if speed isn't the main objective.
 
 # Quest: Storage Drawer Keys
 betterquesting.quest.HTaQEgJ8QCWYNMB8n7Awug.name=Storage Drawer Keys
@@ -231,6 +231,10 @@ betterquesting.quest.HTaQEgJ8QCWYNMB8n7Awug.desc=§dStorage Drawer Keys§r can b
 betterquesting.quest.IAP1AGA2TV-TtMAv_QMrIA.name=Bobmazon
 betterquesting.quest.IAP1AGA2TV-TtMAv_QMrIA.desc=§6Bobmazon§r is an in-game shop where players can spend §6Bottle Caps§r to purchase various items such as building blocks, plants, resourses and many more. To purchase items, one must have unlocked the achievements listed below as "Ratings".
 
+# Quest: Charcoal Automation
+betterquesting.quest.ItX_qnZpQCuDSxSoHuKmsA.name=Charcoal Automation
+betterquesting.quest.ItX_qnZpQCuDSxSoHuKmsA.desc=§6Wood§r obtained from a tree farm can be smelted or processed in a §3Combination Oven§r to produce §6Charcoal§r, which has many uses, such as fuel for §3Furnaces§r or even the §3Blast Furnace§r, §6Flux§r or §6Carbon§r in a Crucible for §6Steel§r production, or even §6Gunpowder§r for ammunition.
+
 # Quest: HE to RF Converter
 betterquesting.quest.JcBabPI8RzGGmai3SwlcLw.name=HE to RF Converter
 betterquesting.quest.JcBabPI8RzGGmai3SwlcLw.desc=The §3HE to RF Converter§r will convert energy produced by NTM machines into usuable power for both the §dMatter Energy Network§r and §dOpenComputers§r. It has a very large internal energy buffer, so it is recommended that a Diode is used to limit throughput.
@@ -239,9 +243,13 @@ betterquesting.quest.JcBabPI8RzGGmai3SwlcLw.desc=The §3HE to RF Converter§r wi
 betterquesting.quest.M3mauW7uTCej4mql-Wnhqg.name=Multi Fluid Identifier
 betterquesting.quest.M3mauW7uTCej4mql-Wnhqg.desc=The §6Multi Fluid Identifier§r is used to select the type of fluid one needs. Shift-Click while holding it to select a fluid.
 
+# Quest: Additional NTM Modes
+betterquesting.quest.MWwrY8PcTaam9T_sc4yDtQ.name=Additional NTM Modes
+betterquesting.quest.MWwrY8PcTaam9T_sc4yDtQ.desc=§cNTNH§r is a modular modpack, so you are free to add/remove/modify config/mods if it works!%n%n§dNTM§r offers a very modular config file, which also comes with additional modes one can activate. These can be enabled in the hbm.cfg file.%n%n§2Expensive Mode§r makes everything more expensive by requiring not only more resourses, but also new components. The quest book will not reflect the changes in progression if its enabled.%n%n§2528 Mode§r introduces gates in the form of templates which are unlocked by destroying a certain amount of items in an §3Annihilator§r. Additionally, some items, mainly circuits, are percentage based now to be crafted. Along with that, theres also more changes that make the game harder, such as §6Tantalum§r generating in a certain area, landmines spawning more frequently and all §dAE2§r blocks §4EXPLODE§r when used.%n%nMany recycling probabilities of the §3Precision Assembler§r are massively lowered with expensive mode enabled, increasing effective cost massively.%n%n§2Rampant Mode§r makes glyphids a very big threat as pollution now makes them way stronger and more aggresive. New more destructive types of glyphids will also become more common. If high enough pollution has been reached, glyphid scouts can spawn passively, which makes automated defense systems necessary as to prevent new hives from being created.%n%n§2For modes with recipe changes, the modpack's recipes have to be inserted again after a new hbmrecipes folder has been created and modes enabled.§r %n
+
 # Quest: Capacitors
 betterquesting.quest.Nm_q2KL0QjapbSCTcQE8Ig.name=Capacitors
-betterquesting.quest.Nm_q2KL0QjapbSCTcQE8Ig.desc=§3Capacitors§r are similar to §3Energy Storage Blocks§r in that they can store power, but they also act as §3Diodes§r, only allowing power to flow in one direction through them, while holding onto any excess power that doesn't flow into any energy storage blocks or machines.%n%nCapacitors are generally more worth it early game, but some late game energy storage blocks can hold more power.
+betterquesting.quest.Nm_q2KL0QjapbSCTcQE8Ig.desc=§3Capacitors§r are similar to §3Batteries§r, except that they typically have a lower capacity but a higher output rating.
 
 # Quest: Packing Tape
 betterquesting.quest.RBJS7D2ATpq7GUingAewuQ.name=Packing Tape
@@ -251,21 +259,37 @@ betterquesting.quest.RBJS7D2ATpq7GUingAewuQ.desc=The §6Packing Tape§r allows o
 betterquesting.quest.UKkcpXk3SEWHXLIVC5VTDg.name=Cladding
 betterquesting.quest.UKkcpXk3SEWHXLIVC5VTDg.desc=§6Cladding§r is one of the most important armor modifications which reduce radiation intake. It can be inserted to all armor pieces.
 
+# Quest: Dosimeter
+betterquesting.quest.X1wMtj-xQR6M4Qzm6Rk2vA.name=Dosimeter
+betterquesting.quest.X1wMtj-xQR6M4Qzm6Rk2vA.desc=The §6Dosimeter§r is an instrument for detecting radiation and assessing radioactive contamination.%n%nIt is functionally similar to a §6Geiger Counter§r, but it collects much less data - only the general radiation contamination of the environment. Only a handheld version of the dosimeter is available. To obtain radiation information, right-click while holding the dosimeter.%n%nLike a counter, it makes a characteristic crackling sound when radiation is detected.%n%n§2The maximum radiation displayed is 3.6 RAD/S.%n%nNot great, not terrible.
+
 # Quest: Stirling Sawmill
 betterquesting.quest._qJt02i4ST2iccmkHudKCg.name=Stirling Sawmill
 betterquesting.quest._qJt02i4ST2iccmkHudKCg.desc=The §3Stirling Sawmill§r uses heat to cut wooden related items, producing §6Sawdust§r in the process. Sawdust can be used to obtain §6Paper§r, and if further processed, can be turned into §6Charcoal§r in a §3Combination Oven§r.
+
+# Quest: Chainsaw
+betterquesting.quest.bKzHBx2ZTBWFD1BGHBfHWg.name=Chainsaw
+betterquesting.quest.bKzHBx2ZTBWFD1BGHBfHWg.desc=§l§c§lPainsaw.§r%n%nAlthough the §6Chainsaw§r is similar in functionality to the §6axe§r, its arsenal is much broader. By default, the saw simply mines blocks, but it also has two additional operating modes: §eSilk Touch§r and §eVein Miner (5)§r.%n%nIt runs on many types of §bliquid fuel§r (see the item description for a list). Mining one block consumes 1 mB§r of fuel.%n%nBesides its primary purpose, the Chainsaw can also serve as a decent melee weapon, as it deals significant damage and has modifiers: §ePainsaw§r and §eDecapitator§r.
 
 # Quest: Heating Oven/Firebox
 betterquesting.quest.cUWyKdzATTSYaMg1MxZqYw.name=Heating Oven/Firebox
 betterquesting.quest.cUWyKdzATTSYaMg1MxZqYw.desc=The §3Firebox§r and the §3Heating Oven§r are machines capable of producing heat (§eTU§r) from solid fuels for any machines that require heat to operate.%n%nBoth machines are similar in operation. In order for them to transfer heat, another machine for receiving the heat must be placed on top, such that the copper heat plate on the receiving machine sits on top of the copper heat plate of the heat producing machine.%n%nOnce constructed, these machines can be filled with solid fuel, which will burn until either the fuel runs out, or the heat buffer is filled. No fuel will be consumed if its buffer is full — as such, both machines are fairly efficient at conserving fuel.%n%nThe primary difference in these two machines lie in their speed: the firebox burns fuel much slower at full efficiency, whilst the heating oven produces five time the heat (but eight times faster). Despite its inefficiency, the heating oven is often preferred for its much higher heat outputs and heat capacity. However, it cannot heat a stirling engine, as its base output (500 TU/t) will automatically over-speed the engine; the heavy stirling engine does not have this issue.%n%nAdditionally, the heating oven can receive heat from other heat producing machines placed underneath it: multiple can be stacked for heat-hungry machines like the crucible. The heat received, however, is halved when transferring to the machine above.
 
-# Quest: Advanced Enchantment Table
-betterquesting.quest.fmoLTwZ4QemPTJ_pyh1YtA.name=Advanced Enchantment Table
-betterquesting.quest.fmoLTwZ4QemPTJ_pyh1YtA.desc=The §dAdvanced Enchantment Table§r gives its user the ability to choose any enchantment they want, at the cost of significantly more experience.%n%n§2Since very low level books are cheap, its a great way of mass producing Pulverized Enchantment for endgame recipes.§r
+# Quest: Recycling
+betterquesting.quest.ceT8V2MeRz2u-FR9Uckarw.name=Recycling
+betterquesting.quest.ceT8V2MeRz2u-FR9Uckarw.desc=Now, as you have a better anvil, you can start §erecycling§r some stuff you may found in dungeons.
+
+# Quest: Dairy Processing Tank
+betterquesting.quest.fkSdZg90QZ6gAvDWMSZbbQ.name=Dairy Processing Tank
+betterquesting.quest.fkSdZg90QZ6gAvDWMSZbbQ.desc=The §3Dairy Processing Tank§r, while it can be crafted earlier, is very useful on Minmus because of the infinite §bMilk§r production from §3Pumps§r. It can be used to process milk into different liquids, which can then be used to make food items.
 
 # Quest: Better Furnaces
 betterquesting.quest.gKQiP_zES4KokMmon9bDQg.name=Better Furnaces
 betterquesting.quest.gKQiP_zES4KokMmon9bDQg.desc=The §3Bricked Furnace§r is almost the same as the vanilla furnace, but it can smelt construction materials faster, such as §6Sand§r and §6Cobblestone§r being smelted at double the speed. §6Clay§r and §6Fire Clay§r can be smelted at §e§rquadruple§r the speed, which means that making a full brick block can be done within a vanilla furnace operation. It can also make §6Charcoal§r at double the speed. It can also collect Ashes from burnt fuel.%n%nThe §3Iron Furnace§r has the base smelting speed §e20%%§r faster than the vanilla furnace, which means it can complete an operation within 8 seconds instead of 10 seconds. Besides being able to smelt faster, it consumes fuel only during operation, so the fuel is never wasted. It also has burn time bonuses for various kinds of fuel, ranging from §e+25%%§r for lignite to §e+100%%§r for solid fuel.%n%n§dEt Futurum Requiem§r also backports modern furnaces, such as the §3Smoker§r, which cooks food faster, and the §3Blast Furnace§r, which smelts ores faster.
+
+# Quest: Infinite Water Sources
+betterquesting.quest.gWyCk5zlQlWAPGdwFXhTaQ.name=Infinite Water Sources
+betterquesting.quest.gWyCk5zlQlWAPGdwFXhTaQ.desc=Tired of using buckets to give §bWater§r to your machines? Try using water pumps or infinite water tanks!%n%n§6Infinite Water Tank§r will give §e50mb/t%n%n§6Enhanced Infinite Water Tank§r will give §e500mb/t%n%n§6Steam-Powered Groundwater Pump§r will give §e1000mb/t§r but requires §bSteam§r to operate (which is obvious).
 
 # Quest: Compressor
 betterquesting.quest.jcaOirN6QCOC50YJbil2rQ.name=Compressor
@@ -275,9 +299,17 @@ betterquesting.quest.jcaOirN6QCOC50YJbil2rQ.desc=The §3Compressor§r is a speci
 betterquesting.quest.pTXtLJnPRu6lyiOqGVP7lw.name=Pneumatic Pipes
 betterquesting.quest.pTXtLJnPRu6lyiOqGVP7lw.desc=§3Pneumatic Pipes§r are an instant form of item transportation which can cover large distances. The pipes must have a compressed gas inside them to work.%n%nA §6Screwdriver§r is needed to create a connection, and right clicking on the connection with a fluid id will set the gasseous fluid it will use.
 
+# Quest: Graphite
+betterquesting.quest.pbwyXfgDRaCxA1R8YmlTIQ.name=Graphite
+betterquesting.quest.pbwyXfgDRaCxA1R8YmlTIQ.desc=§6Graphite§r is a crystalline carbon allotrope, consisting of stacked layers of graphene. Graphite is the most stable form of carbon, and is useful in many environments. It's ability to moderate neutrons makes it indispensable for §3nuclear reactors§r that rely on thermal neutrons to maintain criticality. It's ability to withstand high temperatures and electrical conductivity make it useful as electrodes in the §3Arc Furnace§r and §3Arc Welder§r. 
+
 # Quest: Long Distance Energy Transportation
 betterquesting.quest.s8lSFTDKSpqK44PLhdfusw.name=Long Distance Energy Transportation
 betterquesting.quest.s8lSFTDKSpqK44PLhdfusw.desc=For greater distances, and improved aesthetics, a new distribution node is available, the §3Large Electricity Pylon§r.%n%n§3Substations§r are needed to step up/down the voltage that the line carries.%n%nThese Pylons can prove useful as favorable §eBedrock Ore§r or §eOil deposits§r may be located far away from the main base.%n
+
+# Quest: Industrial Hemp & Mustard Willow
+betterquesting.quest.ztJLZeOsSq6hpRyKY55CDg.name=Industrial Hemp & Mustard Willow
+betterquesting.quest.ztJLZeOsSq6hpRyKY55CDg.desc=Walking around the world, you can find a §6Mustard Willow§r on dead or §6Oily Dirt§r. The willow itself will not be needed anytime soon, but it is better to collect it and the soil underneath it.%n%n§6Industrial Hemp§r is used to craft ropes, strings and biomass.
 
 
 ## Quest Line: LV2 - Oil Age
@@ -287,6 +319,10 @@ betterquesting.questline.AAAAAAAAAAAAAAAAAAAAAQ.desc=Process Oil and begin Bedro
 # Quest: Balefire
 betterquesting.quest.8OusetROQiyH-66QbewmNQ.name=Balefire
 betterquesting.quest.8OusetROQiyH-66QbewmNQ.desc=§6Balefire§r is an extremely radioactive substance which can be used to make powerful fuels for the §3RBMK§r, aswell as §bBF Rocket Fuel§r for power production. High radiation resistant equipment is needed to hold the item. §6Thermonuclear Ashes§r can be produced sustainably as a byproduct from §bAntimatter - BF Rocket Fuel§r.%n%nThe High-Tech Bomb Defusing Device can extract balefire shards from duds.
+
+# Quest: Delinquent 2: Delinquent Harder
+betterquesting.quest.8R4pAa2BSWGGBdYOaobEMA.name=Delinquent 2: Delinquent Harder
+betterquesting.quest.8R4pAa2BSWGGBdYOaobEMA.desc=Be meaner.
 
 # Quest: Aluminium Processing
 betterquesting.quest.8Z2F5EPIRPGvasjKDWd4tA.name=Aluminium Processing
@@ -428,13 +464,13 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAAAaw.desc=The §3Launch Pad§r is the mai
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAdg.name=Transport Drones
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAdg.desc=§3Transport Drones§r are flying machines which will transport items and fluids between different containers. The drones require no power, and can transport both up and down. §3Waypoints§r can be used to make a better path for the transport drones to move around.
 
-# Quest: Tantalium
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAAiw.name=Tantalium
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAAiw.desc=§6Tantalium§r is a material needed for the creation of some items, most importantly §6Capacitor Boards§r. Tantalium Polycrystal production requires §6Coltan§r which can be located by the use of a §6Coltass§r. Coltan can also be obtained by using the mining drill in a §eBedrock Ore Coltan Deposit§r located randomly in the coltan area.%n%n§2Coltan Processing at its early stage can provide Niobium needed for Catalytic Cracking Towers.
-
 # Quest: Electrolysis Machine
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAzA.name=Electrolysis Machine
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAzA.desc=The §3Electrolysis Machine§r enables the separating of elements from fluids and the advanced processing of ores, making it an important machine in ore processing. Operating the machine consumes §e200kHE/s§r.%n%nThe electrolysis machine has 2 functions: one for the separation of fluids and one for ore processing.%n%nIn the first mode, the machine will take in a compatible fluid and separate it into 2 other fluids.%n%nIn the second mode, it will require §bNitric Acid§r and will process any kind of ore-derived crystal, allowing the maximum yield of the ore. There are 2 outputs, for the molten main product the outlet marked green and the secondary the one marked red, plus a byproduct kept in its item form. The outlets follow the same mechanics as the §3Crucible§r.%n%n§2Consider installing a Power Saving upgrade above level 2 on the electrolysis machine as it will significantly reduce the power consumption with only a minimal speed penalty.
+
+# Quest: Semtex
+betterquesting.quest.D6A-to-oSe29nf5qIu4h_w.name=Semtex
+betterquesting.quest.D6A-to-oSe29nf5qIu4h_w.desc=§6Semtex§r is an explosive that is used in conjunction with C-4 in many crafts.%n%nSemtex is used in many crafts of various ammunition and mines, such as the §6Stinger missile§r, §6anti-personnel mines§r, and so on. In all crafts that use Semtex (except, of course, the Semtex block and Semtex bar, as well as the explosive reactive armor plate), it can be replaced with a C-4 bar.%n%nIt is used to create the bomb of the same name.%n%n§2Semtex can be eaten, making you feel like a real American soldier.§r
 
 # Quest: Microchip
 betterquesting.quest.Lc9HRIDwRZa0u-M3Ze6ZiQ.name=Microchip
@@ -452,9 +488,25 @@ betterquesting.quest.ZTrtIRiyRO2J5jHQ4sroaQ.desc=§6§6§3Redstone-Over Radio§r
 betterquesting.quest.l6zSmdfhSw6aTqiJsNDiHg.name=Jetpack
 betterquesting.quest.l6zSmdfhSw6aTqiJsNDiHg.desc=The §6Jetpack§r can be used to travel upwards. It can be upgraded to unlock additional abilities, and can be equiped as an armor modification.
 
+# Quest: Solid Fuel
+betterquesting.quest.l7cvDxEiTg6v1RvTk-ynTw.name=Solid Fuel
+betterquesting.quest.l7cvDxEiTg6v1RvTk-ynTw.desc=§6Solid Fuel§r is a compact solidified petroleum product with superior burn time and heat output compared to coal. Essential for advanced furnace operations and rocket propulsion systems.
+
+# Quest: Delinquent
+betterquesting.quest.nwCUMdHpQjykUlIVNW7Bcw.name=Delinquent
+betterquesting.quest.nwCUMdHpQjykUlIVNW7Bcw.desc=Be mean.
+
 # Quest: Teleporter
 betterquesting.quest.refh8r3gQyavrC4KgSeWkw.name=Teleporter
 betterquesting.quest.refh8r3gQyavrC4KgSeWkw.desc=The §3Teleporter§r can be used to teleport players, and entities in general, to a specific location.%n%nRight-click a block with the §6Telelinker§r to set the desired exit position, then shift-click the teleporter with the telelinker to configure the teleporter.%n%n§2The teleporter is a one way trip so it is advised that multiple are made.%n%nInterdimensional teleportation using teleporters requires a very expensive type of fuel, so it is recommended that other teleportations methods are used, such as AE2 Spatial.
+
+# Quest: Pinwheels
+betterquesting.quest.t6tkjZliTEKxH0W6y39auQ.name=Pinwheels
+betterquesting.quest.t6tkjZliTEKxH0W6y39auQ.desc=The §6Chlorine Pinwheel§r is a yellow propeller capable of producing chlorine indefinitely.%nAcquisition%n%nIt cannot be crafted, but can be found in structures (e.g., in a starship).%n%nThe chlorine spinner is an endless source of §bChlorine§r; to use it, simply place it in a container slot (e.g., in a barrel). The item will produce chlorine indefinitely, although the production rate is low (1 mb/t or 20 mb/s).%n%nThe §6Oxygen Pinwheel§r is analogous to the Chlorine Pinwheel, producing §bOxygen§r instead of §bChlorine§r.
+
+# Quest: Precision Assembly Machine
+betterquesting.quest.tKyjXZ3KQa6y3FLlxcC2_A.name=Precision Assembly Machine
+betterquesting.quest.tKyjXZ3KQa6y3FLlxcC2_A.desc=The §3Precision Assembly Machine§r is a machine which can produce §6Blueprints§r. Due to the recipes having a low success rate, automation of the ingredient is recommended.%n%nPufferfish can be obtained from throwing §6Fishing Dynamite§r in water.
 
 # Quest: Weapon Steel
 betterquesting.quest.xADm9gLETmCgiS3amOTUcQ.name=Weapon Steel
@@ -476,6 +528,10 @@ betterquesting.quest.2JMb-t2STTKM5sxV5Z7WOQ.desc=The §3Gas Centrifuge§r is use
 # Quest: Nuclear Fuel Processing
 betterquesting.quest.7rFMNl3iSCOD-dpsKLAANQ.name=Nuclear Fuel Processing
 betterquesting.quest.7rFMNl3iSCOD-dpsKLAANQ.desc=With the §3Spent Fuel Pool Drum§r to cool down §3ZIRNOX§r or §3PWR§r depleted nuclear fuel and the §3PUREX§r to further process them, many new materials are now available.
+
+# Quest: Fusion Reactor
+betterquesting.quest.8DXv-b9sRxalmY8yovSQuw.name=Fusion Reactor
+betterquesting.quest.8DXv-b9sRxalmY8yovSQuw.desc=The §3Fusion Reactor§r is a large, expensive, and advanced reactor type that runs by fusing various plasma types to generate heat.%n%nThe main part of the fusion reactor, the §3"Torus"§r, features four connecting ports for external components. It requires electricity and §bPerfluoromethyl§r cooling to operate.%n%nThe §3Klystron§r is the main power source of the fusion reactor, which uses electricity and compressed air, to generate input energy, §eKyU§r, for the connected torus. It will throttle if the buffered electricity or compressed air falls below §e50%%§r, and if it falls below the torus' required input level, the plasma will extinguish.%n%nThe different plasma types also generate different useful byproducts and differing levels of neutron flux for breeding bulk quantities of materials, such as §6Lithium§r into §6Tritium§r.%n%nWelding the coils will require a §6Blowtorch§r or an §6Acetylene Welding Torch§r.%n%n§2For the additional components and power generation methods, please check out the two quests below.§r
 
 # Quest: Large Factory Multiblocks
 betterquesting.quest.8XHLo-wQRN28gu4AwCtHVQ.name=Large Factory Multiblocks
@@ -563,7 +619,7 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAAAWw.desc=The §3Catalytic Reformer§r is
 
 # Quest: Soyuz-FG
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAZw.name=Soyuz-FG
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAAZw.desc=The §3Soyuz-FG Rocket§r is an immensely powerful Soviet rocket that is the primary launch vehicle for all satellites. The rocket must be launched from a suitably large mount - in this case, the §3Soyuz Launch Platform§r.%n%nIt requires 128,000mB of §bKerosene§r and §bLiquid Oxygen§r to be launched as well as §e750kHE§r of power. Pressing the launch button starts a 30 second countdown. After the countdown has completed, the Soyuz will launch.%n%nThe Soyuz can, alongside its primary ability to deliver any satellite to orbit, also be set to a cargo mode, in which it can deliver any provided cargo to a distant spot across the world. Obviously, this is an incredibly expensive way to transport goods, and currently doesn't provide much utility.%n%nThe Soyuz is also the only rocket able to launch §6Gerald§r.%n%n§2Blueprints for the Soyuz can be found in structures or purchased through Bobmazon.%n
+betterquesting.quest.AAAAAAAAAAAAAAAAAAAAZw.desc=The §3Soyuz-FG Rocket§r is an immensely powerful Soviet rocket that is the primary launch vehicle for all satellites. The rocket must be launched from a suitably large mount - in this case, the §3Soyuz Launch Platform§r.%n%nIt requires 128,000mB of §bKerosene§r and §bLiquid Oxygen§r to be launched as well as §e750kHE§r of power. Pressing the launch button starts a 30 second countdown. After the countdown has completed, the Soyuz will launch.%n%nThe Soyuz can, alongside its primary ability to deliver any satellite to orbit, also be set to a cargo mode, in which it can deliver any provided cargo to a distant spot across the world. Obviously, this is an incredibly expensive way to transport goods, and currently doesn't provide much utility.%n%n§2Blueprints for the Soyuz can be found in structures or purchased through Bobmazon.%n
 
 # Quest: Ferrouranium Anvil
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAbw.name=Ferrouranium Anvil
@@ -583,7 +639,7 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAAAdQ.desc=The §3Cooling Tower§r is a la
 
 # Quest: Ionized Particles
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAeA.name=Ionized Particles
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAAeA.desc=§6Ionized Particles§r are the main product of the §3Fusion Reactor§r and are used in making §6Ferric Scrabidat§re, aswell as some particle capsules needed in the §3Particle Accelerator§r.%n%n§2Ionized Particles can be infinitely produced by utilizing Ionic Gel.
+betterquesting.quest.AAAAAAAAAAAAAAAAAAAAeA.desc=§6Ionized Particles§r are the main product of the §3Fusion Reactor§r and are used in making §6Ferric Scrabidate§r, aswell as some particle capsules needed in the §3Particle Accelerator§r.%n%n§2Ionized Particles can be infinitely produced by utilizing Ionic Gel.
 
 # Quest: Bismuth
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAhw.name=Bismuth
@@ -621,10 +677,6 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAAApg.desc=The §3Watz§r powerplant is a 
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAArQ.name=Magnetized Tungsten
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAArQ.desc=§6Magnetized Tungsten§r is the product of combining §6Schrabidium§r and §6Tungsten§r in a §3Blast Furnace§r. It can also be rarely dropped by cybercrabs in §eMeteorite Dungeons§r.
 
-# Quest: Fusion Reactor
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAAsA.name=Fusion Reactor
-betterquesting.quest.AAAAAAAAAAAAAAAAAAAAsA.desc=The §3Fusion Reactor§r is a large, expensive, and advanced reactor type that runs by fusing various plasma types to generate heat to then produce §bSteam§r, which in turn generates large amounts of electricity. %n%nThe different plasma types also generate different useful byproducts and differing levels of neutron flux for breeding bulk quantities of materials, such as §6Lithium§r into §6Tritium§r. It works in conjunction with the §3Plasma Heater§r, which provides the plasma. It requires a "§6blanket§r" lining to protect it from the heat and neutron flux, otherwise it will break the reactor.
-
 # Quest: Ferric Schrabidate
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAuA.name=Ferric Schrabidate
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAuA.desc=§6Ferric Schrabidate§r is an alloy made from §6Iron§r, §6Ionized Particles§r and §6Schrabidium§r. It can also be used to create schrabidate capacitors, which are a great way of storing energy.
@@ -653,9 +705,17 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAABeA.desc=The §3Radiation-Powered Engine
 betterquesting.quest.CYtQLn_VSx2QTnLEwpMGOw.name=Uranium-238
 betterquesting.quest.CYtQLn_VSx2QTnLEwpMGOw.desc=§6Uranium-238§r is the most common uranium isotope in the game. %n%nThis material has many uses, some of which are: §6Ferrouranium§r, MOX fuel, depleted uranium ammunition, absorber Pellets for the §3Watz§r powerplant and can also be turned into §6Schrabidium§r later on in the §3Exposure Chamber§r.
 
+# Quest: Additional Fusion Attachments
+betterquesting.quest.JpsvBP1yQsu-XtkeZegA6A.name=Additional Fusion Attachments
+betterquesting.quest.JpsvBP1yQsu-XtkeZegA6A.desc=The §3Fusion Reactor Coupler§r turns outgoing plasma energy from a torus into usable §eKyE§r which can then be used to power another torus. Some fuel combinations require this, as the minimum §eKyE§r energy needed to ignite the plasma exceeds what four §3Klystrons§r could deliver.%n%nThe §3Fusion Reactor Breeding Chamber§r uses neutron flux from a torus to in order to process materials. It can perform any recipe from an §3RBMK irradiation channel§r, with some additional recipes aswell. The neutron flux is not affected by port sharing rules, and the output level is the same on any side.%n%nThe §3Fusion Reactor Collection Chamber§r increases the byproduct production rate by §e50%%§r.
+
 # Quest: High-Performance Solvent Bedrock Ore Processing
 betterquesting.quest.QusK-8T-TGmBWETwmxosJQ.name=High-Performance Solvent Bedrock Ore Processing
 betterquesting.quest.QusK-8T-TGmBWETwmxosJQ.desc=§bHigh-Performance Solvent§r is the best tier of solvent which can be used in bedrock ore processing, yielding many rare materials such as§6 Bismuth§r and §6Technetium-99§r.%n%n§2These materials are not available from earth bedrock ores.
+
+# Quest: Fusion Power
+betterquesting.quest.WS2zNdGdTnmclQfj2ARCog.name=Fusion Power
+betterquesting.quest.WS2zNdGdTnmclQfj2ARCog.desc=The §3Fusion Reactor Boiler§r is simplest method of extracting power from a fusion reactor, outputting §bSuper Dense Steam§r to be run through normal turbines.%n%nDue to using plasma energy, both the MHDT and the boiler are affected by port sharing rules, meaning that having multiple connected MHTDs, or boilers, decreases the amount of energy each turbine gets, but overall increases the total amount of extracted from the torus.%n
 
 # Quest: Fissile Materials
 betterquesting.quest.X6nUcp16QUqawLXQTqFTBw.name=Fissile Materials
@@ -685,6 +745,10 @@ betterquesting.quest.har7pEFcSRKNgIf4NgmcLA.desc=The §3Spent Fuel Pool Drum§r 
 betterquesting.quest.iJiX7wxoSBmljc9tITqIqQ.name=Technetium-99
 betterquesting.quest.iJiX7wxoSBmljc9tITqIqQ.desc=§6Technetium-99§r is a common waste product from the fission of §6Uranium§r and §6Plutonium§r. It is mainly used in making §6Technetium Steel§r and §dAE2 Storage Components§r.
 
+# Quest: Satellite Launching
+betterquesting.quest.ocylWycmSd6r-mvYENYGEw.name=Satellite Launching
+betterquesting.quest.ocylWycmSd6r-mvYENYGEw.desc=Satelites in NTM space can be launched from either a Souyz or a custom rocket.
+
 # Quest: Heat Exchanging Heater
 betterquesting.quest.rRJfZe74TXqpP-q2faX7bA.name=Heat Exchanging Heater
 betterquesting.quest.rRJfZe74TXqpP-q2faX7bA.desc=The §4§3Heat Exchanging Heater§r is used to cool down coolants used in reactors while also genearting §eTU§r. A §3Boiler§r can be placed ontop of it to heat up other fluids, such as §bSteam§r, to be used in §3Steam Turbines§r.
@@ -703,168 +767,116 @@ betterquesting.quest.yzZHBBF6S7KJPnyG4LVW6A.desc=The §3Schrabidate Capacitor§r
 
 
 ## Quest Line: LV3.5 - Space Age
-betterquesting.questline.4cEEMy05Q0eNhsqEWTzCNg.name=LV3.5 - Space Age
-betterquesting.questline.4cEEMy05Q0eNhsqEWTzCNg.desc=At this stage of development, you already need to grab the resources to accomplish a great deed. Go into space, where the hands of dirty capitalism have not yet reached!
+betterquesting.questline.enTskTtvRdajee3UMSgXKg.name=LV3.5 - Space Age
+betterquesting.questline.enTskTtvRdajee3UMSgXKg.desc=Explore Space and colonise planets. This chapter revolves around the content of NTM: Space.
 
-# Quest: Drop Pod
-betterquesting.quest.-6VHKzWkQYCXay-VIkt77A.name=Drop Pod
-betterquesting.quest.-6VHKzWkQYCXay-VIkt77A.desc=The Drop Pod is an alternative to the regular capsule used on rockets; it can only be used on the space station. It has its own engine, allowing it to land on planets and return to the station. Refueling is done on the station and requires hydrazine.
+# Quest: Duna
+betterquesting.quest.-aAyklEkSHK7wGxEEzQJ9Q.name=Duna
+betterquesting.quest.-aAyklEkSHK7wGxEEzQJ9Q.desc=The red planet, home to vast quantities of §6Iron§r. §6Molysite§r and §6Volcano Gems§r can be found here in basaltic caves, found within basins where vast oceans were theorized to once exist.
 
-# Quest: Rocket Engines
-betterquesting.quest.-AlHze-STY2C1FjHIg6Cvg.name=Rocket Engines
-betterquesting.quest.-AlHze-STY2C1FjHIg6Cvg.desc=The engine is installed next to the orbital station; engines must be placed strictly in the direction of the station's movement around the orbit, with all devices placed with the nozzle towards your face. To launch, you need the orbital station's computer, to which the engine will automatically connect. The computer distributes fuel evenly among all engines. If the engine(s) have enough fuel and energy, after installing the hard drive into the computer, you will depart to your destination. If there is a shortage, the computer will indicate it.
+# Quest: CMB Insert
+betterquesting.quest.3fvMK3HASiaG4E0wg7MTrA.name=CMB Insert
+betterquesting.quest.3fvMK3HASiaG4E0wg7MTrA.desc=§6CMB Iserts§r are an armor modification which will protect its user from the corrosive atmosphere of §eEve§r. %n%nThe §3Gas Giant Harvester§r will return back with §bJool Air§r, to be processed by the §3Cryogenic Distillation Machine§r.
 
-# Quest: Air Vent
-betterquesting.quest.-fAzdf1NSiGrHr7bfXir5A.name=Air Vent
-betterquesting.quest.-fAzdf1NSiGrHr7bfXir5A.desc=The Air Vent is a device for creating a breathable atmosphere.%n%nIt must be installed in an enclosed space with no contact with the external environment to prevent oxygen from escaping. After supplying oxygen to the device, an atmosphere of breathable air at 0.2 atm pressure is created in the room. The buffer capacity is 16,000 mB.%n%nOne player consumes 10 mB of oxygen per second (thus, a full valve can support the atmosphere for one person for just over 26 minutes). If the seal is broken while the valve is operating, the device will continue to work, but consumption will increase significantly, and oxygen will stop reaching the player, leading to their death.%n%n[note]Does not require energy, has no interface, works automatically.[/note]
+# Quest: Industrial Greenhouse
+betterquesting.quest.4HLGI5HyQtSw1G-iuwI0kg.name=Industrial Greenhouse
+betterquesting.quest.4HLGI5HyQtSw1G-iuwI0kg.desc=The §3Industrial Greenhouse§r converts §bCarbon Dioxide§r into §bOxygen§r via crop growth. The greenhouse can also be supplied with §6Fertilizer§r for faster growing.
 
-# Quest: In an Enclosed Space
-betterquesting.quest.57-qUrewR9WLMSh9fKES5w.name=In an Enclosed Space
-betterquesting.quest.57-qUrewR9WLMSh9fKES5w.desc=Remember that before building farms, atmospheres, or water pools on the moon or another planet, you need to create an §l§c§lENCLOSED SPACE!!!§r And it's advisable to make an airlock with two doors at the entrance!
+# Quest: Cryogenic Distillation Machine
+betterquesting.quest.7kkbpR6rS4CsUTUFQ5wd7g.name=Cryogenic Distillation Machine
+betterquesting.quest.7kkbpR6rS4CsUTUFQ5wd7g.desc=The §3Cryogenic Distillation Machine§r can split atmospheric gases into 4 useful fractions, like for example, taking trace amounts of §bNitrogen§r out of the Dunaian atmosphere to produce soil for planting crops.
 
-# Quest: Rich Mineral Deposit
-betterquesting.quest.6rM3wRIsTXe6IMJuI37IAA.name=Rich Mineral Deposit
-betterquesting.quest.6rM3wRIsTXe6IMJuI37IAA.desc=Found in the depths of Ike and Moho, needed to obtain the first gallium. Can be processed in different ways, but best through a mixer and gas centrifuges.
+# Quest: Teleporter
+betterquesting.quest.8j7JCxPeSaaBqlOTrRGtCg.name=Teleporter
+betterquesting.quest.8j7JCxPeSaaBqlOTrRGtCg.desc=The §3Teleporter§r can be used to teleport players, and entities in general, to a specific location.%n%nRight-click a block with the §6Telelinker§r to set the desired exit position, then shift-click the teleporter with the telelinker to configure the teleporter.%n%n§2The teleporter is a one way trip so it is advised that multiple are made.%n%nInterdimensional teleportation using teleporters requires a very expensive type of fuel, so it is recommended that other teleportations methods are used, such as AE2 Spatial.
 
 # Quest: Occasionally Heavy Boots
 betterquesting.quest.9S1Tw8UTRbi8Z9wq7frVJA.name=Occasionally Heavy Boots
 betterquesting.quest.9S1Tw8UTRbi8Z9wq7frVJA.desc=Temporarily increases gravity on low gravity worlds when holding crouch.
 
-# Quest: Dyson Spinlauncher
-betterquesting.quest.AArDjTziTHGiv_APx63Jng.name=Dyson Spinlauncher
-betterquesting.quest.AArDjTziTHGiv_APx63Jng.desc=The Dyson Spinlauncher is the initial stage. This massive mechanism uses its own centrifugal mechanism to accelerate swarm modules and launch them into space in batches of 4 at a time. Launches will continue uninterrupted as long as there is energy and swarm modules available.%n%nThe device requires energy and a satellite ID chip with a specific set frequency (not "0"!). At the front of the machine, there is a port for loading swarm modules using chests or crates.
-
-# Quest: Drive Processor (Tier 2)
-betterquesting.quest.AmyxmEMZSJ2xDt7nn0mSuQ.name=Drive Processor (Tier 2)
-betterquesting.quest.AmyxmEMZSJ2xDt7nn0mSuQ.desc=Required to fly to Tier 2 planets
-
-# Quest: First Unique Ores on the Moon
-betterquesting.quest.BPfibLt-TumyR_wglBaeVQ.name=First Unique Ores on the Moon
-betterquesting.quest.BPfibLt-TumyR_wglBaeVQ.desc=Your landing on the moon has shown that there are unique ores there, time to collect samples!
-
-# Quest: Dres
-betterquesting.quest.C1PznmGHT86JuGdg6mWSbQ.name=Dres
-betterquesting.quest.C1PznmGHT86JuGdg6mWSbQ.desc=Dres is a dwarf planet with gravity 5-6 times lower than Earth's. The terrain of this celestial body is quite unusual. It has no atmosphere of its own. The sun at sunrise appears noticeably larger than at zenith, indicating a highly elliptical orbit. Moreover, Dres is quite distant. The length of a day is approximately twice that of Earth's. Unexpectedly, Dres features a unique structure - a nuclear power plant. In the depths of Dres, large deposits of hematite can be found, and tantalum can be mined from bedrock ore.
+# Quest: Steam Radiator
+betterquesting.quest.AB-0K2UoQF-7uQ9XiO8mqw.name=Steam Radiator
+betterquesting.quest.AB-0K2UoQF-7uQ9XiO8mqw.desc=The §3Steam Radiator§r is a steam condenser that works in the vacuum of space.
 
 # Quest: Tectonic Missile
 betterquesting.quest.CRR3Op6SQMefJL6r8uAfrA.name=Tectonic Missile
-betterquesting.quest.CRR3Op6SQMefJL6r8uAfrA.desc=When a tectonic missile hits, it creates a volcano that immediately starts to splash volcanic lava everywhere. Which is what you need to get the volcanic gem!
+betterquesting.quest.CRR3Op6SQMefJL6r8uAfrA.desc=When a §6Tectonic Missile§r hits, it creates a volcano that immediately starts to splash volcanic lava everywhere. Which is what you need to get the volcanic gem!
 
-# Quest: Hydrazine
-betterquesting.quest.CWyKECn9S9uJEGJ7QLlzVw.name=Hydrazine
-betterquesting.quest.CWyKECn9S9uJEGJ7QLlzVw.desc=Hydrazine is required to return back from space station.
+# Quest: Gallium Arsenide
+betterquesting.quest.DeOqQyXwQRq5RNcDa5l0ug.name=Gallium Arsenide
+betterquesting.quest.DeOqQyXwQRq5RNcDa5l0ug.desc=§6Gallium Arsenide§r is made from mixing §6Gallium§r, which can be procured by processing rich mineral deposits from §eMoho§r or §eIke§r, and §6Arsenic§r which is found on Ike in bedrock ore, or on §eEarth§r via dirt and stone that has been damaged by hydraulic fracking.
 
 # Quest: Gas Giant Harvester
 betterquesting.quest.EE3856t_QVu_cAG6P033_Q.name=Gas Giant Harvester
-betterquesting.quest.EE3856t_QVu_cAG6P033_Q.desc=The Gas Giant Harvester Station is a device for collecting atmospheric air samples from gas giants.%n%nThe concept is quite simple: on a planet that is a satellite of the giant (for example, to fly to the green giant Jool, you need to go to Laythe), the station is set up. After refueling with liquid oxygen and hydrogen, the harvester rocket is sent for air. In one trip, it delivers 16,000 mB. As you can understand, the harvester's functionality is completely analogous to the operation of mining modules.
+betterquesting.quest.EE3856t_QVu_cAG6P033_Q.desc=The §3Gas Giant Harvester Station§r is a device for collecting atmospheric air samples from gas giants.%n%nThe concept is quite simple: on a planet that is a satellite of the giant (for example, to fly to the green giant Jool, you need to go to Laythe), the station is set up. After refueling with §bLiquid Oxygen§r and §bHydrogen§r, the §3harvester rocket§r is sent for air. In one trip, it delivers 16,000 mB§r. As you can understand, the harvester's§r functionality is completely analogous to the operation of §3MiningModules§r.
 
 # Quest: Mun Cow?!
 betterquesting.quest.EVr_kBsgS2Wb6Knw0wuihw.name=Mun Cow?!
 betterquesting.quest.EVr_kBsgS2Wb6Knw0wuihw.desc=This is something new; don't ask questions like how a cow survives on the Mun without food or where it got a PLSS module. The fact is, they feel quite well on the Mun, and due to the vacuum, the milk inside them has curdled.
 
-# Quest: Gallium Arsenide
-betterquesting.quest.EygjAwFqRJS21SXsl2_GoA.name=Gallium Arsenide
-betterquesting.quest.EygjAwFqRJS21SXsl2_GoA.desc=Gallium Arsenide is a chemical compound of gallium and arsenic.%n%nFusing gallium and arsenic in a smelter is the best way to produce it.\nIt can also be produced in a chemical plant (involving light oil, water, and nuggets of gallium and arsenic), but this is a more wasteful method.%n%nIt is used in creating gallium arsenide wafers, which are necessary for microchips. The chip is a component of the second-level processor for disk handlers (i.e., arsenide allows for long interplanetary journeys). Without arsenide, it is impossible to obtain the hafnium microchip.
+# Quest: Vacuum Solderer
+betterquesting.quest.G3Em4SXiQee1Yu-Rd0yGaA.name=Vacuum Solderer
+betterquesting.quest.G3Em4SXiQee1Yu-Rd0yGaA.desc=The §3Vacuum Solderer§r is a machine that can only function in a vacuum, and produces vacuum circuits. They can be placed into the §3Drive Processor§r to enable it to process higher tier planetary drives.
 
-# Quest: Cryogenic Distillation Machine
-betterquesting.quest.FW-fhg_1Rze3oizrg5QOcQ.name=Cryogenic Distillation Machine
-betterquesting.quest.FW-fhg_1Rze3oizrg5QOcQ.desc=The Cryogenic Distillation Machine is a device for condensing air fractions and obtaining them as liquids.%n%nLiquefied air from Earth's atmosphere or other planets is fed into the mechanism, where it is separated into gas fractions (for example, Earth's air is separated into nitrogen, oxygen, krypton, and carbon dioxide).%n%nInput is through ports next to the blue tanks, and output is through the red ones (there are graphical hints when hovering the cursor). Energy consumption is 400 kHE/s.%n%nDistillation is the only way to obtain potassium permanganate, krypton, argon, and neon.
+# Quest: Space Equipment
+betterquesting.quest.HvPzivF4SWWIDt5syO87xA.name=Space Equipment
+betterquesting.quest.HvPzivF4SWWIDt5syO87xA.desc=The §6PLSS§r is an armor modification which will allow you to breathe in space. It will only work on airtight sealed suits.%n%nThe §6Heavy Boots§r can be used to quickly descend down in low-gravity environments.
 
-# Quest: Steam Radiator
-betterquesting.quest.FdsaSa5nQKu87TntSIdBBQ.name=Steam Radiator
-betterquesting.quest.FdsaSa5nQKu87TntSIdBBQ.desc=The Steam Radiator is needed for condensing low-pressure steam in vacuum conditions.%n%nIt is functionally similar to a cooling tower - it converts low-pressure steam into water. Unlike classical analogs, it can operate in airless conditions. Maximum capacity is 500 mB.
-
-# Quest: Atmospheric Compressor
-betterquesting.quest.IRpeqDjwQA2CjlM3mIWv7g.name=Atmospheric Compressor
-betterquesting.quest.IRpeqDjwQA2CjlM3mIWv7g.desc=The Atmospheric Compressor is needed for collecting and liquefying atmospheric air.%n%nIt should be noted that the compressor can work with the air of any planet that has an atmosphere (for example, Duna or Eve). The device automatically adjusts to the current type of air. It does not work in a vacuum (for example, on the Moon); however, if you place the compressor, say, on an orbital station and create an atmosphere, and then power the device, the compressor will extract 'nothing.' There is no practical benefit from this.%n%nThe mechanism's functionality is simple: just supply power to the compressor, and it will start working (consumption 200 kHE/s). There is no interface.
-
-# Quest: Mun Landing
-betterquesting.quest.JUDoG7-PRueGeBxOVpxMHQ.name=Mun Landing
-betterquesting.quest.JUDoG7-PRueGeBxOVpxMHQ.desc=Now that you have basic signal processing set up, you can head to the moon! There will be many more ores and one or two new mobs. In any case, don't forget to take a second rocket!!!
+# Quest: Ike
+betterquesting.quest.KItM5UOCSNmCMNKnohadaQ.name=Ike
+betterquesting.quest.KItM5UOCSNmCMNKnohadaQ.desc=§eIke§r, the sole moon of §eDuna§r, has hints of a past as a significant hazardous waste dump, with large spires and pyramids reminiscent of potential designs on Earth for warning future civilizations of great danger in relation to nuclear waste. §eMeteor dungeons§r spawn more frequently here, and pools of §bAlkyl Bromide§r can be found on the surface.%n
 
 # Quest: Armospheric Liquefaction Tower
 betterquesting.quest.KQqx-tttRfG2DNO4tLbSCw.name=Armospheric Liquefaction Tower
 betterquesting.quest.KQqx-tttRfG2DNO4tLbSCw.desc=The Air Liquefaction Tower is intended for obtaining liquid nitrogen from compressed air.
 
-# Quest: Preparing for the First Rocket
-betterquesting.quest.KfTqYnDRT4CsOlohgpHvCw.name=Preparing for the First Rocket
-betterquesting.quest.KfTqYnDRT4CsOlohgpHvCw.desc=You've already studied the signal; now you need to prepare the pads for creating rockets where you will assemble your rocket and the launch pad, through which you will fuel and launch your rocket while simultaneously supplying it with fuel and electricity.
+# Quest: Drive Processor Tier 3
+betterquesting.quest.LKTbDe35Rte7XOisZoywOQ.name=Drive Processor Tier 3
+betterquesting.quest.LKTbDe35Rte7XOisZoywOQ.desc=The §3Drive Processor Tier 3§r allows for travel to §eLaythe§r.
 
-# Quest: Tantalium
-betterquesting.quest.LC1QCh-fRI6H0xKvGNddpg.name=Tantalium
-betterquesting.quest.LC1QCh-fRI6H0xKvGNddpg.desc=Tantalium is a material needed for the creation of some items, most importantly Capacitor Boards. Tantalium Polycrystal production requires Coltan which can be located by the use of a Coltass.%n%nColtan can also be mined using a the mining drill in a bedrock ore coltan deposit located randomly in the coltan, or by reprocessing spent fuel from a WATZ reactor.
+# Quest: Atmospheric Scanner
+betterquesting.quest.MqqnLpS-RLK6oNw12wzI7Q.name=Atmospheric Scanner
+betterquesting.quest.MqqnLpS-RLK6oNw12wzI7Q.desc=The §6Atmospheric Scanner§r shows the atmospheric consistency of planets. Useful for when terraforming.
 
-# Quest: There's No Oxygen in Space!
-betterquesting.quest.LCbaBMjCT9ydLjPJAIMgdQ.name=There's No Oxygen in Space!
-betterquesting.quest.LCbaBMjCT9ydLjPJAIMgdQ.desc=To avoid dying in the first few seconds on other planets, you'll need to make a PLSS module. For it to work, you need sealed armor like M1TTY or T45, energy in the armor itself, and to refill it with oxygen.
+# Quest: Orbital Station
+betterquesting.quest.NBDAp_kvThGG5C4yE0SiPA.name=Orbital Station
+betterquesting.quest.NBDAp_kvThGG5C4yE0SiPA.desc=The §3Orbital Station§r is a space station which is located at the orbit of §eEarth§r. §3Solar Panels§r in combination with §3Air Vents§r can be used to make a sustainable living environment in the station. Make sure to make airlocks to minimise air loss.%n%nThe orbital station can also be moved to distant planets using thrusters in combination with an §3Orbital Station Computer§r.
 
-# Quest: Protection from Toxins
-betterquesting.quest.LaiJtL2RTDO6SA4eYFPCOw.name=Protection from Toxins
-betterquesting.quest.LaiJtL2RTDO6SA4eYFPCOw.desc=Armor plates made of alliance steel protect against the external effects of the planet Eve, making it easier for you to explore it!
+# Quest: Stainless Steel
+betterquesting.quest.Q0hC3CjIR4GB7MtYPpxXgA.name=Stainless Steel
+betterquesting.quest.Q0hC3CjIR4GB7MtYPpxXgA.desc=§6Stainless Steel§r is an alloy made of §6Steel§r and §6Nickel§r.
 
-# Quest: Drive Processor (Tier 3)
-betterquesting.quest.MYNt5oZLRruiF43qPIOL5w.name=Drive Processor (Tier 3)
-betterquesting.quest.MYNt5oZLRruiF43qPIOL5w.desc=Required to fly to Tier 3 planets.
-
-# Quest: Onward to Space!!!
-betterquesting.quest.ORHC-_C0QIKki6e_aLABxQ.name=Onward to Space!!!
-betterquesting.quest.ORHC-_C0QIKki6e_aLABxQ.desc=You've assembled your first rocket, and you'll likely be heading to the moon first, where there is (almost) no hostile fauna. Good luck!
-
-# Quest: Moho
-betterquesting.quest.Pokm48s_SbCLH8oDMkal7g.name=Moho
-betterquesting.quest.Pokm48s_SbCLH8oDMkal7g.desc=Moho is a planet analogous to Mercury: it is close to the Sun, which has influenced its appearance. In the 'Moho Cliffs' biome, the planet's terrain is extremely chaotic and shapeless: the landscape is predominantly mountainous, with significant elevation changes, riddled with craters, and tousled by disorderly mountain ranges. Moho has active volcanic processes, so interspersed with elevations, you often find basalt deltas (which constitute a separate biome) and lava lakes. Moreover, Moho is rich in its fire geysers, similar to those in the Nether. Occasionally, you may come across deposits of sulfurous stone.%n%nThe surface abounds with deposits of hematite, phosphate, and iron ores. In the depths of the planet, there are extensive caves.
-
-# Quest: Drive Processor (Tier 1)
-betterquesting.quest.PzORvpslS2y5EcfUmaQQ0Q.name=Drive Processor (Tier 1)
-betterquesting.quest.PzORvpslS2y5EcfUmaQQ0Q.desc=Required to fly to Tier 1 planets
-
-# Quest: Celestial Orrery
-betterquesting.quest.QL9tVjZXTYasRnKE5BLyag.name=Celestial Orrery
-betterquesting.quest.QL9tVjZXTYasRnKE5BLyag.desc=Shows the current position of all celestial bodies as a hologram.
+# Quest: Drive Processor Tier 2
+betterquesting.quest.QVJAi3JOR5in6VwMOEyL6w.name=Drive Processor Tier 2
+betterquesting.quest.QVJAi3JOR5in6VwMOEyL6w.desc=The §3Drive Processor Tier 2§r allows for travel to §eDres§r and §eEve§r.
 
 # Quest: Jool
 betterquesting.quest.Rln_1bNXSHmwrz3lNURhwA.name=Jool
-betterquesting.quest.Rln_1bNXSHmwrz3lNURhwA.desc=Jool is a gas giant planet with Laythe and two other small unnamed planets orbiting it.%n%n[note]As is logical, landing on a gas giant is impossible, but this doesn't prevent us from gathering resources from this giant.[/note]%n%nJool's atmosphere consists of helium-3 (25%%), liquid hydrogen (25%%), chlorine (20%%), and neon (12%%).\nTo collect all these gases, we will need a harvester.
+betterquesting.quest.Rln_1bNXSHmwrz3lNURhwA.desc=Jool is a gas giant planet with Laythe and two other small unnamed planets orbiting it.%n%nAs is logical, landing on a gas giant is impossible, but this doesn't prevent us from gathering resources from this giant.%n%n§2Jool's atmosphere consists of §bHelium-3§r §2(25%%), §bLiquid Hydrogen§r §2(25%%), §bChlorine§r §2(20%%), and §bNeon§r §2(12%%). To collect all these gases, we will need a §3Harvester§r.§r
+
+# Quest: Hafnium
+betterquesting.quest.S0AQWdCYSeiUnhi2CmLszA.name=Hafnium
+betterquesting.quest.S0AQWdCYSeiUnhi2CmLszA.desc=§6Hafnium§r is a rare light metal needed to produce the §6Hafnium chips§r, which at this stage in progression can only be obtained by centrifuging niobium crystals, which must be created from niobium ore, only found on §eDres§r and §eEve§r.
+
+# Quest: Mun/Minmus
+betterquesting.quest.SyNchvx5TpG6S7lF4jtiOA.name=Mun/Minmus
+betterquesting.quest.SyNchvx5TpG6S7lF4jtiOA.desc=Your first destination! Absolutely chock full of §6Lithium§r, §6Quartz§r and most importantly your first source of §6Nickel§r to start producing §6Stainless Steel§r for space-grade machinery. The §eMun§r is the first atmosphere-less body available in a regular playthrough, necessary for making the first tier of §6Drive Processors§r in the §3Vacuum Solderer§r.%n%nThe B-Side destination alternative to the Mun, §eMinmus§r is characterized by a distinctive mint-choc-chip ice-cream aesthetic. §3Pumps§r function here, but instead of producing §bWater§r, this moon bizarrely produces §bMilk§r, allowing for full automation of §6Butter§r, §6Milkshakes§r and §6Ice-Cream§r.
 
 # Quest: Laythe
-betterquesting.quest.RqdFRl4fTR2zC_wjtz1tIw.name=Laythe
-betterquesting.quest.RqdFRl4fTR2zC_wjtz1tIw.desc=Laythe is the only added planet that is initially habitable. The gravity here is slightly less than Earth's. Additionally, Laythe is a satellite of Jool.%n%nLaythe is predominantly a water planet, as water bodies cover the largest area.%n%nLocal kelp and seagrass grow in them, structured similarly to their Earth counterparts but containing a different pigment instead of chlorophyll, giving them a burgundy color. The dark depths of the seas (which can reach up to 40 blocks deep) are adorned with glowing grass and numerous colorful coral reefs (orange, pink, purple specimens). Corals usually prefer to occupy the coastal zone higher up towards the surface or slopes.%n%n[note]The marine fauna is quite diverse and includes organisms such as: scatter, deep-sea squid, runner crab, sifter eel, and scrapfish. All of them can only live underwater and die on land. The aquatic fauna is harmless to the player.[/note]%n%nOn the shores, you can encounter an unusual life form - living flesh, which looks like something plant-like. It is safe for the player. It can be collected using the 'Silk Touch' enchantment.%n%nLaythe's atmosphere is completely identical to ours. The sky during daylight is tinted in lilac tones, and on the horizon to the east, neighboring celestial bodies are always visible: the green gas giant Jool and two other satellites. They are stationary relative to the horizon. The planet experiences rain, and at the poles - snowfalls.%n%nAnd the player can sleep at night.%n%n[warn]Laythe's subsurface is almost analogous to Earth's, consisting of ordinary stone, dirt, gravel, etc. The ores here are also familiar, although coal, natural gas deposits, and oil are almost completely absent.[/warn]
+betterquesting.quest.Tz9bzhSZQLGbAIEh4Zckbg.name=Laythe
+betterquesting.quest.Tz9bzhSZQLGbAIEh4Zckbg.desc=A beautiful water world, teeming with life, oceans lit up with fields of glowgrass. §bJool gas§r can be harvested from here using a §3Gas Giant Harvester§r.
 
-# Quest: Sattelite Dyson Relay
-betterquesting.quest.SisDpmfhT1qEB-Ce8Cuabg.name=Sattelite Dyson Relay
-betterquesting.quest.SisDpmfhT1qEB-Ce8Cuabg.desc=Here is the mechanism that will allow the Swarm to operate even at night. Set it to the same frequency as the chips for the launch system and receiver, and launch it using the Soyuz or from the station. The relay is placed into the planet's orbit, meaning that to use the receiver on each celestial body, you need to launch relays on each planet if you want to use the swarm.
+# Quest: Drive Processor Tier 1
+betterquesting.quest.VetSLWDYS8OTb7T4X9aAEw.name=Drive Processor Tier 1
+betterquesting.quest.VetSLWDYS8OTb7T4X9aAEw.desc=§3Drive Processor Tier 1§r allows for travel to §eDuna§r, §eDres§r and §eMoho§r.
 
-# Quest: Dyson Anatmogenesis Terraformer
-betterquesting.quest.TE4kReIyRvCVNfRpdb1DQg.name=Dyson Anatmogenesis Terraformer
-betterquesting.quest.TE4kReIyRvCVNfRpdb1DQg.desc=Like the previous two, the terraformer is one of the consumers of the swarm's energy. Similar to the atmosphere editor, the terraformer can release and absorb gases to alter their composition. By default, it will release oxygen into the atmosphere, making it breathable. The fluid identifier is used to switch between gas types, and the screwdriver toggles between releasing and absorbing gases from the atmosphere. Consumption is 150 TE/s (i.e., a minimum of about 1024 Dyson swarm units is required).%n%nPosition it so that the square window receives the beam. When the terraformer is operating, the copper coils will start to twitch and shake slightly, and clouds of gas will be abundantly released from the center (the color will match the color of the air).
+# Quest: Brine Processing
+betterquesting.quest.WRZqHx4ZRia4S1zEWYFg-Q.name=Brine Processing
+betterquesting.quest.WRZqHx4ZRia4S1zEWYFg-Q.desc=§bBrine§r, which is found in deposits similar to oil ones on earth, can be processed to obtain materials such as §6Nickel§r, §6Copper§r and §6Sulfur§r, and fluids such as §bHydrogen§r and §bOxygen§r.
 
-# Quest: Dyson Swarm
-betterquesting.quest.TNmBZHFXQtu061-_ToHFxA.name=Dyson Swarm
-betterquesting.quest.TNmBZHFXQtu061-_ToHFxA.desc=The Dyson Swarm Member is a small satellite-like device launched into solar orbit to collect and transmit energy to the player. The energy output depends on the number of swarm modules. These devices are not eternal - sooner or later, they wear out and need to be replaced with new ones. The more there are, the faster they deplete (with 1024 units, one module breaks every 5 seconds).%n%nThe number of modules in the swarm is unlimited, but the maximum energy output is 922.32 RHE.
-
-# Quest: Minmus
-betterquesting.quest.UThI3z_eTd2HpbC6t3e46w.name=Minmus
-betterquesting.quest.UThI3z_eTd2HpbC6t3e46w.desc=Minmus is a small celestial body with gravity approximately 5 times less than Earth's. This makes it a good option for a first visit, alongside the Moon. The terrain of Minmus is quite remarkable: most of its surface is mirror-smooth due to a layer of Minmus smooth stone.%n%nAdditionally, Minmus has no atmosphere, so surviving on Minmus without an oxygen supply is impossible.%n%nThe planet is rich primarily in copper, which is found here in various forms.
-
-# Quest: Station Setup
-betterquesting.quest.UnwI-9MjTR2z32hnZZcXtQ.name=Station Setup
-betterquesting.quest.UnwI-9MjTR2z32hnZZcXtQ.desc=So, you've docked at the station. The station itself orbits the planet from which it was launched. It can be used for travel, but you'll need rocket engines and an Orbital Station Computer.%n%nFirst, install the computer, then place the engines next to the station and fuel them.%n%nThe computer will automatically configure to these engines. If there is enough fuel, travel will be possible.%n%nTo depart, insert a disk with the desired planet into the computer (you already know how to program disks).%n%nAnd off you go!!!%n%nYou have arrived in orbit around the target planet. You can descend to the surface using a capsule (which is single-use, so not the best choice), or with a drop pod. The latter has its own engine, allowing it to land on planets and return to the station. The pod must be installed under the station, between the docking ports. The device requires its own fuel (oxygen and hydrogen), which you will input through the station's ports.
-
-# Quest: LPW-3N
-betterquesting.quest.WEnU4cKwSnK28YWDM_t1kw.name=LPW-3N
-betterquesting.quest.WEnU4cKwSnK28YWDM_t1kw.desc=The LPW-3N engine uses various liquids for operation, which are preheated in a WWER. To do this, change the coolant type in the reactor interface using the identifier, then directly connect the WWER to the engine (a tooltip will appear when hovering, indicating where to place the reactor access hatch). [warn]It is impossible to pipe or collect the heated liquids in tanks.[/warn] It can use bromides, hydrogen, nuclear, and toxic waste as fuel. It has high thrust and good fuel efficiency. For your convenience, the engine's buffer is huge (1,280,000 mB), designed to prevent overflow (and consequently, explosion) of the WWER with hot coolant, especially when bromides are used as fuel.
-
-# Quest: Vacuum Solderer
-betterquesting.quest.Wgaeh1JFQ8i9ihOJS2uO3g.name=Vacuum Solderer
-betterquesting.quest.Wgaeh1JFQ8i9ihOJS2uO3g.desc=The Vacuum Solderer is a device for creating processors needed to enhance the signal handler so it can process higher-level signals (in other words, so you can fly to other planets).
-
-# Quest: HTR-F4
-betterquesting.quest.XIwVGGbgQiml3lsq551-CA.name=HTR-F4
-betterquesting.quest.XIwVGGbgQiml3lsq551-CA.desc=The HTR-F4 is the most powerful and efficient engine, operating on energy and plasma. This means the engine must be paired with a plasma heater. Configuration is done in the latter device using identifiers. Different types of plasma differ only in efficiency (thrust is the same for all). Heat plasma is 6 times more efficient than hydrogen-deuterium plasma.
-
-# Quest: The End of Space...
-betterquesting.quest.XbTJRWJNTKa4UEeLPV0urg.name=The End of Space...
-betterquesting.quest.XbTJRWJNTKa4UEeLPV0urg.desc=Well, you've completed the space stage of the game; now the entire space knows and fears you (you are a true space pirate). Here are a couple more nuances about the Dyson swarm:%n%nDo not place converters directly next to the receiver - this will cause a malfunction.%n%nMultiple players in the same game world can create multiple swarms, but keep in mind that different swarms reduce each other's efficiency. This can encourage players to either work together on one common swarm or compete to extract more energy from their own swarm.
+# Quest: Rocket Preparations
+betterquesting.quest.XFyuo3SLQbmHtU7FcYdZ1g.name=Rocket Preparations
+betterquesting.quest.XFyuo3SLQbmHtU7FcYdZ1g.desc=Due to the expansive nature of rocket assembly, it is highly recommend that the wiki is checked out as it provides more information.%n%n[url]https://nucleartech.wiki/wiki/Vehicle_Assembly_Base_(NTM:_Space)[/url]
 
 # Quest: The Mun is Cheese...
 betterquesting.quest.XzMOPvBIS9uEkD5JEXBvUw.name=The Mun is Cheese...
@@ -872,111 +884,71 @@ betterquesting.quest.XzMOPvBIS9uEkD5JEXBvUw.desc=When a century-old joke gets ou
 
 # Quest: CO2 Scrubber
 betterquesting.quest.Z-fgT88oSuSYcPPLotHREg.name=CO2 Scrubber
-betterquesting.quest.Z-fgT88oSuSYcPPLotHREg.desc=The CO2 Scrubber is a mechanism for cleaning air in sealed environments under increased pressure.%n%nThe device absorbs carbon dioxide from the surrounding air and collects it. It only works if two conditions are met: the room is sealed and isolated, and the air pressure is elevated (above 1.0 atm). The latter can be achieved by adding a stream of oxygen from the ventilation to the Earth's air (resulting in a total pressure of 1.1 atm).%n%nThe maximum number of scrubbers in a room is 5; any additional units placed will not collect carbon dioxide.
+betterquesting.quest.Z-fgT88oSuSYcPPLotHREg.desc=The §3CO2 Scrubber§r is a mechanism for cleaning air in sealed environments under increased pressure.%n%nThe device absorbs §bCarbon Dioxide§r from the surrounding air and collects it. It only works if two conditions are met: the room is sealed and isolated, and the air pressure is elevated (above 1.0 atm). The latter can be achieved by adding a stream of §bOxygen§r from the ventilation to the Earth's air (resulting in a total pressure of 1.1 atm).%n%n§2The maximum number of scrubbers in a room is 5; any additional units placed will not collect carbon dioxide.§r
 
-# Quest: Alkylation Unit
-betterquesting.quest.bLU2MyYVQBO_ZC66X99yxg.name=Alkylation Unit
-betterquesting.quest.bLU2MyYVQBO_ZC66X99yxg.desc=The Alkylation Unit is designed for processing organic raw materials, such as chloromethane. The mechanism's operation is simple: raw materials are fed into the unit, automatically processed, and outputted. (No interface) The device is not too power-hungry, with an energy buffer of 1 MHE. It allows converting chloromethane into chlorine and unsaturated hydrocarbons, highly effective solvents, and aromatic hydrocarbons into BTX, etc.
+# Quest: Stardar and Drive Processor
+betterquesting.quest.ZPfHiJvPQIutgvhSROlbeQ.name=Stardar and Drive Processor
+betterquesting.quest.ZPfHiJvPQIutgvhSROlbeQ.desc=The §3StarDar§r is your base of operations for mission planning, helping you to locate and scan potential landing zones on planets, and §6Program Drives§r that can be inserted into your rocket's astronavigational systems to make journeys to said planets.%n%nThe §3Drive Processor§r processes drives that have been programmed by the StarDar, allowing them to be inserted into rocket navigation computers.
 
-# Quest: LPW-2
-betterquesting.quest.cXOePv3rT_y5NxjnYec8PQ.name=LPW-2
-betterquesting.quest.cXOePv3rT_y5NxjnYec8PQ.desc=The LPW-2 engine runs on aviation fuel and oxygen. This engine has high thrust but the lowest efficiency among its counterparts.
+# Quest: Atmospheric Compressor
+betterquesting.quest.aZBaZGfVRHeXWmLqDHjuUw.name=Atmospheric Compressor
+betterquesting.quest.aZBaZGfVRHeXWmLqDHjuUw.desc=The §3Atmospheric Compressor§r collects air from different planets. In combination with a §3Cryogenic Distillation Machine§r it can produce many useful fluids and gasses.
 
 # Quest: Solar Panel
 betterquesting.quest.dVwxKlQ5SzaxZjGNcLFMEw.name=Solar Panel
-betterquesting.quest.dVwxKlQ5SzaxZjGNcLFMEw.desc=he Solar Panel converts sunlight into electricity. (Incredible)%n%nIt can operate on planet surfaces or in space. The device uses the general light level, so the panel's spatial orientation does not affect energy production. The energy output port is at the back.\n\nEnergy production calculations for planets and their orbits:%n%nKerbin - 2kHE/s%nMun - 2kHE/s%nMinmus - 2kHE/s%nDuna - 880HE/s%nIke - 880HE/s%nMoho - 13.3kHE/s%nDres - 240HE/s%nEve - 3.84kHE/s%nLaythe - 80HE/s
+betterquesting.quest.dVwxKlQ5SzaxZjGNcLFMEw.desc=The §3Solar Panel§r converts sunlight into §eelectricity§r. §2(Incredible)§r%n%nIt can operate on planet surfaces or in space. The device uses the general light level, so the panel's spatial orientation does not affect energy production. The energy output port is at the back.%n%n§2Energy production calculations for planets and their orbits:%n%nKerbin - §e2kHE/s§2%nMun - §e2kHE/s§2%nMinmus - §e2kHE/s§2%nDuna - §e880HE/s§2%nIke - §e880HE/s§2%nMoho - §e13.3kHE/s§2%nDres - §e240HE/s§2%nEve - §e3.84kHE/s§2%nLaythe - §e80HE/s§r
 
-# Quest: NTM: Space map
-betterquesting.quest.eItNlZ6bRS2kA-0Ymm_pdA.name=NTM: Space map
+# Quest: Space Map
+betterquesting.quest.eItNlZ6bRS2kA-0Ymm_pdA.name=Space Map
 betterquesting.quest.eItNlZ6bRS2kA-0Ymm_pdA.desc=Here is my own (Bufka2011) map of our Kerbol system!%n[img height=300]resources:SpaceMap_by_Bufka2011.png[/img]
-
-# Quest: XNM-1
-betterquesting.quest.fZrO1r3qTsW8-T_QMDzDgA.name=XNM-1
-betterquesting.quest.fZrO1r3qTsW8-T_QMDzDgA.desc=The XNM-1 engine operates on xenon and energy, making it the complete opposite of the LPW-2. It has the highest efficiency (second only to the HTR-F4) but very low thrust, so flights and orbital maneuvers may take longer.
 
 # Quest: Magma Drill
 betterquesting.quest.gaeSExcOTaawSPifbbIVtg.name=Magma Drill
 betterquesting.quest.gaeSExcOTaawSPifbbIVtg.desc=Unlike its counterpart from the original mod, the Magma Drill does not literally drill into the depths. It is designed for extracting magma from Moho, which, as known, is abundant on this planet both on the surface and in caves. To start working, the mechanism must be installed directly on the surface of a lava lake so that the lava touches the drill head and reaches the edges of the recess. Supply power to the drill, and it will operate automatically.%n%nMagma is output through casting channels into molds. Cooled magma forms Vulcanite, which should then be processed to obtain useful resources.%n%nIn addition to volcanite, the device extracts regular slag (much more than Vulcanite).
 
-# Quest: Duna
-betterquesting.quest.gemtTGmhR0WPuIKYIDbu-w.name=Duna
-betterquesting.quest.gemtTGmhR0WPuIKYIDbu-w.desc=Duna is a desert planet colored in characteristic red tones (with the exception of local glaciers). The landscape is quite diverse; players can encounter several biomes:%n%nPlains and lowlands - areas with relatively smooth terrain. The surface is composed of Dunian sands and stone with rare inclusions of iron ores, hematite, clusters, and calcium blocks. Sometimes there are shallow caves containing deposits of titanium and copper ores.%n%nDuna has its own atmosphere consisting of carbon dioxide (80%%), which is not breathable (besides it, the composition includes nitrogen (10%%), argon (8%%), and a little oxygen (2%%)). For this reason, open fires cannot be lit on the planet, and torches do not burn (not enough oxygen for combustion). Water evaporates instantly.%n%nDuna is rich in minerals, such as beryllium and uranium.
-
-# Quest: Dyson Reciever
-betterquesting.quest.gvtVSZCYTsmh3w4snviJhQ.name=Dyson Reciever
-betterquesting.quest.gvtVSZCYTsmh3w4snviJhQ.desc=This mechanism receives energy from the Dyson swarm and converts it into a beam. It requires a satellite ID chip with a specific frequency to operate. Note that by default, the receiver only receives energy during daylight hours, not at night or in the rain! (We'll talk about night mode later). Also, remember that operation will cease if sunlight is blocked by blocks or other mechanisms. This beam can be converted into various forms of energy using the mechanisms described below. Be careful: the beam explodes blocks and entities that fall into the affected area!%n%nWhen hovering the cursor, it displays the number of Dyson swarm modules and consumers of its energy. There can be multiple receivers, and the output energy will be divided equally among all devices.
-
-# Quest: Home in Space
-betterquesting.quest.hMaDxqIJQyO6ML4qhZA9hg.name=Home in Space
-betterquesting.quest.hMaDxqIJQyO6ML4qhZA9hg.desc=The orbital station is a very heavy load for a rocket. If you want to launch it from Earth, you will need a multi-stage rocket with a huge amount of fuel and the most powerful engines. (Which is very inefficient) Launching the station from the Moon (Muna) is much easier and cheaper.%n%nOn Earth or the Moon, use a radio telescope to program an empty disk for the orbital station - place it in the telescope slot and press the ORB button. At the signal processing station, make a copy of the disk.%n%nAssemble a rocket with the station on board.%n%nLaunch the rocket from the launch pad with the disk. A few seconds after launch, the station will deploy in orbit around the Moon.%n%nThat's it! Assemble another rocket to the station (you will need a copy of the disk to the station) and fly. The station code on all disks must match, otherwise you won't be able to get to it! (I warned you!)
+# Quest: Alkylation Unit
+betterquesting.quest.icj9Y8q0QiWjFk2g7dTnww.name=Alkylation Unit
+betterquesting.quest.icj9Y8q0QiWjFk2g7dTnww.desc=The §3Alkylation Unit§r is designed to convert lighter hydrocarbons into useful heavier hydrocarbon products. From §bNatural Gas§r it can produce §bUnsaturated§r and §bAromatic hydrocarbons§r, commonly used for §6Rubber§r and §6Bakelite§r, and even produce §bBTX§r via the use of §bHigh-Performance Solvent§r. As a utility, it can also alkylate §bPetroleum Gas§r into §bLight Oil§r.
 
 # Quest: Microgravity Algae Film
-betterquesting.quest.hXzJkAYbQWaHf4JOECebgA.name=Microgravity Algae Film
-betterquesting.quest.hXzJkAYbQWaHf4JOECebgA.desc=The Microgravity Algae Film is a machine is made of specialized layers of Laythe plants that will convert CO2 directly into liquid oxygen. They however only function when in orbit.
+betterquesting.quest.nfgxBE2jRE2InE-vMVEfRQ.name=Microgravity Algae Film
+betterquesting.quest.nfgxBE2jRE2InE-vMVEfRQ.desc=The §3Microgravity Algae Film§r is a machine is made of specialized layers of laythe plants that will convert §bCarbon Dioxide§r directly into §bLiquid Oxygen§r. They however only function when in orbit.%n%nThe §3CO2 Scrubber§r allows you to recover carbon dioxide from a pressurized room. This is occasionally useful when building space stations.
 
-# Quest: Dyson Energy and Heat Converters
-betterquesting.quest.kDJNky14Tf6N88VaRNRUJQ.name=Dyson Energy and Heat Converters
-betterquesting.quest.kDJNky14Tf6N88VaRNRUJQ.desc=If you want to use energy from the swarm in the form of electricity, you'll need this mechanism. Install it so that the beam from the receiver hits the dark square window on the end. If done correctly, a working animation will appear (transformers at the back will spark). To take the energy, there is a port at the back.%n%nIf you need to convert the beam into heat, there is another mechanism - a heater powered by the Dyson swarm. It should be used in the same way. There is a copper contact on top for heat consumers.
-
-# Quest: Atmosphere Scanner
-betterquesting.quest.kh8GQUP-QCuOl63Fez8G6A.name=Atmosphere Scanner
-betterquesting.quest.kh8GQUP-QCuOl63Fez8G6A.desc=The Atmosphere Scanner allows you to determine the air composition on a given planet or moon.
-
-# Quest: Avionics Unit
-betterquesting.quest.mLBTiNBhQCe7ggCnWmPngg.name=Avionics Unit
-betterquesting.quest.mLBTiNBhQCe7ggCnWmPngg.desc=The Avionics Unit is the main component used in the creation of most mechanisms and rockets in this mod.
-
-# Quest: Ike
-betterquesting.quest.oBlsoM95R9eKmO5Jypnylw.name=Ike
-betterquesting.quest.oBlsoM95R9eKmO5Jypnylw.desc=Ike is the only natural satellite of Duna, a large rocky celestial body with gravity approximately 5-6 times less than Earth's. The surface of Ike is mostly uneven and hilly, with numerous pointed rocks of bizarre shapes resembling spikes or steeply inclined cones.%n%nThere is nothing remarkable on the surface except for alkyl bromides.%n%nThe planet is rich primarily in copper and iron.
-
-# Quest: Gallium
-betterquesting.quest.oQJDz4wEQcScMNyajCcuUQ.name=Gallium
-betterquesting.quest.oQJDz4wEQcScMNyajCcuUQ.desc=Gallium is a component of gallium arsenide.
-
-# Quest: Space Research!
-betterquesting.quest.oYthzEIYS-6mv1gg8iFoIg.name=Space Research!
-betterquesting.quest.oYthzEIYS-6mv1gg8iFoIg.desc=You've finally grown up for space travel!!! To start such a journey, you'll need an empty hard drive where you'll record raw, unprocessed data from the radio telescope (StarDar) and process it at a special station for further use.
-
-# Quest: First Nickel
-betterquesting.quest.pGoc8GwDQ3Cb0gwLPfweNg.name=First Nickel
-betterquesting.quest.pGoc8GwDQ3Cb0gwLPfweNg.desc=It's strange why there is no nickel on Earth, especially with our level of technology; nevertheless, we were able to obtain it on the Mun, and this is a significant leap in our journey.
-
-# Quest: Eve
-betterquesting.quest.qIUXgxSNS7Sgo9AYTIZ8VA.name=Eve
-betterquesting.quest.qIUXgxSNS7Sgo9AYTIZ8VA.desc=Eve is likely the most hostile and unwelcoming planet to the player among all existing ones. The gravity here slightly exceeds that of Earth, and on Eve, there are local volcanoes. What are they? They are energy geysers in the form of standalone basalt mountains up to 30 meters high with a channel in the center where the core is located, which can be mined and taken with you. Every 15 seconds, this structure emits a glowing column of energy upward, illuminating the entire sky around as if after a lightning flash. The beam is dangerous to all living things: it deals 20 HP damage.%n%nThe local atmosphere is extremely aggressive and contains potassium permanganate (30%%), mercury (25%%), ammonia (15%%), and xenon (5%%). The air can literally dissolve many types of armor, after which it starts damaging the player themselves (a warning 'My suit is melting' appears on the screen). As you understand, the local atmosphere is unsuitable for breathing.%n%n[warn]Underground, there are deposits of almost all known useful metals and other ores. The lakes are full of mercury. Mercury can be pumped from the ground on the planet using a pump. It's also worth mentioning the bedrock ore, from which you can literally mine Schrabidium, plutonium, and niobium.[/warn]
+# Quest: Dres
+betterquesting.quest.rkMKa7TCT5u0jJsdH6TWnw.name=Dres
+betterquesting.quest.rkMKa7TCT5u0jJsdH6TWnw.desc=This planet has some of the most prized resources in the whole system, with even the primary fraction of bedrock ore consisting of incredibly valuable metals and materials. §6Niobium§r, §6Coltan§r, and §6Lanthanium§r ore is present here in vast quantities.
 
 # Quest: StarDar Remote Access Console
 betterquesting.quest.seA5V2QkTCO9NcMwAjcDIA.name=StarDar Remote Access Console
 betterquesting.quest.seA5V2QkTCO9NcMwAjcDIA.desc=Enables remote access to StarDar.
 
-# Quest: Industrial Greenhouse
-betterquesting.quest.sjyXpFJ8S7G7FACzpsLJlg.name=Industrial Greenhouse
-betterquesting.quest.sjyXpFJ8S7G7FACzpsLJlg.desc=The Industrial Greenhouse converts Carbon Dioxide into Oxygen via crop growth. The Greenhouse can also be supplied with fertilizer for faster growing.
-
 # Quest: Tekto
-betterquesting.quest.sn-BgJocSFaRqtQyHmb2QA.name=Tekto
-betterquesting.quest.sn-BgJocSFaRqtQyHmb2QA.desc=Tekto is a distant and dangerous planet orbiting 50 AU from the Sun, with gravity only 0.16 that of Earth and a thick, toxic atmosphere composed mainly of chloromethane (55%%), chlorine (25%%), natural gas (15%%), and hydrochloric acid (5%%).%n%nThe atmospheric pressure reaches 1.5 atm, making the air dense and highly flammable due to its hydrocarbon content. The surface is divided into unusual biomes: the dark Vinyl Deserts with two-meter rubber flowers and geysers ejecting dichloromethane; the Polyvinyl Plains, covered in green rubber grass; dense Tekto Forests with tall dichloromethane trees and rivers of liquid carbon tetrachloride; and the modest Halogen Hills with scattered vegetation. Life here is limited to exotic plant forms built from PVC, vinyl, and rubber, adapted to survive in extreme conditions.%n%nBeneath the thin layer of Tekto silt lies solid basalt, with underground resources including crude Tekto oil, carbon tetrachloride, geyser sources, and PVC wood. Despite being marked as "habitable", the atmosphere is lethal without protection.%n
+betterquesting.quest.tryLG0jySbGKMHzTFhvWOA.name=Tekto
+betterquesting.quest.tryLG0jySbGKMHzTFhvWOA.desc=A strange world, similar to §eEarth§r, where life is different because the vegetation, the only form of life there, is made of complex polymers, like rubber§r and plastic§r.%n%nTekto bedrock ore doesn’t have the non-metal variant; instead, it is replaced by the plastic variant, from which the player can obtain §6Polymer§r, §6Rubber§r, §6Semtex§r and §6PVC§r.
 
 # Quest: My First Volcano!
 betterquesting.quest.vTg3C5JATXuER43bG5IiiQ.name=My First Volcano!
-betterquesting.quest.vTg3C5JATXuER43bG5IiiQ.desc=The formation of a volcano is driven by the volcanic core, a block that continuously erupts lava, allowing the volcano to grow. The lava cools quickly, turning into basalt or basaltic ore.%n%nThe resulting volcano grows quite slowly, reaching about 60 blocks in height over 20-30 minutes.%nVolcanic lava differs from regular lava not only in appearance. It "melts" any non-explosion-resistant blocks, so the volcano can extend underground.%nBasaltic ores (asbestos, sulfur, fluorite, molysite) form when the lava cools, each with a 0.5%% chance.%n%nVolcanic gem ore spawns with a 5%% chance if the following conditions are met:%n- All 6 blocks around the cooling lava are basalt or lava;%n- The block 10 blocks above the cooling lava is basalt or lava;%n- There are fewer than 3 lava blocks around the cooling lava.%nThe ore also forms after volcanic lava contacts diamond ore.%nThis means volcanic gems most often appear near the core or crater of the volcano.%n%n[note]Forming a Radioactive Volcano%nIf the volcanic core is exposed to radioactive fallout (e.g., after a nearby nuclear explosion) for some time, the core will begin generating new volcanic radioactive lava (yellow in color), ultimately leading to the formation of a so-called radioactive volcano. Such a volcano will consist not of basalt but of various types of quenched sellaphite blocks and sellaphite ores. The lava will convert diamond ores into radioactive gem ore.[/note]
+betterquesting.quest.vTg3C5JATXuER43bG5IiiQ.desc=The formation of a volcano is driven by the §3volcanic core§r, a block that continuously erupts §blava§r, allowing the volcano to grow. The §blava§r cools quickly, turning into §6basalt§r or §6basaltic ore§r.%n%nThe resulting volcano grows quite slowly, reaching about 60 blocks in height over 20-30 minutes.%n%n§bVolcanic lava§r differs from §bregular lava§r not only in appearance. It "melts" any non-explosion-resistant blocks, so the volcano can extend underground.%n%n§6Basaltic ores§r (§6asbestos§r, §6sulfur§r, §6fluorite§r, §6molysite§r) form when the §blava§r cools, each with a 0.5%% chance.%n%n§6Volcanic gem ore§r spawns with a 5%% chance if the following conditions are met:%n- All 6 blocks around the cooling §blava§r are §6basalt§r or §blava§r;%n- The block 10 blocks above the cooling §blava§r is §6basalt§r or §blava§r;%n- There are fewer than 3 §blava§r blocks around the cooling §blava§r.%n%nThe §6ore§r also forms after §bvolcanic lava§r contacts §6diamond ore§r.%nThis means §6volcanic gems§r most often appear near the §3core§r or §3crater§r of the volcano.%n%n§3Forming a Radioactive Volcano§r%nIf the §3volcanic core§r is exposed to radioactive fallout (e.g., after a nearby nuclear explosion) for some time, the §3core§r will begin generating new §bvolcanic radioactive lava§r (yellow in color), ultimately leading to the formation of a so-called §3radioactive volcano§r. Such a volcano will consist not of §6basalt§r but of various types of §6quenched sellaphite blocks§r and §6sellaphite ores§r. The §blava§r will convert §6diamond ores§r into §6radioactive gem ore§r.
 
-# Quest: Hafnium
-betterquesting.quest.wXPsjys8QQqRE-98Ezq9eg.name=Hafnium
-betterquesting.quest.wXPsjys8QQqRE-98Ezq9eg.desc=Hafnium is found in small quantities within niobium crystals, from which it is separated by centrifugation.%n%nIt is used in the creation of the hafnium chip.
+# Quest: Eve
+betterquesting.quest.vWpv_FM5QYqYHsRsaNNwog.name=Eve
+betterquesting.quest.vWpv_FM5QYqYHsRsaNNwog.desc=While it is possible to travel here with only a tier 2 drive processor to exploit the incredibly powerful schrabidic resources that exist here, players will not last long without the appropriate armor inserts, due to the highly corrosive atmosphere melting any armor it comes into contact with.%n
 
-# Quest: Stainless Steel
-betterquesting.quest.wr2IZDBvRn-PK2V3wTfS2A.name=Stainless Steel
-betterquesting.quest.wr2IZDBvRn-PK2V3wTfS2A.desc=Stainless steel is a great alloy that will allow you to build advanced mechanisms and establish your first space station!
+# Quest: Rocket Assembling and Launching
+betterquesting.quest.w4uLB-JtTW-fCQA_qF6_ww.name=Rocket Assembling and Launching
+betterquesting.quest.w4uLB-JtTW-fCQA_qF6_ww.desc=The §3Vehicle Assembly Base§r is a structure which is one of the most vital parts of your space-faring efforts. It'll allow you to stack your rockets and plan out each segment of your journey. Note that each rocket stage allows for one launch from a celestial body to another, so a two-stage rocket can make a round-trip between, say, the Earth and the Mun.%n%nThe §3Rocket Launch Pad§r is the only launch pad capable of supporting the various fuel loads and complex requirements of the stacked rockets. This is the only way to fuel up a rocket too, so you'll want to make multiple stages for launching from bodies without a pad. The pad itself has a GUI that'll indicate what your rocket requires to be launched.
 
 # Quest: Volcanic Gem
 betterquesting.quest.xbXJIo86R_-J4iKK6DY-6w.name=Volcanic Gem
-betterquesting.quest.xbXJIo86R_-J4iKK6DY-6w.desc=A very valuable gemstone that is used to create a cast pickaxe, meteorite talisman, black diamond, composite euphemium plates and special 227mm shells.
+betterquesting.quest.xbXJIo86R_-J4iKK6DY-6w.desc=A very valuable gemstone that is used to create a §6Cast Pickaxe§r, §6Meteorite Talisman§r, §6Black Diamond§r, §6Composite Euphemium Plates§r and §6Special 227mm Shells§r.
 
 # Quest: Rocket Transporter Pad
 betterquesting.quest.y2yrIQ6QRve-p9fRVJD0YA.name=Rocket Transporter Pad
-betterquesting.quest.y2yrIQ6QRve-p9fRVJD0YA.desc=The Rocket Transporter Station is essential for sending and receiving cargo between celestial bodies.%n%nTransport rockets, similar to resource modules or gas giant harvesters, automatically move various cargoes. To make the system work, you need at least one pair of linked platforms.%n%nThe platforms have compartments for outgoing and incoming items (blue and orange, respectively), and they can handle liquids with dedicated buffers.%n%nTo link platforms, Shift+Right-Click with the Rocket Transporter Connector on one platform to save it, then Right-Click on another platform. To open the linker interface, Right-Click on a platform with the connector: it will display information about the linked platforms' locations.%n%nTo designate one of these points as the receiving point, click the button at the beginning of the row.%n%nTo launch the transporter rocket, the station must be fueled with liquid oxygen and hydrogen.
+betterquesting.quest.y2yrIQ6QRve-p9fRVJD0YA.desc=The §3Rocket Transporter Station§r is essential for sending and receiving cargo between celestial bodies.%n%n§3Transport rockets§r, similar to §3resource modules§r or §3Gas Giant Harvesters§r, automatically move various cargoes. To make the system work, you need at least one pair of linked platforms§r.%n%nThe platforms have compartments for outgoing and incoming items (blue and orange, respectively)§r, and they can handle liquids with §3dedicated buffers§r.%n%nTo link platforms, Shift+Right-Click with the §6Rocket Transporter Connector§r on one platform to save it, then Right-Click on another platform. To open the linker interface§r, Right-Click on a platform with the connector: it will display information about the linked platforms' locations.%n%nTo designate one of these points as the receiving point, click the button at the beginning of the row§r.%n%nTo launch the transporter rocket§r, the station must be fueled with §bliquid oxygen§r and §bhydrogen§r.
+
+# Quest: Moho
+betterquesting.quest.yWu2LtytQjGg65tFXTo2ow.name=Moho
+betterquesting.quest.yWu2LtytQjGg65tFXTo2ow.desc=A fair-dinkum planet, hot as hell, and full of rare resources generally only found in the Nether. §6Australium§r is only found here, in vast quantities deep under the surface. Some of the largest caves ever generated within Minecraft can be found here.
 
 
 ## Quest Line: LV4 - End Game
@@ -1079,9 +1051,21 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAABLw.desc=The §6Crucible§r is a weapon 
 betterquesting.quest.AAAAAAAAAAAAAAAAAAABMA.name=Schrabidium Hammer
 betterquesting.quest.AAAAAAAAAAAAAAAAAAABMA.desc=The §6Schrabidium Hammer§r is the most powerful weapon in the mod, being able to one-shot everything.
 
+# Quest: Done
+betterquesting.quest.FmWwl9ntTjeMSWhXcVcTdg.name=§cDone
+betterquesting.quest.FmWwl9ntTjeMSWhXcVcTdg.desc=Are you okay? Go touch some grass.
+
+# Quest: Secret Catalogue
+betterquesting.quest.J9dwgncgSUydHFPUoI85oQ.name=Secret Catalogue
+betterquesting.quest.J9dwgncgSUydHFPUoI85oQ.desc=In order to obtain a hidden catalog, you have to do a few things:%n%nGet a regular sign%nAnswer the four questions and put the answers on said sign in the same order (all lowercase)%nRight click the written sign%nThere will be answers with more characters than signs allow, just type out as many as possible.%n%nThere will be no hints, so don't even try it.%nYou'll need the bobmazon level 6 achievement to order anything.%n%n%n%n1%nWhen we scream into the distance, who will answer?%n%n2%nThe invisible force, sometimes subtle and sometimes not, covers our eyes directed at the skies.%n%n3%nThe fluorescent oscilloscope gives us the passcode of random numbers. Who holds the answers?%n%n4%nEver revolving, never still, a sight for the patient that reeks of tobacco, dancing perpetually.
+
 # Quest: Particle Accelerator
 betterquesting.quest._nmJ1zrSQp22psctX6Uq2A.name=Particle Accelerator
 betterquesting.quest._nmJ1zrSQp22psctX6Uq2A.desc=The §3Particle Accelerator§r is a highly modular machine that uses high strength superconducting magnets to accelerate particles to relativistic speeds in order to collide them together.%n%nDue to the complex and expansive nature of the particle accelerator, it is highly recommend that the wiki is checked out as it provides more information.%n%n[url]https://nucleartech.wiki/wiki/Particle_Accelerator[/url]%n%n§2This quest demands the most essential parts of the particle accelerator, and does not represent the amount needed for it to function.
+
+# Quest: HOW THE FUCK?!
+betterquesting.quest.fbvQbC3JTKOtI2b8e3cB0A.name=§c§l§4§lHOW THE FUCK?!
+betterquesting.quest.fbvQbC3JTKOtI2b8e3cB0A.desc=Here ya go, your reward
 
 # Quest: ICF Laser Turbocharger
 betterquesting.quest.hmwBFeuMQXiUrjE-WdD6-g.name=ICF Laser Turbocharger
@@ -1115,6 +1099,10 @@ betterquesting.quest.TA6SPr3KTbKsgRFceNMZmA.desc=The §6Chisel§r is a building 
 # Quest: Schematica
 betterquesting.quest.VyF-RUbsSuS8J2hbI5CIkw.name=Schematica
 betterquesting.quest.VyF-RUbsSuS8J2hbI5CIkw.desc=With §dSchematica§r, you can create schematics of your builds and post holograms of them on other worlds. Check out the keybinds to get started.
+
+# Quest: Decobench
+betterquesting.quest.W3YJEghpQMa3V91fEyWHyw.name=Decobench
+betterquesting.quest.W3YJEghpQMa3V91fEyWHyw.desc=The §3Decobench§r allows you to craft different props from §dDecocraft§r.%n%nIn order to use the Decobench you should put §6clay§r, §6red dye§r, §6green dye§r and §6blue dye§r in it.
 
 # Quest: Modern Markings
 betterquesting.quest.j9eLuGnhRVWn5uJS_KI5lg.name=Modern Markings
@@ -1169,10 +1157,6 @@ betterquesting.quest.2L-E-PL5SDWjrfvWn_zC_w.desc=Pretty good and cheap armor. Ex
 # Quest: Bismuth Armor Set
 betterquesting.quest.3JpvYLTfTOO9kEK28DaW8w.name=Bismuth Armor Set
 betterquesting.quest.3JpvYLTfTOO9kEK28DaW8w.desc=VERY cool armor, gives you ability to dash [note](hmm... reminds me of some game...)[/note]
-
-# Quest: Dineurtom amrr
-betterquesting.quest.6PZEF2npTwy_exs-JQAKYg.name=Dineurtom amrr
-betterquesting.quest.6PZEF2npTwy_exs-JQAKYg.desc=Increasus damge takn by 5x tims%nBestest armr in da wurld!!!!!!1!!1!!%n%nStaje of da gaim - Brayn Partiklz%nProtekshun levl - Funtastick%nFeetchurs - Yoor Btes Chois
 
 # Quest: Diesel-Powered Armor Set
 betterquesting.quest.6WXPMWrES4OaDu1YsXq5Gg.name=Diesel-Powered Armor Set
@@ -1243,13 +1227,9 @@ betterquesting.quest.-WMTfvUrRlmEzH7hBIzMfg.desc=Another type of quartz, called 
 betterquesting.quest.2uw1IrVfTVKt_7dxdEsNOQ.name=Burning Stick
 betterquesting.quest.2uw1IrVfTVKt_7dxdEsNOQ.desc=Ouch! Ouch! Hot!%n%nThe Blaze Rod is a vital material for reaching the End. It drops, of course, from Blazes — but be careful! They always spawn infernal, so prepare for a tough fight.
 
-# Quest: The End Resources
-betterquesting.quest.5kMp0VQpS621jGrQSHbZGQ.name=The End Resources
-betterquesting.quest.5kMp0VQpS621jGrQSHbZGQ.desc=The End is where you'll find the resources you need for high-level crafting. To get it, craft an Eye of Ender like you would in regular Minecraft to find a fortress with an End Portal.%n%nThe dragon boss fight has been reworked and is now a much more challenging encounter with new obstacles to overcome before defeating the dragon.%n%nIn the End, you can collect Dragon Essence by killing the dragon, Ender Powder from ore scattered across the islands, and Stardust found in the far reaches of the distant End Islands.
-
 # Quest: The Nether
 betterquesting.quest.DgW8bQi1TbSrKcPoJms-1g.name=The Nether
-betterquesting.quest.DgW8bQi1TbSrKcPoJms-1g.desc=As was mentioned in [quest]Vanilla changes[/quest], you're burning in the Nether. So you need fire protection.%n%nAttach your brand new gas mask to your fireproof helmet and craft a gas mask filter that can protect you from a Nether coal.%n%nAlso, Nether has a background radiation of 5 rad/s, so it's best not to stay there for too long.
+betterquesting.quest.DgW8bQi1TbSrKcPoJms-1g.desc=§eThe Nether§r is home to many resourses, such as:%n%n§6Quartz§r§r which can be used for §6Silicon§r.%n§6Infernal Coal§r which can be shredded for §6Coal Powder§r.%n§6Sulfur§r needed for various chemical processes.%n§6Red Phosphorus§r for incendiary weaponry.%n§6Glowstone§r for early §bChlorine Gas§r in a §3Combination Oven§r.%n§6Cobalt§r can also be rarely found near the Nether Roof.%n%nThe Nether has a backround radiation of §e0.1RAD/s§r.§r%n%n§cYou will burn in Nether permanently.%n%n§2Glowstone, Quartz and Phosphorus Bedrock Ore Deposits also exist.§r%n%n§2Depth Neodymium Deposits also spawn exclusively in the Nether.§r %n
 
 # Quest: Piglins?
 betterquesting.quest.JfANYrzhQKCVY4ATmF-Tsg.name=Piglins?
@@ -1273,27 +1253,31 @@ betterquesting.quest.rIM_8imCQdyHqdA2ih4brQ.desc=An alternative to Glowstone can
 
 # Quest: New End
 betterquesting.quest.vQm4mFhbRsS8yjm9DkDAUw.name=New End
-betterquesting.quest.vQm4mFhbRsS8yjm9DkDAUw.desc=Hardcore Ender Expansion (HEE) is a large-scale Minecraft mod that completely overhauls **The End** dimension, making it far more challenging, atmospheric, and rewarding. It introduces new biomes, structures, mobs, and resources, while also reworking the Ender Dragon fight into a much more tactical and difficult encounter.%n%nKey features:%n%n* A fully redesigned End with unique landscapes and biomes.%n* New mobs and bosses that greatly increase the challenge.%n* Expanded and more strategic Ender Dragon battle.%n* Exclusive blocks, items, and resources found only in the End.%n* A true “hardcore” feel — entering the End becomes a real endgame trial.
+betterquesting.quest.vQm4mFhbRsS8yjm9DkDAUw.desc=§eThe End§r is home to §6Trixite§r, a unique extraterrestrial mineral that when processed can yield §6Plutonium§r, §6Cobalt§r and §6Niobium§r. The Niobium is of great interest as it is a great source for early §3Catalytic Cracking Towers§r.%n%nDue to only the main end island existing, Trixite Ore is a limited resourse.§r Trixite Crystals can also be obtained from an §6Asteroid Mining Ship§r, but it is not recommended.%n%n§dEt Futurum Requiem§r backports many modern end features, such as §eChorus Fruit§r, §eShulkers§r and a respawnable §eEnder Dragon§r using §6End Crystals§r.%n%nThe §6Dragon Egg§r can also be used to create a Backpack which provides passive §eNight Vision§r, §eStrength 2§r and §eFire resistance§r, aswell as some §eRegeneration§r when on low health.%n%nEnderman farms can also be made using §3Fans§r to push the endermen into the killing zone.
 
 
 ## Quest Line: Three hundred caps
 betterquesting.questline.PUpgFX1lTJePHTcvicBC8g.name=Three hundred caps
 betterquesting.questline.PUpgFX1lTJePHTcvicBC8g.desc=Welcome to the shop!
 
-# Quest: Advanced Alloy
-betterquesting.quest.-cnZWNjQRf6c1btgaDWOyA.name=Advanced Alloy
+# Quest: Buy Advanced Alloy
+betterquesting.quest.-cnZWNjQRf6c1btgaDWOyA.name=Buy Advanced Alloy
 betterquesting.quest.-cnZWNjQRf6c1btgaDWOyA.desc=Need some advanced alloy? Buy some!
 
-# Quest: Minecraft Grade Copper
-betterquesting.quest.D2Exp9OuTbyYS9fJwtw2-g.name=Minecraft Grade Copper
+# Quest: Sell Dust
+betterquesting.quest.7NPMYwlyRnuUYaXsIwEgRg.name=Sell Dust
+betterquesting.quest.7NPMYwlyRnuUYaXsIwEgRg.desc=I hate dust!
+
+# Quest: Buy Minecraft Grade Copper
+betterquesting.quest.D2Exp9OuTbyYS9fJwtw2-g.name=Buy Minecraft Grade Copper
 betterquesting.quest.D2Exp9OuTbyYS9fJwtw2-g.desc=Need some minecraft grade copper? Buy some!
 
-# Quest: Technetium Steel
-betterquesting.quest.QoKnQH_ETbiodGyDlEZzuA.name=Technetium Steel
+# Quest: Buy Technetium Steel
+betterquesting.quest.QoKnQH_ETbiodGyDlEZzuA.name=Buy Technetium Steel
 betterquesting.quest.QoKnQH_ETbiodGyDlEZzuA.desc=Need some technetium steel? Buy some!
 
-# Quest: Steel
-betterquesting.quest.r6_zzsvOSRWQ6N6YCBilvw.name=Steel
+# Quest: Buy Steel
+betterquesting.quest.r6_zzsvOSRWQ6N6YCBilvw.name=Buy Steel
 betterquesting.quest.r6_zzsvOSRWQ6N6YCBilvw.desc=Need some steel? Buy some!
 
 
@@ -1322,8 +1306,8 @@ betterquesting.quest.qG74J_R9TQub-uWbBzZkoQ.name=LV3 > LV4 Lootbag Trade
 betterquesting.quest.qG74J_R9TQub-uWbBzZkoQ.desc=Trade four LV3 lootbags to get a better one: LV4.
 
 
-## Quest Line: AE2
-betterquesting.questline.AAAAAAAAAAAAAAAAAAAABQ.name=AE2
+## Quest Line: Applied Energistics 2
+betterquesting.questline.AAAAAAAAAAAAAAAAAAAABQ.name=Applied Energistics 2
 betterquesting.questline.AAAAAAAAAAAAAAAAAAAABQ.desc=Automate your factory using Applied Energistics 2.
 
 # Quest: P2P ME Networking
@@ -1689,6 +1673,10 @@ betterquesting.questline.Kxnm-96zR0mXUMUYAs0sBw.desc=...
 betterquesting.quest.3J7vD46NQg6IMMDRALpT-A.name=Armor Modifications
 betterquesting.quest.3J7vD46NQg6IMMDRALpT-A.desc=The §3Armor Modification Table§r allows for armor modifications to be inserted in armor, giving either buffs, new abilities or extra resistance.
 
+# Quest: Dyson Swarms
+betterquesting.quest.3WDOW4oRQoO6WN6291ZuNw.name=Dyson Swarms
+betterquesting.quest.3WDOW4oRQoO6WN6291ZuNw.desc=§3Dyson Swarms§r consist of thousands of swarm members encircling the parent star of a system, and energy production from the swarm scales based on the number of members in a swarm. These satellites do not last indefinitely however, they attenuate (decay) over time, with the chance of decay increasing as the number of swarm members increase.%n%n§6Dyson Swarm Members§r must be launched into solar orbit via the use of a huge centrifugal launch platform, known as the §3Spinlauncher§r. The spinlauncher launches 4 swarm members at a time, consuming a large amount of electricity to do so.%n%nThe §3Dyson Receiver§r is the main machine required for collecting energy from the swarm. It collimates the immense energy collected from the swarm into a immensely powerful beam. Setting up requires only a satellite ID chip that is matched to an existing swarm. The energy beam must be pointed towards a Dyson Power Converter.%n%nThe §3Satellite Dyson Relay§r can be used to allow dyson swarms to provide power during night time.
+
 # Quest: Quests information
 betterquesting.quest.45ow6xFKTQ6GHVi3FG_dtQ.name=Quests information
 betterquesting.quest.45ow6xFKTQ6GHVi3FG_dtQ.desc=[warn]This version of the Questbook was originally made by _SkippyPlaysMC_ and modified by Bufka2011.[/warn]%n%nNotes:%n%n§b1) This questbook does not contain all the content from the mod, such as the guns, many armor sets and others. Make sure to browse NEI.%n%n2) §lThere are two types of quests §r§3§b- primary and secondary. Primary quests are quests with unique shape and bold lines between each other.%n%n3) When updating the modpack to newer versions that has introduced changes to the questbook, in case the quests dont update, delete the betterquesting folder in the world file.%nAfter it is deleted, turn on cheats and do "/bq_admin edit true", head over to the chapter of your choice, press the designer button (the one with many squares), click on your quest of choice and finally press the autocomplete button (checkmark) to complete the quests previously completed.%n%n§c§lDo not use the quests for a modpack that is to be published, unless given explicit permission.%n%n§r§bSpecial thanks to everyone on discord who helped out with questions and recommendations while making the quests, aswell as the official NTM Wiki for providing information used in the quests.%n
@@ -1696,6 +1684,18 @@ betterquesting.quest.45ow6xFKTQ6GHVi3FG_dtQ.desc=[warn]This version of the Quest
 # Quest: Modpack information
 betterquesting.quest.5VAtBoWDTLmFNrWxLbn9IA.name=Modpack information
 betterquesting.quest.5VAtBoWDTLmFNrWxLbn9IA.desc=§cWelcome to Nuclear Tech: New Horizons!§r%n%nPlease read the following information before starting out.%n%n§b1) Remember to Claim your base and Chunkload your reactors using Server Utilities (from the inventory).%n%n2) If shaders are glitching out try to use fancy textures.%n%n3) If you are encountering any rendering problems, try to scroll around in NEI.%n%n4) If you are playing with friends, make sure to invite them in your BetterQuesting Party as to share progression and rewards.%n
+
+# Quest: The End Resources
+betterquesting.quest.5kMp0VQpS621jGrQSHbZGQ.name=The End Resources
+betterquesting.quest.5kMp0VQpS621jGrQSHbZGQ.desc=The End is where you'll find the resources you need for high-level crafting. To get it, craft an Eye of Ender like you would in regular Minecraft to find a fortress with an End Portal.%n%nThe dragon boss fight has been reworked and is now a much more challenging encounter with new obstacles to overcome before defeating the dragon.%n%nIn the End, you can collect Dragon Essence by killing the dragon, Ender Powder from ore scattered across the islands, and Stardust found in the far reaches of the distant End Islands.
+
+# Quest: Dineurtom amrr
+betterquesting.quest.6PZEF2npTwy_exs-JQAKYg.name=Dineurtom amrr
+betterquesting.quest.6PZEF2npTwy_exs-JQAKYg.desc=Increasus damge takn by 5x tims%nBestest armr in da wurld!!!!!!1!!1!!%n%nStaje of da gaim - Brayn Partiklz%nProtekshun levl - Funtastick%nFeetchurs - Yoor Btes Chois
+
+# Quest: Dyson Anatmogenesis Terraformer
+betterquesting.quest.6k-JrbD-S8GO9PRRthWNRA.name=Dyson Anatmogenesis Terraformer
+betterquesting.quest.6k-JrbD-S8GO9PRRthWNRA.desc=The §3Dyson Anatmogenesis Terraformer§r provides the most utility out of all the currently available §3Dyson converters§r, accepting a beam from a receiver and providing a direct energy to mass conversion, producing planetary scale atmospheric gases, terraforming any planet or moon as a player sees fit.%n%nBy default it will release oxygen into an atmosphere, making it breathable once it crosses the 0.1atm threshold for breathing. A fluid identifier can be used to switch the gas emitted, and a screwdriver can switch it between emitting or extracting gases from the atmosphere.%n%nIf powered with §e150THE/s§r power from a swarm (equivalent to a swarm size of 1,024), it will take 8 hours to reach 0.1atm of pressure.
 
 # Quest: Glyphids
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAABQ.name=Glyphids
@@ -1717,6 +1717,10 @@ betterquesting.quest.AAAAAAAAAAAAAAAAAAAANQ.desc=The §6DNT Nanosuit§r is final
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAhA.name=HEV Mark IV
 betterquesting.quest.AAAAAAAAAAAAAAAAAAAAhA.desc=The §6HEV Mark IV§r is a strong electric armor set, with the intent of keeping the user safe primarely from dangerous hazards, such as high levels of radiation, fire, certain air particles and more. The suit comes equiped with an §6Geiger Counter§r and custom hud.
 
+# Quest: Tantalium
+betterquesting.quest.AAAAAAAAAAAAAAAAAAAAiw.name=Tantalium
+betterquesting.quest.AAAAAAAAAAAAAAAAAAAAiw.desc=§6Tantalium§r is a material needed for the creation of some items, most importantly §6Capacitor Boards§r. Tantalium Polycrystal production requires §6Coltan§r which can be located by the use of a §6Coltass§r. Coltan can also be obtained by using the mining drill in a §eBedrock Ore Coltan Deposit§r located randomly on planet Dres. Tantalum can also be obtained via §3Watz Reactor§r.%n%n§2Coltan Processing at its early stage can provide Niobium needed for Catalytic Cracking Towers.
+
 # Quest: Red Key
 betterquesting.quest.NB6qs0xZSHaY5Sik2IoTxg.name=Red Key
 betterquesting.quest.NB6qs0xZSHaY5Sik2IoTxg.desc=The §6Red Key§r is able to open any container that requires a regular key, regardless of the pin configuration of the lock, and it is one of the only two keys capable of opening the keyhole found on strange stone, in order to open a §eRed Room§r. The key has no durability, and can be reused indefinitely.%n%n
@@ -1725,141 +1729,13 @@ betterquesting.quest.NB6qs0xZSHaY5Sik2IoTxg.desc=The §6Red Key§r is able to op
 betterquesting.quest.VoxsH2isSheNEKaJ3_Ikgg.name=Safes and lockpicking
 betterquesting.quest.VoxsH2isSheNEKaJ3_Ikgg.desc=The §6Screwdriver§r is used to rotate conveyor blocks aswell as to create a §3Chicago Pile§r. It can also be used in combination with §6Bobby Pins§r to unlock §6Safes§r found in various structures.
 
+# Quest: The End of Space...
+betterquesting.quest.XbTJRWJNTKa4UEeLPV0urg.name=The End of Space...
+betterquesting.quest.XbTJRWJNTKa4UEeLPV0urg.desc=Well, you've completed the space stage of the game; now the entire space knows and fears you (you are a true space pirate). Here are a couple more nuances about the §3Dyson swarm§r:%n%n§2Do not place §3converters§r directly next to the §3receiver§r - this will cause a malfunction.§r%n%n§2Multiple players in the same game world can create multiple §3swarms§r, but keep in mind that different swarms reduce each other's §eefficiency§r. This can encourage players to either work together on one common §3swarm§r or compete to extract more §eenergy§r from their own §3swarm§r.§r
+
 # Quest: All My Sounds Are Gone!
 betterquesting.quest.lH0bvUKoTYChtO49fWj9Qg.name=All My Sounds Are Gone!
 betterquesting.quest.lH0bvUKoTYChtO49fWj9Qg.desc=Try updating your Java by downloading it from the official Jav website ([url]https://java.com[/url]).%n%nIf it didn't help - open an issue on our GitHub or ask for help in our Discord.
 
 
 ### Quests in no quest lines ###
-
-# Quest: Duna
-betterquesting.quest.-aAyklEkSHK7wGxEEzQJ9Q.name=Duna
-betterquesting.quest.-aAyklEkSHK7wGxEEzQJ9Q.desc=The red planet, home to vast quantities of §6Iron§r. §6Molysite§r and §6Volcano Gems§r can be found here in basaltic caves, found within basins where vast oceans were theorized to once exist.
-
-# Quest: Dyson Swarms
-betterquesting.quest.3WDOW4oRQoO6WN6291ZuNw.name=Dyson Swarms
-betterquesting.quest.3WDOW4oRQoO6WN6291ZuNw.desc=§3Dyson Swarms§r consist of thousands of swarm members encircling the parent star of a system, and energy production from the swarm scales based on the number of members in a swarm. These satellites do not last indefinitely however, they attenuate (decay) over time, with the chance of decay increasing as the number of swarm members increase.%n%n§6Dyson Swarm Members§r must be launched into solar orbit via the use of a huge centrifugal launch platform, known as the §3Spinlauncher§r. The spinlauncher launches 4 swarm members at a time, consuming a large amount of electricity to do so.%n%nThe §3Dyson Receiver§r is the main machine required for collecting energy from the swarm. It collimates the immense energy collected from the swarm into a immensely powerful beam. Setting up requires only a satellite ID chip that is matched to an existing swarm. The energy beam must be pointed towards a Dyson Power Converter.%n%nThe §3Satellite Dyson Relay§r can be used to allow dyson swarms to provide power during night time.
-
-# Quest: CMB Insert
-betterquesting.quest.3fvMK3HASiaG4E0wg7MTrA.name=CMB Insert
-betterquesting.quest.3fvMK3HASiaG4E0wg7MTrA.desc=§6CMB Iserts§r are an armor modification which will protect its user from the corrosive atmosphere of §eEve§r. %n%nThe §3Gas Giant Harvester§r will return back with §bJool Air§r, to be processed by the §3Cryogenic Distillation Machine§r.
-
-# Quest: Industrial Greenhouse
-betterquesting.quest.4HLGI5HyQtSw1G-iuwI0kg.name=Industrial Greenhouse
-betterquesting.quest.4HLGI5HyQtSw1G-iuwI0kg.desc=The §3Industrial Greenhouse§r converts §bCarbon Dioxide§r into §bOxygen§r via crop growth. The greenhouse can also be supplied with §6Fertilizer§r for faster growing.
-
-# Quest: Combo Filter
-betterquesting.quest.5zvQ0LjmRt6yAsPQW_CnCg.name=Combo Filter
-betterquesting.quest.5zvQ0LjmRt6yAsPQW_CnCg.desc=Gas Mask Combo Filter is most expensive and best gas mask filter.
-
-# Quest: Alexandrite
-betterquesting.quest.6QkJAd16ShyBsBGbKveWgQ.name=Alexandrite
-betterquesting.quest.6QkJAd16ShyBsBGbKveWgQ.desc=Alexandrite ore is mined in the overworld only by explosion (i.e., a mining charge), or by picks that can break deepstone (i.e., a bismuth or cast pick).%nIt naturally generates in the range of Y: 10-15. There is only one vein per 100 chunks (25600 blocks).%nA vein can contain from 1 to 3 blocks. Each block drops 1 alexandrite.%n%nWith some chance, it can be obtained from a meteorite treasure block, as well as from the Red Room. Or it can be extracted from a broken wooden toaster on an anvil.%n[warn](Wooden toaster?)[/warn]
-
-# Quest: Dyson Anatmogenesis Terraformer
-betterquesting.quest.6k-JrbD-S8GO9PRRthWNRA.name=Dyson Anatmogenesis Terraformer
-betterquesting.quest.6k-JrbD-S8GO9PRRthWNRA.desc=The §3Dyson Anatmogenesis Terraformer§r provides the most utility out of all the currently available §3Dyson converters§r, accepting a beam from a receiver and providing a direct energy to mass conversion, producing planetary scale atmospheric gases, terraforming any planet or moon as a player sees fit.%n%nBy default it will release oxygen into an atmosphere, making it breathable once it crosses the 0.1atm threshold for breathing. A fluid identifier can be used to switch the gas emitted, and a screwdriver can switch it between emitting or extracting gases from the atmosphere.%n%nIf powered with §e150THE/s§r power from a swarm (equivalent to a swarm size of 1,024), it will take 8 hours to reach 0.1atm of pressure.
-
-# Quest: Cryogenic Distillation Machine
-betterquesting.quest.7kkbpR6rS4CsUTUFQ5wd7g.name=Cryogenic Distillation Machine
-betterquesting.quest.7kkbpR6rS4CsUTUFQ5wd7g.desc=The §3Cryogenic Distillation Machine§r can split atmospheric gases into 4 useful fractions, like for example, taking trace amounts of §bNitrogen§r out of the Dunaian atmosphere to produce soil for planting crops.
-
-# Quest: Gallium Arsenide
-betterquesting.quest.DeOqQyXwQRq5RNcDa5l0ug.name=Gallium Arsenide
-betterquesting.quest.DeOqQyXwQRq5RNcDa5l0ug.desc=§6Gallium Arsenide§r is made from mixing §6Gallium§r, which can be procured by processing rich mineral deposits from §eMoho§r or §eIke§r, and §6Arsenic§r which is found on Ike in bedrock ore, or on §eEarth§r via dirt and stone that has been damaged by hydraulic fracking.
-
-# Quest: Vacuum Solderer
-betterquesting.quest.G3Em4SXiQee1Yu-Rd0yGaA.name=Vacuum Solderer
-betterquesting.quest.G3Em4SXiQee1Yu-Rd0yGaA.desc=The §3Vacuum Solderer§r is a machine that can only function in a vacuum, and produces vacuum circuits. They can be placed into the §3Drive Processor§r to enable it to process higher tier planetary drives.
-
-# Quest: Space Equipment
-betterquesting.quest.HvPzivF4SWWIDt5syO87xA.name=Space Equipment
-betterquesting.quest.HvPzivF4SWWIDt5syO87xA.desc=The §6PLSS§r is an armor modification which will allow you to breathe in space. It will only work on airtight sealed suits.%n%nThe §6Heavy Boots§r can be used to quickly descend down in low-gravity environments.
-
-# Quest: Ike
-betterquesting.quest.KItM5UOCSNmCMNKnohadaQ.name=Ike
-betterquesting.quest.KItM5UOCSNmCMNKnohadaQ.desc=§eIke§r, the sole moon of §eDuna§r, has hints of a past as a significant hazardous waste dump, with large spires and pyramids reminiscent of potential designs on Earth for warning future civilizations of great danger in relation to nuclear waste. §eMeteor dungeons§r spawn more frequently here, and pools of §bAlkyl Bromide§r can be found on the surface.%n
-
-# Quest: Drive Processor Tier 3
-betterquesting.quest.LKTbDe35Rte7XOisZoywOQ.name=Drive Processor Tier 3
-betterquesting.quest.LKTbDe35Rte7XOisZoywOQ.desc=The §3Drive Processor Tier 3§r allows for travel to §eLaythe§r.
-
-# Quest: Atmospheric Scanner
-betterquesting.quest.MqqnLpS-RLK6oNw12wzI7Q.name=Atmospheric Scanner
-betterquesting.quest.MqqnLpS-RLK6oNw12wzI7Q.desc=The §6Atmospheric Scanner§r shows the atmospheric consistency of planets. Useful for when terraforming.
-
-# Quest: Orbital Station
-betterquesting.quest.NBDAp_kvThGG5C4yE0SiPA.name=Orbital Station
-betterquesting.quest.NBDAp_kvThGG5C4yE0SiPA.desc=The §3Orbital Station§r is a space station which is located at the orbit of §eEarth§r. §3Solar Panels§r in combination with §3Air Vents§r can be used to make a sustainable living environment in the station. Make sure to make airlocks to minimise air loss.%n%nThe orbital station can also be moved to distant planets using thrusters in combination with an §3Orbital Station Computer§r.
-
-# Quest: Stainless Steel
-betterquesting.quest.Q0hC3CjIR4GB7MtYPpxXgA.name=Stainless Steel
-betterquesting.quest.Q0hC3CjIR4GB7MtYPpxXgA.desc=§6Stainless Steel§r is an alloy made of §6Steel§r and §6Nickel§r.
-
-# Quest: Drive Processor Tier 2
-betterquesting.quest.QVJAi3JOR5in6VwMOEyL6w.name=Drive Processor Tier 2
-betterquesting.quest.QVJAi3JOR5in6VwMOEyL6w.desc=The §3Drive Processor Tier 2§r allows for travel to §eDres§r and §eEve§r.
-
-# Quest: Hafnium
-betterquesting.quest.S0AQWdCYSeiUnhi2CmLszA.name=Hafnium
-betterquesting.quest.S0AQWdCYSeiUnhi2CmLszA.desc=§6Hafnium§r is a rare light metal needed to produce the §6Hafnium chips§r, which at this stage in progression can only be obtained by centrifuging niobium crystals, which must be created from niobium ore, only found on §eDres§r and §eEve§r.
-
-# Quest: Mun/Minmus
-betterquesting.quest.SyNchvx5TpG6S7lF4jtiOA.name=Mun/Minmus
-betterquesting.quest.SyNchvx5TpG6S7lF4jtiOA.desc=Your first destination! Absolutely chock full of §6Lithium§r, §6Quartz§r and most importantly your first source of §6Nickel§r to start producing §6Stainless Steel§r for space-grade machinery. The §eMun§r is the first atmosphere-less body available in a regular playthrough, necessary for making the first tier of §6Drive Processors§r in the §3Vacuum Solderer§r.%n%nThe B-Side destination alternative to the Mun, §eMinmus§r is characterized by a distinctive mint-choc-chip ice-cream aesthetic. §3Pumps§r function here, but instead of producing §bWater§r, this moon bizarrely produces §bMilk§r, allowing for full automation of §6Butter§r, §6Milkshakes§r and §6Ice-Cream§r.
-
-# Quest: Laythe
-betterquesting.quest.Tz9bzhSZQLGbAIEh4Zckbg.name=Laythe
-betterquesting.quest.Tz9bzhSZQLGbAIEh4Zckbg.desc=A beautiful water world, teeming with life, oceans lit up with fields of glowgrass. §bJool gas§r can be harvested from here using a §3Gas Giant Harvester§r.
-
-# Quest: Drive Processor Tier 1
-betterquesting.quest.VetSLWDYS8OTb7T4X9aAEw.name=Drive Processor Tier 1
-betterquesting.quest.VetSLWDYS8OTb7T4X9aAEw.desc=§3Drive Processor Tier 1§r allows for travel to §eDuna§r, §eDres§r and §eMoho§r.
-
-# Quest: Rocket Preparations
-betterquesting.quest.XFyuo3SLQbmHtU7FcYdZ1g.name=Rocket Preparations
-betterquesting.quest.XFyuo3SLQbmHtU7FcYdZ1g.desc=Here is an example rocket that is designed to travel from the Earth, to the Mun, and then back again (a two-stage rocket).%n%nThe use of the programmed drives in the drive planner, the top slot being where the rocket is launching from, and the bottom slot being where the rocket is traveling to.%n%nAlso note that the return stage must be constructed first before the lower stages can be built.%n%nIt is ideal to make your upper stages as light as possible, since the lower stages must lift the entirety of the rocket above them!%n%nThe Return Rocket is the first retrieval quest while the second one is the first stage.
-
-# Quest: Stardar and Drive Processor
-betterquesting.quest.ZPfHiJvPQIutgvhSROlbeQ.name=Stardar and Drive Processor
-betterquesting.quest.ZPfHiJvPQIutgvhSROlbeQ.desc=The §3StarDar§r is your base of operations for mission planning, helping you to locate and scan potential landing zones on planets, and §6Program Drives§r that can be inserted into your rocket's astronavigational systems to make journeys to said planets.%n%nThe §3Drive Processor§r processes drives that have been programmed by the StarDar, allowing them to be inserted into rocket navigation computers.
-
-# Quest: Atmospheric Compressor
-betterquesting.quest.aZBaZGfVRHeXWmLqDHjuUw.name=Atmospheric Compressor
-betterquesting.quest.aZBaZGfVRHeXWmLqDHjuUw.desc=The §3Atmospheric Compressor§r collects air from different planets. In combination with a §3Cryogenic Distillation Machine§r it can produce many useful fluids and gasses.
-
-# Quest: Alkylation Unit
-betterquesting.quest.icj9Y8q0QiWjFk2g7dTnww.name=Alkylation Unit
-betterquesting.quest.icj9Y8q0QiWjFk2g7dTnww.desc=The §3Alkylation Unit§r is designed to convert lighter hydrocarbons into useful heavier hydrocarbon products. From §bNatural Gas§r it can produce §bUnsaturated§r and §bAromatic hydrocarbons§r, commonly used for §6Rubber§r and §6Bakelite§r, and even produce §bBTX§r via the use of §bHigh-Performance Solvent§r. As a utility, it can also alkylate §bPetroleum Gas§r into §bLight Oil§r.
-
-# Quest: Microgravity Algae Film
-betterquesting.quest.nfgxBE2jRE2InE-vMVEfRQ.name=Microgravity Algae Film
-betterquesting.quest.nfgxBE2jRE2InE-vMVEfRQ.desc=The §3Microgravity Algae Film§r is a machine is made of specialized layers of laythe plants that will convert §bCarbon Dioxide§r directly into §bLiquid Oxygen§r. They however only function when in orbit.%n%nThe §3CO2 Scrubber§r allows you to recover carbon dioxide from a pressurized room. This is occasionally useful when building space stations.
-
-# Quest: Dres
-betterquesting.quest.rkMKa7TCT5u0jJsdH6TWnw.name=Dres
-betterquesting.quest.rkMKa7TCT5u0jJsdH6TWnw.desc=This planet has some of the most prized resources in the whole system, with even the primary fraction of bedrock ore consisting of incredibly valuable metals and materials. §6Niobium§r, §6Coltan§r, and §6Lanthanium§r ore is present here in vast quantities.
-
-# Quest: Little Boy
-betterquesting.quest.tnsQPsH4R7KRnT063Pb8ag.name=Little Boy
-betterquesting.quest.tnsQPsH4R7KRnT063Pb8ag.desc=The Little Boy is the first atomic bomb, usually made to extract Shrabidium from Uranium or War Crimes.%n%nYou can use a Detonator or Redstone Signal to detonate the bomb.%n%nThe nuclear explosion converts the ore into something more valuable, such as Coal into Diamonds or Uranium into Shrabidium. Make sure to have some Radiation Resistant Armor before you risk entering the crater.%n%nBe sure to stand behind some hard cover if you want to see the explosion up close.
-
-# Quest: Tekto
-betterquesting.quest.tryLG0jySbGKMHzTFhvWOA.name=Tekto
-betterquesting.quest.tryLG0jySbGKMHzTFhvWOA.desc=A strange world, similar to §eEarth§r, where life is different because the vegetation, the only form of life there, is made of complex polymers, like rubber§r and plastic§r.%n%nTekto bedrock ore doesn’t have the non-metal variant; instead, it is replaced by the plastic variant, from which the player can obtain §6Polymer§r, §6Rubber§r, §6Semtex§r and §6PVC§r.
-
-# Quest: Rocket Transporter Pad
-betterquesting.quest.utoxNiUARPOk7qRfnpN0Og.name=Rocket Transporter Pad
-betterquesting.quest.utoxNiUARPOk7qRfnpN0Og.desc=The §3Rocket Transporter Pads§r can be used to transport items and fluids between celestial bodies, making them essential for setting up bedrock ore processing plants.%n%n§2Rocket Transporter Pads can be used to send spatial cells between celestial bodies, allowing for cheap teleportation.
-
-# Quest: Eve
-betterquesting.quest.vWpv_FM5QYqYHsRsaNNwog.name=Eve
-betterquesting.quest.vWpv_FM5QYqYHsRsaNNwog.desc=While it is possible to travel here with only a tier 2 drive processor to exploit the incredibly powerful schrabidic resources that exist here, players will not last long without the appropriate armor inserts, due to the highly corrosive atmosphere melting any armor it comes into contact with.%n
-
-# Quest: Rocket Assembling and Launching
-betterquesting.quest.w4uLB-JtTW-fCQA_qF6_ww.name=Rocket Assembling and Launching
-betterquesting.quest.w4uLB-JtTW-fCQA_qF6_ww.desc=The §3Vehicle Assembly Base§r is a structure which is one of the most vital parts of your space-faring efforts. It'll allow you to stack your rockets and plan out each segment of your journey. Note that each rocket stage allows for one launch from a celestial body to another, so a two-stage rocket can make a round-trip between, say, the Earth and the Mun.%n%nThe §3Rocket Launch Pad§r is the only launch pad capable of supporting the various fuel loads and complex requirements of the stacked rockets. This is the only way to fuel up a rocket too, so you'll want to make multiple stages for launching from bodies without a pad. The pad itself has a GUI that'll indicate what your rocket requires to be launched.
-
-# Quest: Moho
-betterquesting.quest.yWu2LtytQjGg65tFXTo2ow.name=Moho
-betterquesting.quest.yWu2LtytQjGg65tFXTo2ow.desc=A fair-dinkum planet, hot as hell, and full of rare resources generally only found in the Nether. §6Australium§r is only found here, in vast quantities deep under the surface. Some of the largest caves ever generated within Minecraft can be found here.

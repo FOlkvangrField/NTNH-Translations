@@ -1,5 +1,5 @@
 files:
-  - source: /config/**/*.properties
+  - source: /config/**/en_US.properties
     translation: /%original_path%/%locale_with_underscore%.properties
-  - source: /config/**/*.txt
+  - source: /config/**/en_US.txt
     translation: /%original_path%/%locale_with_underscore%.txt

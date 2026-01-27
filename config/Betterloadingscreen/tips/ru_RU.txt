@@ -1,8 +1,8 @@
-#Tips for the loading screen
-#Thanks to 0lafe, boubou19, chochem, interestingusernam3, glowredman, GTNH-Afx237v7, leagris, Lewissaber, Nvidiot, Regian24, richardhendricks, yukieiji and others for tip suggestions
+#Советы для загрузочного экрана
+#Спасибо 0lafe, boubou19, chochem, interestingusernam3, glowredman, GTNH-Afx237v7, leagris, Lewissaber, Nvidiot, Regian24, richardhendricks, yukieiji и другим за советы.
 #
-#Maximal characters for a tip: 77 (more can go out of the screen)
-#The line below, including the "#" are 77 chars
+#Максимальное количество символов для совета: 77 (больше не поместится на экране)
+#Строка ниже, включая символ "#", состоит из 77 символов.
 #Adventurer's backpack? Did you mean integrated crafting grid, bed and fluid
 #
 Got a question? Join our Discord server: discord.gg/wtNVzeE5QB

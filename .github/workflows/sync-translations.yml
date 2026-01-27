@@ -1,9 +1,9 @@
 name: Sync Translations from NTNH
 
 on:
-  # schedule:
-    # Run daily at 2 AM UTC
-  #   - cron: '0 2 * * *'
+  schedule:
+    # Run daily at 11 PM UTC (one hour before daily-release.yml at midnight)
+    - cron: '0 23 * * *'
   workflow_dispatch:
 
 permissions:
@@ -28,212 +28,29 @@ jobs:
           path: ntnh
           fetch-depth: 1
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Create sync script
+      - name: Sync en_US files
         run: |
-          cat > sync_translations.py << 'SCRIPT'
-          import os
-          import re
-          import json
-          from pathlib import Path
-          from typing import Dict, List, Tuple, Optional
-
-          def parse_file(filepath: str) -> List[Tuple[str, str, str]]:
-              """Parse a language file and return list of (type, key, value) tuples.
-              type can be: 'comment', 'empty', 'keyvalue'
-              """
-              lines = []
-              try:
-                  with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
-                      for line in f:
-                          stripped = line.rstrip('\n\r')
-                          
-                          # Empty line
-                          if not stripped.strip():
-                              lines.append(('empty', '', stripped))
-                              continue
-                          
-                          # Comment line
-                          if stripped.strip().startswith('#') or stripped.strip().startswith('//'):
-                              lines.append(('comment', '', stripped))
-                              continue
-                          
-                          # Key-value line
-                          match = re.match(r'^([^=]+)=(.*)$', stripped)
-                          if match:
-                              key = match.group(1).strip()
-                              value = match.group(2)
-                              lines.append(('keyvalue', key, value))
-                          else:
-                              # Unknown format, treat as comment
-                              lines.append(('comment', '', stripped))
-              except Exception as e:
-                  print(f"Error reading {filepath}: {e}")
+          #!/bin/bash
+          set -e
+          
+          TRANS_ROOT="translations/config"
+          NTNH_ROOT="ntnh/config"
+          
+          # Find all en_US files in NTNH repo and copy them to translations
+          find "$NTNH_ROOT" -type f -name "en_US.*" | while read ntnh_file; do
+              # Get relative path from config directory
+              rel_path="${ntnh_file#$NTNH_ROOT/}"
               
-              return lines
-
-          def load_previous_en_us(translation_path: str) -> Dict[str, str]:
-              """Load the previous en_US state from the translation file's comments.
-              We'll store it as a special comment at the top of each file.
-              """
-              if not os.path.exists(translation_path):
-                  return {}
+              # Construct target path in translations repo
+              trans_file="$TRANS_ROOT/$rel_path"
               
-              lines = parse_file(translation_path)
+              # Create directory if it doesn't exist
+              mkdir -p "$(dirname "$trans_file")"
               
-              # Look for metadata comment
-              for line_type, key, value in lines:
-                  if line_type == 'comment' and value.strip().startswith('# EN_US_STATE:'):
-                      try:
-                          json_str = value.strip()[len('# EN_US_STATE:'):].strip()
-                          return json.loads(json_str)
-                      except:
-                          pass
-              
-              return {}
-
-          def merge_translations(en_us_lines: List[Tuple[str, str, str]], 
-                                translation_lines: List[Tuple[str, str, str]],
-                                previous_en_us: Dict[str, str]) -> List[Tuple[str, str, str]]:
-              """Merge en_US updates into translation file.
-              
-              Rules:
-              1. If key is new -> use en_US value (needs translation)
-              2. If key exists and en_US value changed -> use new en_US value (translation invalidated)
-              3. If key exists and en_US value unchanged -> keep translation
-              """
-              
-              # Build dictionary of existing translations
-              translation_dict = {}
-              for line_type, key, value in translation_lines:
-                  if line_type == 'keyvalue':
-                      translation_dict[key] = value
-              
-              # Build current en_US dictionary
-              en_us_dict = {}
-              for line_type, key, value in en_us_lines:
-                  if line_type == 'keyvalue':
-                      en_us_dict[key] = value
-              
-              # Store current en_US state as metadata
-              en_us_metadata = json.dumps(en_us_dict, ensure_ascii=False)
-              result = [('comment', '', f'# EN_US_STATE: {en_us_metadata}')]
-              
-              # Process en_US lines and merge with translations
-              for line_type, key, value in en_us_lines:
-                  if line_type == 'keyvalue':
-                      if key in translation_dict:
-                          # Key exists in translation
-                          if key in previous_en_us:
-                              # We have history - check if en_US changed
-                              if previous_en_us[key] == value:
-                                  # en_US unchanged, keep translation
-                                  result.append((line_type, key, translation_dict[key]))
-                              else:
-                                  # en_US changed, use new en_US value (invalidate translation)
-                                  result.append((line_type, key, value))
-                          else:
-                              # No history, keep existing translation
-                              result.append((line_type, key, translation_dict[key]))
-                      else:
-                          # New key, use en_US value
-                          result.append((line_type, key, value))
-                  else:
-                      # Preserve comments and empty lines from en_US (skip metadata comments)
-                      if not (line_type == 'comment' and 'EN_US_STATE:' in value):
-                          result.append((line_type, key, value))
-              
-              return result
-
-          def write_file(filepath: str, lines: List[Tuple[str, str, str]]):
-              """Write parsed lines back to file."""
-              os.makedirs(os.path.dirname(filepath), exist_ok=True)
-              with open(filepath, 'w', encoding='utf-8', newline='\n') as f:
-                  for line_type, key, value in lines:
-                      if line_type == 'keyvalue':
-                          f.write(f"{key}={value}\n")
-                      else:
-                          f.write(f"{value}\n")
-
-          def sync_file(en_us_path: str, translation_path: str):
-              """Sync a single translation file with its en_US source."""
-              print(f"Syncing: {translation_path}")
-              
-              # Parse en_US file
-              en_us_lines = parse_file(en_us_path)
-              
-              # Parse existing translation (if exists)
-              if os.path.exists(translation_path):
-                  translation_lines = parse_file(translation_path)
-                  previous_en_us = load_previous_en_us(translation_path)
-              else:
-                  translation_lines = []
-                  previous_en_us = {}
-              
-              # Merge translations
-              merged_lines = merge_translations(en_us_lines, translation_lines, previous_en_us)
-              
-              # Write merged result
-              write_file(translation_path, merged_lines)
-
-          def main():
-              ntnh_root = Path('ntnh/config')
-              trans_root = Path('translations')
-              
-              # Find all en_US files in NTNH repo
-              en_us_files = []
-              for pattern in ['**/*en_US.lang', '**/*en_US.properties', '**/*en_US.txt']:
-                  en_us_files.extend(ntnh_root.glob(pattern))
-              
-              print(f"Found {len(en_us_files)} en_US files")
-              
-              # Get list of translation languages from existing directories
-              languages = set()
-              for lang_dir in trans_root.iterdir():
-                  if lang_dir.is_dir() and lang_dir.name not in ['.github', '.git']:
-                      # Extract language code (e.g., ru_RU, de_DE)
-                      if re.match(r'^[a-z]{2}_[A-Z]{2}$', lang_dir.name):
-                          languages.add(lang_dir.name)
-              
-              if not languages:
-                  print("No translation languages found. Looking for existing config directories...")
-                  # Alternative: look for directories with config subdirectories
-                  for lang_dir in trans_root.iterdir():
-                      if lang_dir.is_dir() and (lang_dir / 'config').exists():
-                          languages.add(lang_dir.name)
-              
-              print(f"Found languages: {sorted(languages)}")
-              
-              # Sync each en_US file to all translation languages
-              files_updated = 0
-              for en_us_file in en_us_files:
-                  # Get relative path from config directory
-                  rel_path = en_us_file.relative_to(ntnh_root)
-                  
-                  # Sync to each language
-                  for lang in languages:
-                      # Replace en_US with target language in filename
-                      trans_filename = str(rel_path).replace('en_US', lang)
-                      trans_path = trans_root / lang / 'config' / trans_filename
-                      
-                      try:
-                          sync_file(str(en_us_file), str(trans_path))
-                          files_updated += 1
-                      except Exception as e:
-                          print(f"Error syncing {trans_path}: {e}")
-              
-              print(f"\nTotal files updated: {files_updated}")
-
-          if __name__ == '__main__':
-              main()
-          SCRIPT
-
-      - name: Run sync script
-        run: python sync_translations.py
+              # Copy file
+              cp "$ntnh_file" "$trans_file"
+              echo "Updated: $trans_file"
+          done
 
       - name: Check for changes
         id: changes
@@ -244,8 +61,7 @@ jobs:
             echo "No changes detected"
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
-            echo "Changes detected"
-            echo "## Changed files:"
+            echo "Changes detected:"
             git diff --name-only
           fi
 
@@ -255,24 +71,14 @@ jobs:
         with:
           path: translations
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'chore: auto-sync translations from NTNH repository'
-          branch: auto-sync-translations-${{ github.run_number }}
+          commit-message: 'chore: sync en_US files from NTNH repository'
+          branch: sync-translations-${{ github.run_number }}
           delete-branch: true
-          title: '🔄 Auto-sync translations from NTNH'
+          title: '🔄 Sync en_US files from NTNH'
           body: |
-            This PR automatically syncs translation files from the main NTNH repository.
+            This PR syncs all en_US files from the main NTNH repository.
             
-            ## What this sync does:
-            
-            1. ✅ **Adds new keys** from en_US files (using English as placeholder)
-            2. ✅ **Preserves existing translations** when en_US values haven't changed  
-            3. ⚠️ **Resets to English** when en_US values change (needs retranslation)
-            4. ✅ **Maintains comments and formatting** from en_US files
-            
-            ## ⚠️ Important for translators:
-            
-            Lines that were reset to English (because the source changed) will need to be retranslated.
-            You can identify these by comparing with the previous version.
+            These are the source files for translations.
             
             ---
             

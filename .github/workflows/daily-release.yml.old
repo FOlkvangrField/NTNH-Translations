@@ -1,14 +1,11 @@
-name: Daily Language Packs Release
-
+name: Daily Language Pack Release
 on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
-
 permissions:
   contents: write
   pull-requests: write
-
 jobs:
   build-release:
     runs-on: ubuntu-latest
@@ -25,11 +22,10 @@ jobs:
               state: 'open',
               base: 'main'
             });
-
             // Filter PRs from Bufka2011 and attempt to merge
             for (const pull of pulls) {
               if (pull.user.login !== 'Bufka2011') continue;
-              
+            
               try {
                 await github.rest.pulls.merge({
                   owner: context.repo.owner,
@@ -43,133 +39,261 @@ jobs:
                 // Continue execution even if merge fails
               }
             }
-
       - name: Checkout updated repository
         uses: actions/checkout@v4
         with:
           ref: main
-          # Force update code after merging PRs
           fetch-depth: 0
-
-      - name: Clean up automatic backslashes from Crowdin
-        run: |
-          echo "🧹 Cleaning up automatic backslashes added by Crowdin..."
-          
-          # Remove backslashes before special characters: !, #, :, =
-          # This fixes Crowdin's automatic escaping while preserving intentional escapes
-          find . -type f -name "*.properties" -exec sed -i 's/\\\([!#:=]\)/\1/g' {} \;
-          
-          # Special handling: restore intentional backslashes for variable patterns like \#variable\#
-          # This ensures mod-specific syntax like "#modsloaded#" is preserved without backslashes
-          # while allowing intentional escapes to remain (though they're rare in this context)
-          
-          echo "✅ Automatic backslashes cleaned up successfully"
-        shell: bash
-
       - name: Set release name
         id: vars
         run: echo "release_name=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-
-      - name: Define language mappings and create ZIPs
+      - name: Calculate translation percentages
+        id: percentages
+        run: |
+          set -euo pipefail
+          
+          function get_lang_name {
+            case "$1" in
+              # Already existing
+              ar_SA) echo "Arabic (Saudi)" ;;
+              cs_CZ) echo "Czech" ;;
+              da_DK) echo "Danish" ;;
+              de_DE) echo "German" ;;
+              el_GR) echo "Greek" ;;
+              es_ES) echo "Spanish" ;;
+              fi_FI) echo "Finnish" ;;
+              fr_FR) echo "French" ;;
+              hu_HU) echo "Hungarian" ;;
+              it_IT) echo "Italian" ;;
+              ja_JP) echo "Japanese" ;;
+              ko_KR) echo "Korean" ;;
+              nl_NL) echo "Dutch" ;;
+              no_NO) echo "Norwegian" ;;
+              pl_PL) echo "Polish" ;;
+              pt_BR) echo "Portuguese (Brazil)" ;;
+              ro_RO) echo "Romanian" ;;
+              ru_RU) echo "Russian" ;;
+              sv_SE) echo "Swedish" ;;
+              tr_TR) echo "Turkish" ;;
+              uk_UA) echo "Ukrainian" ;;
+              zh_CN) echo "Chinese (Simplified)" ;;
+              zh_TW) echo "Chinese (Traditional)" ;;
+              hi_IN) echo "Hindi" ;;
+              bn_BD) echo "Bengali" ;;
+              bn_IN) echo "Bengali (India)" ;;
+              pa_PK) echo "Punjabi (Western)" ;;
+              vi_VN) echo "Vietnamese" ;;
+              zh_HK) echo "Chinese (Cantonese)" ;;
+              yue_HK) echo "Chinese (Yue)" ;;
+              ar_EG) echo "Arabic (Egyptian)" ;;
+              wuu_CN) echo "Chinese (Wu)" ;;
+              mr_IN) echo "Marathi" ;;
+              te_IN) echo "Telugu" ;;
+              ta_IN) echo "Tamil" ;;
+              ur_PK) echo "Urdu" ;;
+              id_ID) echo "Indonesian" ;;
+              jv_ID) echo "Javanese" ;;
+              fa_IR) echo "Persian" ;;
+              ha_NG) echo "Hausa" ;;
+              gu_IN) echo "Gujarati" ;;
+              ar_SY) echo "Arabic (Levantine)" ;;
+              bh_IN) echo "Bhojpuri" ;;
+              
+              *) echo "${1%%_*}" | tr 'a-z' 'A-Z' ;;
+            esac
+          }
+          
+          PERCENTAGES=""
+          TOTAL=0
+          declare -A EN_KEYS_VALUES
+          declare -A EN_LINES
+          
+          # Find English files - handle case where none exist
+          EN_FILES=$(find config -type f 2>/dev/null | grep -E '/en_US\.(lang|properties|txt)$' || echo "")
+          
+          if [ -z "$EN_FILES" ]; then
+            echo "percentages=No English translation files found" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # First pass: calculate total translatable items
+          while IFS= read -r en_file; do
+            [ -z "$en_file" ] && continue
+            [ ! -f "$en_file" ] && continue
+            
+            BASE=$(basename "$en_file")
+            if grep -q '=' "$en_file" 2>/dev/null; then
+              # Key-value format
+              while IFS= read -r line; do
+                if [[ "$line" =~ ^\s*# ]] || [[ -z "${line// }" ]]; then continue; fi
+                key=$(echo "$line" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//')
+                value=$(echo "$line" | cut -d= -f2- | sed 's/^\s*//; s/\s*$//')
+                if [ -n "$key" ]; then
+                  EN_KEYS_VALUES["$en_file:$key"]="$value"
+                  ((TOTAL++)) || true
+                fi
+              done < "$en_file"
+            else
+              # Plain lines format
+              lines=()
+              while IFS= read -r line; do
+                lines+=("$line")
+              done < <(grep -Ev '^\s*(#|$)' "$en_file" 2>/dev/null | sed 's/^\s*//; s/\s*$//' || true)
+              
+              if [ ${#lines[@]} -gt 0 ]; then
+                EN_LINES["$en_file"]="${lines[*]}"
+                TOTAL=$((TOTAL + ${#lines[@]}))
+              fi
+            fi
+          done <<< "$EN_FILES"
+          
+          if [ "$TOTAL" -eq 0 ]; then
+            echo "percentages=No translatable content found" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Find language codes - handle case where none exist
+          LANG_CODES=$(find config -type f 2>/dev/null | grep -E '/[a-z]{2}_[A-Z]{2}\.(lang|properties|txt)$' | sed 's|.*/||; s/\..*//' | sort -u | grep -v en_US || echo "")
+          
+          if [ -z "$LANG_CODES" ]; then
+            echo "percentages=No translation files found" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          TEMP_PERCENTAGES=""
+          while IFS= read -r lang_code; do
+            [ -z "$lang_code" ] && continue
+            
+            TRANS=0
+            while IFS= read -r en_file; do
+              [ -z "$en_file" ] && continue
+              [ ! -f "$en_file" ] && continue
+              
+              LANG_DIR=$(dirname "$en_file")
+              EXT="${en_file##*.}"
+              LANG_FILE="$LANG_DIR/${lang_code}.${EXT}"
+              
+              [ ! -f "$LANG_FILE" ] && continue
+              
+              if grep -q '=' "$en_file" 2>/dev/null; then
+                # Key-value format
+                declare -A LANG_VALUES
+                while IFS= read -r line; do
+                  if [[ "$line" =~ ^\s*# ]] || [[ -z "${line// }" ]]; then continue; fi
+                  key=$(echo "$line" | cut -d= -f1 | sed 's/^\s*//; s/\s*$//')
+                  value=$(echo "$line" | cut -d= -f2- | sed 's/^\s*//; s/\s*$//')
+                  if [ -n "$key" ] && [ -n "${EN_KEYS_VALUES["$en_file:$key"]:-}" ]; then
+                    en_value="${EN_KEYS_VALUES["$en_file:$key"]}"
+                    if [ "$value" != "$en_value" ] && [ -n "$value" ]; then
+                      ((TRANS++)) || true
+                    fi
+                  fi
+                done < "$LANG_FILE"
+                unset LANG_VALUES
+              else
+                # Plain lines format
+                en_lines=()
+                lang_lines=()
+                
+                while IFS= read -r line; do
+                  en_lines+=("$line")
+                done < <(grep -Ev '^\s*(#|$)' "$en_file" 2>/dev/null | sed 's/^\s*//; s/\s*$//' || true)
+                
+                while IFS= read -r line; do
+                  lang_lines+=("$line")
+                done < <(grep -Ev '^\s*(#|$)' "$LANG_FILE" 2>/dev/null | sed 's/^\s*//; s/\s*$//' || true)
+                
+                len=${#en_lines[@]}
+                if [ ${#lang_lines[@]} -ne $len ]; then
+                  continue
+                fi
+                
+                for ((i=0; i<len; i++)); do
+                  if [ "${lang_lines[i]:-}" != "${en_lines[i]:-}" ] && [ -n "${lang_lines[i]:-}" ]; then
+                    ((TRANS++)) || true
+                  fi
+                done
+              fi
+            done <<< "$EN_FILES"
+            
+            # Calculate percentage with rounding
+            if [ "$TOTAL" -gt 0 ]; then
+              PERCENTAGE=$(( (TRANS * 100 + TOTAL / 2) / TOTAL ))
+            else
+              PERCENTAGE=0
+            fi
+            
+            NAME=$(get_lang_name "$lang_code")
+            TEMP_PERCENTAGES+="$NAME: $PERCENTAGE%"$'\n'
+          done <<< "$LANG_CODES"
+          
+          # Sort by language name
+          if [ -n "$TEMP_PERCENTAGES" ]; then
+            PERCENTAGES=$(echo -n "$TEMP_PERCENTAGES" | sort -k1)
+          else
+            PERCENTAGES="No translations available"
+          fi
+          
+          echo "percentages<<EOF" >> $GITHUB_OUTPUT
+          echo "$PERCENTAGES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        shell: bash
+      - name: Create unified language packs ZIP (excluding en_US)
         id: zip
         run: |
-          declare -A LANG_MAP
-          LANG_MAP["af_ZA"]="Afrikaans"
-          LANG_MAP["ar_SA"]="Arabic"
-          LANG_MAP["ca_ES"]="Catalan"
-          LANG_MAP["cs_CZ"]="Czech"
-          LANG_MAP["da_DK"]="Danish"
-          LANG_MAP["de_DE"]="German"
-          LANG_MAP["el_GR"]="Greek"
-          LANG_MAP["en_US"]="English"
-          LANG_MAP["es_ES"]="Spanish"
-          LANG_MAP["fi_FI"]="Finnish"
-          LANG_MAP["fr_FR"]="French"
-          LANG_MAP["he_IL"]="Hebrew"
-          LANG_MAP["hu_HU"]="Hungarian"
-          LANG_MAP["it_IT"]="Italian"
-          LANG_MAP["ja_JP"]="Japanese"
-          LANG_MAP["kk_KZ"]="Kazakh"
-          LANG_MAP["ko_KR"]="Korean"
-          LANG_MAP["nl_NL"]="Dutch"
-          LANG_MAP["no_NO"]="Norwegian"
-          LANG_MAP["pl_PL"]="Polish"
-          LANG_MAP["pt_BR"]="Portuguese_Brazil"
-          LANG_MAP["pt_PT"]="Portuguese_Portugal"
-          LANG_MAP["ro_RO"]="Romanian"
-          LANG_MAP["ru_RU"]="Russian"
-          LANG_MAP["sr_SP"]="Serbian"
-          LANG_MAP["sv_SE"]="Swedish"
-          LANG_MAP["tr_TR"]="Turkish"
-          LANG_MAP["uk_UA"]="Ukrainian"
-          LANG_MAP["vi_VN"]="Vietnamese"
-          LANG_MAP["zh_CN"]="Chinese_Simplified"
-          LANG_MAP["zh_TW"]="Chinese_Traditional"
-
-          mkdir -p build_artifacts
-          ZIP_LIST=""
-          BASE_DIR=$(pwd)
-
-          for lang_code in */; do
-            lang_code="${lang_code%/}"
-            if [[ "$lang_code" == ".github" || "$lang_code" == "crowdin.yml" ]]; then
-              continue
-            fi
-
-            lang_name="${LANG_MAP[$lang_code]}"
-            if [[ -z "$lang_name" ]]; then
-              continue
-            fi
-
-            if [ ! -d "$lang_code/config" ]; then
-              continue
-            fi
-
-            # Create temporary directory
-            TEMP_DIR=$(mktemp -d)
-            CONFIG_SRC="$lang_code/config"
-            CONFIG_DEST="$TEMP_DIR/config"
-
-            # Copy all config content
-            mkdir -p "$CONFIG_DEST"
-            cp -r "$CONFIG_SRC"/. "$CONFIG_DEST" 2>/dev/null || true
-
-            # Convert all .properties to .lang
-            find "$CONFIG_DEST" -type f -name "*.properties" | while read -r f; do
-              mv "$f" "${f%.properties}.lang" 2>/dev/null || true
-            done
-
-            # Create ZIP archive
-            zip_path="build_artifacts/${lang_name}.zip"
-            (
-              cd "$TEMP_DIR"
-              zip -r "$BASE_DIR/$zip_path" config/ -x "*.git*" "*.DS_Store" "__MACOSX/*"
-            )
-
-            # Clean up temporary directory
-            rm -rf "$TEMP_DIR"
-
-            ZIP_LIST+="$zip_path"$'\n'
-          done
-
-          # Write zip files list to output
-          if [ -z "$ZIP_LIST" ]; then
-            echo "zip_files=" >> $GITHUB_OUTPUT
+          # Create temporary directory for clean archive structure
+          TEMP_DIR=$(mktemp -d)
+        
+          # Copy entire config directory if it exists
+          if [ -d "config" ]; then
+            cp -r config "$TEMP_DIR/"
           else
-            echo "zip_files<<EOF" >> $GITHUB_OUTPUT
-            echo -e "$ZIP_LIST" >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
+            echo "No config directory found, skipping ZIP creation"
+            exit 0
           fi
+        
+          # Remove all en_US files
+          find "$TEMP_DIR/config" -type f -name "en_US.*" -delete 2>/dev/null || true
+        
+          # Convert all .properties files to .lang
+          find "$TEMP_DIR/config" -type f -name "*.properties" | while read -r f; do
+            mv "$f" "${f%.properties}.lang" 2>/dev/null || true
+          done
+        
+          # Create the unified ZIP archive
+          ZIP_NAME="NTNH-Translations-${{ steps.vars.outputs.release_name }}.zip"
+          ZIP_PATH="build_artifacts/$ZIP_NAME"
+          mkdir -p build_artifacts
+        
+          (
+            cd "$TEMP_DIR"
+            zip -r "$GITHUB_WORKSPACE/$ZIP_PATH" config/ -x "*.git*" "*.DS_Store" "__MACOSX/*"
+          )
+        
+          # Clean up temporary directory
+          rm -rf "$TEMP_DIR"
+        
+          # Output ZIP path for release step
+          echo "zip_file=$ZIP_PATH" >> $GITHUB_OUTPUT
         shell: bash
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           name: NTNH-Translations-${{ steps.vars.outputs.release_name }}
           tag_name: NTNH-Translations-${{ steps.vars.outputs.release_name }}
           body: |
-            📦 Daily language packs for Minecraft mods  
+            📦 Unified language packs for Nuclear Tech: New Horizons
             🕒 Generated from branch `main` on ${{ steps.vars.outputs.release_name }}
-          files: ${{ steps.zip.outputs.zip_files }}
+          
+            Translation progress:
+            ${{ steps.percentages.outputs.percentages }}
+          
+            This release contains a single ZIP archive with **all language packs**.
+           
+            How to use:
+            1. Download the ZIP file from the release assets.
+            2. Extract the contents to your Minecraft `config` directory.
+            3. Restart Minecraft to apply the new language packs.
+          files: ${{ steps.zip.outputs.zip_file }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

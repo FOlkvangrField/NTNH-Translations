@@ -1,7 +1,7 @@
 files:
   - source: /config/**/*.properties
-    translation: /%locale_with_underscore%/%original_path%/%locale_with_underscore%.properties
+    translation: /%original_path%/%locale_with_underscore%.properties
   - source: /config/**/*.txt
-    translation: /%locale_with_underscore%/%original_path%/%locale_with_underscore%.txt
+    translation: /%original_path%/%locale_with_underscore%.txt
   - source: /config/**/*.xml
-    translation: /%locale_with_underscore%/%original_path%/InGameInfo.xml
+    translation: /%original_path%/InGameInfo.xml

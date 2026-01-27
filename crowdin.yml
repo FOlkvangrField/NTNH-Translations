@@ -3,5 +3,3 @@ files:
     translation: /%original_path%/%locale_with_underscore%.properties
   - source: /config/**/*.txt
     translation: /%original_path%/%locale_with_underscore%.txt
-  - source: /config/**/*.xml
-    translation: /%original_path%/InGameInfo.xml

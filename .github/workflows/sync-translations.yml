@@ -1,15 +1,12 @@
 name: Sync Translations from NTNH
-
 on:
   schedule:
     # Run daily at 11 PM UTC (one hour before daily-release.yml at midnight)
     - cron: '0 23 * * *'
   workflow_dispatch:
-
 permissions:
   contents: write
   pull-requests: write
-
 jobs:
   sync-translations:
     runs-on: ubuntu-latest
@@ -19,7 +16,6 @@ jobs:
         with:
           path: translations
           fetch-depth: 0
-
       - name: Checkout NTNH (updates/upcoming branch)
         uses: actions/checkout@v4
         with:
@@ -27,8 +23,7 @@ jobs:
           ref: updates/upcoming
           path: ntnh
           fetch-depth: 1
-
-      - name: Sync en_US files
+      - name: Rewrite en_US files
         run: |
           #!/bin/bash
           set -e
@@ -36,7 +31,12 @@ jobs:
           TRANS_ROOT="translations/config"
           NTNH_ROOT="ntnh/config"
           
+          # Remove all existing en_US files in translations repo
+          echo "Removing existing en_US files..."
+          find "$TRANS_ROOT" -type f -name "en_US.*" -delete
+          
           # Find all en_US files in NTNH repo and copy them to translations
+          echo "Copying fresh en_US files from NTNH..."
           find "$NTNH_ROOT" -type f -name "en_US.*" | while read ntnh_file; do
               # Get relative path from config directory
               rel_path="${ntnh_file#$NTNH_ROOT/}"
@@ -49,9 +49,11 @@ jobs:
               
               # Copy file
               cp "$ntnh_file" "$trans_file"
-              echo "Updated: $trans_file"
+              echo "Copied: $trans_file"
           done
-
+          
+          # Clean up empty directories
+          find "$TRANS_ROOT" -type d -empty -delete
       - name: Check for changes
         id: changes
         run: |
@@ -62,9 +64,8 @@ jobs:
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
             echo "Changes detected:"
-            git diff --name-only
+            git diff --name-status
           fi
-
       - name: Create Pull Request
         if: steps.changes.outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@v6
@@ -77,6 +78,8 @@ jobs:
           title: '🔄 Sync en_US files from NTNH'
           body: |
             This PR syncs all en_US files from the main NTNH repository.
+            
+            **Note:** This is a complete rewrite - old en_US files are removed and replaced with fresh copies from NTNH.
             
             These are the source files for translations.
             

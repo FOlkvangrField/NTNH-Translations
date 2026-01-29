@@ -1,6 +1,7 @@
 name: Sync Translations from NTNH
 on:
   schedule:
+    # Run daily at 11 PM UTC (one hour before daily-release.yml at midnight)
     - cron: '0 23 * * *'
   workflow_dispatch:
 permissions:
@@ -41,6 +42,11 @@ jobs:
               
               # Construct target path in translations repo
               trans_file="$TRANS_ROOT/$rel_path"
+              
+              # If source file is .lang, change extension to .properties
+              if [[ "$trans_file" == *.lang ]]; then
+                  trans_file="${trans_file%.lang}.properties"
+              fi
               
               # Create directory if it doesn't exist
               mkdir -p "$(dirname "$trans_file")"

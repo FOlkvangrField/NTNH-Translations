@@ -22,7 +22,7 @@ jobs:
           ref: updates/upcoming
           path: ntnh
           fetch-depth: 1
-      - name: Rewrite en_US files
+      - name: Rewrite en_US files and convert to properties
         run: |
           #!/bin/bash
           set -e
@@ -43,17 +43,23 @@ jobs:
               # Construct target path in translations repo
               trans_file="$TRANS_ROOT/$rel_path"
               
-              # If source file is .lang, change extension to .properties
-              if [[ "$trans_file" == *.lang ]]; then
-                  trans_file="${trans_file%.lang}.properties"
-              fi
-              
               # Create directory if it doesn't exist
               mkdir -p "$(dirname "$trans_file")"
               
               # Copy file
               cp "$ntnh_file" "$trans_file"
               echo "Copied: $trans_file"
+          done
+          
+          # Convert all .lang files to .properties
+          echo "Converting en_US.lang files to en_US.properties..."
+          find "$TRANS_ROOT" -type f -name "en_US.lang" | while read lang_file; do
+              # Create new filename with .properties extension
+              properties_file="${lang_file%.lang}.properties"
+              
+              # Move/rename the file
+              mv "$lang_file" "$properties_file"
+              echo "Converted: $lang_file -> $properties_file"
           done
           
           # Clean up empty directories
@@ -68,6 +74,6 @@ jobs:
             echo "No changes to commit"
           else
             git add .
-            git commit -m "chore: sync en_US files from NTNH repository"
+            git commit -m "chore: sync en_US files from NTNH repository and convert to .properties"
             git push
           fi

@@ -19,7 +19,7 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Merge PRs from Bufka2011
+      - name: Merge PRs from Bufka2011 and BufkaSecond
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -31,10 +31,13 @@ jobs:
               state: 'open',
               base: 'main'
             });
-
-            // Filter PRs from Bufka2011 and attempt to merge
+            
+            // Define allowed users
+            const allowedUsers = ['Bufka2011', 'BufkaSecond'];
+            
+            // Filter PRs from allowed users and attempt to merge
             for (const pull of pulls) {
-              if (pull.user.login !== 'Bufka2011') continue;
+              if (!allowedUsers.includes(pull.user.login)) continue;
               
               try {
                 await github.rest.pulls.merge({
@@ -43,9 +46,9 @@ jobs:
                   pull_number: pull.number,
                   merge_method: 'merge'
                 });
-                console.log(`✅ Successfully merged PR #${pull.number}`);
+                console.log(`✅ Successfully merged PR #${pull.number} from ${pull.user.login}`);
               } catch (error) {
-                console.log(`⚠️ Failed to merge PR #${pull.number}: ${error.message}`);
+                console.log(`⚠️ Failed to merge PR #${pull.number} from ${pull.user.login}: ${error.message}`);
                 // Continue execution even if merge fails
               }
             }

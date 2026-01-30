@@ -56,21 +56,25 @@ jobs:
             mkdir -p "$WORK_DIR/config/$subdir"
 
             src="$file"
-            dest="$WORK_DIR/config/$subdir/en_US.properties"
-
             ext="${file##*.}"
 
+            # Only process .lang -> .properties and copy .properties files; ignore other extensions (e.g., .txt)
             if [ "$ext" = "lang" ]; then
+              dest="$WORK_DIR/config/$subdir/en_US.properties"
               # Convert lines like "key: value" -> "key=value" (leave comments intact), remove CRLF and BOM
               awk 'BEGIN{FS=OFS=""} /^#/ {print; next} { if (index($0, ":") && !index($0, "=")) sub(/:/, "=") ; print }' "$src" |
                 sed '1s/^\xEF\xBB\xBF//' | sed 's/\r$//' > "$dest"
-            else
-              # Copy .properties (or other) but ensure no CRLF and strip BOM
+              echo "Converted: config/$subdir/en_US.properties (from .lang)"
+            elif [ "$ext" = "properties" ]; then
+              dest="$WORK_DIR/config/$subdir/en_US.properties"
+              # Copy .properties, strip BOM/CRLF
               sed '1s/^\xEF\xBB\xBF//' "$src" | sed 's/\r$//' > "$dest"
+              echo "Copied: config/$subdir/en_US.properties"
+            else
+              # Skip other file types
+              echo "Skipped (unsupported extension): $relpath"
             fi
-
-            echo "Updated: config/$subdir/en_US.properties"
-          done < <(find "$UPSTREAM_DIR" -type f -name 'en_US.*' -print0)
+          done < <(find "$UPSTREAM_DIR" -type f \( -name 'en_US.lang' -o -name 'en_US.properties' \) -print0)
 
           if [ "$found" -eq 0 ]; then
             echo "No en_US files found in upstream config. Exiting."

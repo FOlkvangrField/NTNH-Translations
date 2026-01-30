@@ -98,19 +98,27 @@ jobs:
           # Confirm we're on main
           git checkout main || true
 
-          # Fetch and merge remote main to avoid non-fast-forward errors
-          git fetch origin main
+          # Fetch remote main
+          git fetch origin main || true
+
+          # Merge remote main to avoid non-fast-forward errors (if exists)
           if git rev-parse --verify origin/main >/dev/null 2>&1; then
             git merge --no-edit origin/main || true
           fi
 
-          # If there are no changes staged or in the working tree, exit
-          if git diff --quiet && git diff --staged --quiet; then
-            echo "No changes to push."
-            exit 0
+          # Determine if local main has commits not on origin/main
+          AHEAD=0
+          if git rev-parse --verify origin/main >/dev/null 2>&1; then
+            AHEAD=$(git rev-list --count origin/main..main || echo 0)
+          else
+            # No origin/main exists (first push)
+            AHEAD=$(git rev-list --count main || echo 0)
           fi
 
-          # Push commits to main
-          git push origin main
-
-          echo "Changes pushed to 'main'."
+          if [ "$AHEAD" -gt 0 ]; then
+            echo "Local 'main' is ahead by $AHEAD commit(s). Pushing to origin/main..."
+            git push origin main
+            echo "Pushed $AHEAD commit(s) to 'main'."
+          else
+            echo "No commits to push."
+          fi

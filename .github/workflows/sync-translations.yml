@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   sync:
-    name: Sync en_US translations 🔁
+    name: Sync en_US translations
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +26,8 @@ jobs:
           repository: NTNewHorizons/NTNH
           ref: updates/upcoming
           path: upstream
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Configure git
         run: |
@@ -73,9 +75,11 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit."
             exit 0
+          else
+            git commit -m "chore: sync en_US translations from NTNewHorizons/NTNH (updates/upcoming) and convert .lang -> .properties" || true
           fi
 
-      - name: Create Pull Request with synced translations ✅
+      - name: Create Pull Request with synced translations
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

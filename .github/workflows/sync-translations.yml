@@ -121,10 +121,9 @@ jobs:
             CHANGED=$(git diff --staged --name-only | wc -l)
             echo "Committing $CHANGED changed file(s)..."
             
-            git commit -m "🌐 Sync translations from NTNH (updates/upcoming)
-
-- Auto-converted .lang files to .properties format
-- Synced all translation files from config directory"
+            git commit -m "🌐 Sync translations from NTNH (updates/upcoming)" \
+                       -m "- Auto-converted .lang files to .properties format" \
+                       -m "- Synced all translation files from config directory"
             
             git push origin main
             echo "✓ Pushed changes to main branch"

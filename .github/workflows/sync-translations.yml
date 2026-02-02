@@ -42,66 +42,81 @@ jobs:
           UPSTREAM_DIR="ntnh-upstream/config"
           WORK_DIR="${GITHUB_WORKSPACE}/config"
           
-          # Remove old config directory to ensure clean sync
-          rm -rf "$WORK_DIR"
-          mkdir -p "$WORK_DIR"
-          
           found=0
           converted=0
           copied=0
+          skipped=0
           
           echo "Starting file sync from NTNH (updates/upcoming)..."
+          echo "Only syncing en_US files that already exist in this repository..."
           echo ""
           
-          # Find all files in upstream config directory
-          while IFS= read -r -d '' file; do
-            found=$((found + 1))
-            
-            # Get relative path from upstream/config
-            relpath="${file#$UPSTREAM_DIR/}"
+          # Find all existing en_US files in NTNH-Translations
+          while IFS= read -r -d '' existing_file; do
+            # Get relative path from config directory
+            relpath="${existing_file#$WORK_DIR/}"
             subdir="$(dirname "$relpath")"
             basename="$(basename "$relpath")"
-            ext="${file##*.}"
             
-            # Create destination directory
-            mkdir -p "$WORK_DIR/$subdir"
-            
-            # Process based on file extension
-            if [ "$ext" = "lang" ]; then
-              # Convert .lang to .properties
-              filename_without_ext="${basename%.lang}"
-              dest="$WORK_DIR/$subdir/${filename_without_ext}.properties"
-              
-              # Convert .lang format to .properties format
-              # - Lines like "key: value" become "key=value"
-              # - Keep comment lines (starting with #) as-is
-              # - Remove BOM and CRLF
-              awk 'BEGIN{FS=OFS=""} /^#/ {print; next} { if (index($0, ":") && !index($0, "=")) sub(/:/, "=") ; print }' "$file" |
-                sed '1s/^\xEF\xBB\xBF//' | sed 's/\r$//' > "$dest"
-              
-              echo "✓ Converted: $relpath → ${relpath%.lang}.properties"
-              converted=$((converted + 1))
-            else
-              # Copy other files as-is (e.g., .properties, .txt, etc.)
-              dest="$WORK_DIR/$relpath"
-              
-              # Copy file and strip BOM/CRLF
-              sed '1s/^\xEF\xBB\xBF//' "$file" | sed 's/\r$//' > "$dest"
-              
-              echo "✓ Copied: $relpath"
-              copied=$((copied + 1))
+            # Skip if not an en_US file
+            if [[ ! "$basename" =~ ^en_US\. ]]; then
+              continue
             fi
-          done < <(find "$UPSTREAM_DIR" -type f -print0 2>/dev/null || true)
+            
+            ext="${basename##*.}"
+            
+            # Look for corresponding file in upstream
+            upstream_file=""
+            
+            if [ "$ext" = "properties" ]; then
+              # Look for either .properties or .lang in upstream
+              if [ -f "$UPSTREAM_DIR/$subdir/en_US.properties" ]; then
+                upstream_file="$UPSTREAM_DIR/$subdir/en_US.properties"
+              elif [ -f "$UPSTREAM_DIR/$subdir/en_US.lang" ]; then
+                upstream_file="$UPSTREAM_DIR/$subdir/en_US.lang"
+              fi
+            else
+              # For other extensions (e.g., .txt), look for exact match
+              if [ -f "$UPSTREAM_DIR/$relpath" ]; then
+                upstream_file="$UPSTREAM_DIR/$relpath"
+              fi
+            fi
+            
+            # Process if upstream file found
+            if [ -n "$upstream_file" ]; then
+              found=$((found + 1))
+              upstream_ext="${upstream_file##*.}"
+              
+              if [ "$upstream_ext" = "lang" ] && [ "$ext" = "properties" ]; then
+                # Convert .lang to .properties
+                awk 'BEGIN{FS=OFS=""} /^#/ {print; next} { if (index($0, ":") && !index($0, "=")) sub(/:/, "=") ; print }' "$upstream_file" |
+                  sed '1s/^\xEF\xBB\xBF//' | sed 's/\r$//' > "$existing_file"
+                
+                echo "✓ Converted: $subdir/en_US.lang → $subdir/en_US.properties"
+                converted=$((converted + 1))
+              else
+                # Copy file as-is and strip BOM/CRLF
+                sed '1s/^\xEF\xBB\xBF//' "$upstream_file" | sed 's/\r$//' > "$existing_file"
+                
+                echo "✓ Copied: $relpath"
+                copied=$((copied + 1))
+              fi
+            else
+              echo "⚠️  Not found in upstream: $relpath"
+              skipped=$((skipped + 1))
+            fi
+          done < <(find "$WORK_DIR" -type f -print0 2>/dev/null || true)
           
           echo ""
           echo "Summary:"
-          echo "  Total files processed: $found"
+          echo "  Files processed: $found"
           echo "  Converted (.lang → .properties): $converted"
           echo "  Copied (as-is): $copied"
+          echo "  Not found in upstream: $skipped"
           echo ""
           
           if [ "$found" -eq 0 ]; then
-            echo "⚠️  No files found in upstream config directory."
+            echo "⚠️  No matching files found to sync."
             exit 0
           fi
 

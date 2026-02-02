@@ -3,126 +3,129 @@ name: Sync Translations
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 23 * * *'
+    - cron: '0 23 * * *'  # Run daily at 11 PM UTC
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   sync:
-    name: Sync en_US translations
+    name: Sync translations from NTNH
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout NTNH-Translations repository
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.UNIVERSAL_FINE }}
           fetch-depth: 0
 
-      - name: Checkout upstream repo (NTNewHorizons/NTNH:updates/upcoming)
+      - name: Checkout NTNH repository (updates/upcoming)
         uses: actions/checkout@v4
         with:
           repository: NTNewHorizons/NTNH
           ref: updates/upcoming
-          path: upstream
-          token: ${{ secrets.GITHUB_TOKEN }}
+          path: ntnh-upstream
+          token: ${{ secrets.UNIVERSAL_FINE }}
           fetch-depth: 0
-
-      - name: Prevent adding upstream to commits (ignore locally)
-        run: |
-          # Ignore upstream dir locally and remove its .git so it isn't treated as a submodule
-          echo "upstream/" >> .git/info/exclude || true
-          rm -rf upstream/.git || true
-          ls -la upstream || true
 
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Sync en_US files and convert .lang -> .properties
+      - name: Sync and convert translation files
         shell: bash
         run: |
           set -euo pipefail
-          UPSTREAM_DIR="upstream/config"
-          WORK_DIR="${GITHUB_WORKSPACE}"
+          
+          UPSTREAM_DIR="ntnh-upstream/config"
+          WORK_DIR="${GITHUB_WORKSPACE}/config"
+          
+          # Remove old config directory to ensure clean sync
+          rm -rf "$WORK_DIR"
+          mkdir -p "$WORK_DIR"
+          
           found=0
-
+          converted=0
+          copied=0
+          
+          echo "Starting file sync from NTNH (updates/upcoming)..."
+          echo ""
+          
+          # Find all files in upstream config directory
           while IFS= read -r -d '' file; do
-            found=1
+            found=$((found + 1))
+            
+            # Get relative path from upstream/config
             relpath="${file#$UPSTREAM_DIR/}"
             subdir="$(dirname "$relpath")"
-            mkdir -p "$WORK_DIR/config/$subdir"
-
-            src="$file"
+            basename="$(basename "$relpath")"
             ext="${file##*.}"
-
-            # Only process .lang -> .properties and copy .properties files; ignore other extensions (e.g., .txt)
+            
+            # Create destination directory
+            mkdir -p "$WORK_DIR/$subdir"
+            
+            # Process based on file extension
             if [ "$ext" = "lang" ]; then
-              dest="$WORK_DIR/config/$subdir/en_US.properties"
-              # Convert lines like "key: value" -> "key=value" (leave comments intact), remove CRLF and BOM
-              awk 'BEGIN{FS=OFS=""} /^#/ {print; next} { if (index($0, ":") && !index($0, "=")) sub(/:/, "=") ; print }' "$src" |
+              # Convert .lang to .properties
+              filename_without_ext="${basename%.lang}"
+              dest="$WORK_DIR/$subdir/${filename_without_ext}.properties"
+              
+              # Convert .lang format to .properties format
+              # - Lines like "key: value" become "key=value"
+              # - Keep comment lines (starting with #) as-is
+              # - Remove BOM and CRLF
+              awk 'BEGIN{FS=OFS=""} /^#/ {print; next} { if (index($0, ":") && !index($0, "=")) sub(/:/, "=") ; print }' "$file" |
                 sed '1s/^\xEF\xBB\xBF//' | sed 's/\r$//' > "$dest"
-              echo "Converted: config/$subdir/en_US.properties (from .lang)"
-            elif [ "$ext" = "properties" ]; then
-              dest="$WORK_DIR/config/$subdir/en_US.properties"
-              # Copy .properties, strip BOM/CRLF
-              sed '1s/^\xEF\xBB\xBF//' "$src" | sed 's/\r$//' > "$dest"
-              echo "Copied: config/$subdir/en_US.properties"
+              
+              echo "✓ Converted: $relpath → ${relpath%.lang}.properties"
+              converted=$((converted + 1))
             else
-              # Skip other file types
-              echo "Skipped (unsupported extension): $relpath"
+              # Copy other files as-is (e.g., .properties, .txt, etc.)
+              dest="$WORK_DIR/$relpath"
+              
+              # Copy file and strip BOM/CRLF
+              sed '1s/^\xEF\xBB\xBF//' "$file" | sed 's/\r$//' > "$dest"
+              
+              echo "✓ Copied: $relpath"
+              copied=$((copied + 1))
             fi
-          done < <(find "$UPSTREAM_DIR" -type f \( -name 'en_US.lang' -o -name 'en_US.properties' \) -print0)
-
+          done < <(find "$UPSTREAM_DIR" -type f -print0 2>/dev/null || true)
+          
+          echo ""
+          echo "Summary:"
+          echo "  Total files processed: $found"
+          echo "  Converted (.lang → .properties): $converted"
+          echo "  Copied (as-is): $copied"
+          echo ""
+          
           if [ "$found" -eq 0 ]; then
-            echo "No en_US files found in upstream config. Exiting."
+            echo "⚠️  No files found in upstream config directory."
             exit 0
           fi
 
-          # Add changes and show a summary
-          git add config || true
+      - name: Commit and push changes
+        run: |
+          # Remove the upstream checkout directory (don't commit it)
+          rm -rf ntnh-upstream
+          
+          # Add all changes in config directory
+          git add config
+          
+          # Check if there are changes
           if git diff --staged --quiet; then
             echo "No changes to commit."
-            exit 0
           else
-            git commit -m "chore: sync en_US translations from NTNewHorizons/NTNH (updates/upcoming) and convert .lang -> .properties" || true
-          fi
+            # Count the changes
+            CHANGED=$(git diff --staged --name-only | wc -l)
+            echo "Committing $CHANGED changed file(s)..."
+            
+            git commit -m "🌐 Sync translations from NTNH (updates/upcoming)
 
-      - name: Push changes directly to main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          # Ensure upstream isn't accidentally committed
-          echo "upstream/" >> .git/info/exclude || true
-          rm -rf upstream/.git || true
-
-          # Confirm we're on main
-          git checkout main || true
-
-          # Fetch remote main
-          git fetch origin main || true
-
-          # Merge remote main to avoid non-fast-forward errors (if exists)
-          if git rev-parse --verify origin/main >/dev/null 2>&1; then
-            git merge --no-edit origin/main || true
-          fi
-
-          # Determine if local main has commits not on origin/main
-          AHEAD=0
-          if git rev-parse --verify origin/main >/dev/null 2>&1; then
-            AHEAD=$(git rev-list --count origin/main..main || echo 0)
-          else
-            # No origin/main exists (first push)
-            AHEAD=$(git rev-list --count main || echo 0)
-          fi
-
-          if [ "$AHEAD" -gt 0 ]; then
-            echo "Local 'main' is ahead by $AHEAD commit(s). Pushing to origin/main..."
+- Auto-converted .lang files to .properties format
+- Synced all translation files from config directory"
+            
             git push origin main
-            echo "Pushed $AHEAD commit(s) to 'main'."
-          else
-            echo "No commits to push."
+            echo "✓ Pushed changes to main branch"
           fi

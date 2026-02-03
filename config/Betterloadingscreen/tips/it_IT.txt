@@ -12,23 +12,23 @@ Letteralmente un acciarino!
 Adventurer's backpack: integrated crafting grid, bed and fluid storage
 Attenzione all'inquinamento!
 Hai trovato un bug? Segnala su GitHub o Discord
-You can bookmark items with NEI ("a" by default)
-It's NEI, not JEI. Use it frequently.
+Puoi salvare gli oggetti con la NEI ("a" di default)
+È NEI, non JEI. Usalo spesso.
 Your pick is not ready
-Also try GT:NH!
-Put the "Mine" back in Minecraft
-Don't go out at night!
-Abandon all vanilla knowledge all ye who enter here
-Sometimes it's better to flee than fight some mobs
-Be prepared to take hours to build a single multiblock machine!
-Press F7 to see spots where mobs can spawn!
-Press F9 to see chunk borders!
-Microcrafting is love, microcrafting is life
-How many circuits have you crafted in your life?
-XAERO's WORLD MAP: PRESS[M]
-sqrt(-1) loves you!
+Prova anche GT:NH!
+Rimetti "Mine" in Minecraft
+Non uscire la notte!
+Lasciate ogni conoscenza del vanilla voi che entrate
+A volte è meglio fuggire che combattere con alcuni mob
+Sii pronto a impiegare ore per costruire un solo macchinario multiblock!
+Premi F7 per vedere i punti in cui i mob possono nascere!
+Premi F9 per vedere i confini dei chunk!
+Microcrafting è amore, microcrafting è vita
+Quanti circuiti hai craftato nella tua vita?
+XAERO's WORLD MAP: PREMI[M]
+sqrt(-1) ti ama!
 (MultiMC > Curse) && (Technic > Curse): true
-All you had to do was tho follow the damn quest line, CJ!
+Tutto quello che dovevi fare era seguire la dannata questline, CJ!
 Click on an item in the quest book to show its recipe in NEI
 Why not visit Nuclear Tech? We have... hydrogen bombs
 If it's too tedious you're doing it wrong

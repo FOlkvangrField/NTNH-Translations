@@ -1,7 +1,7 @@
 #Поради щодо екрана завантаження
-#Thanks to 0lafe, boubou19, chochem, interestingusernam3, glowredman, GTNH-Afx237v7, leagris, Lewissaber, Nvidiot, Regian24, richardhendricks, yukieiji and others for tip suggestions
+#Дякуємо 0lafe, boubou19, chochem, interestingusernam3, glowredman, GTNH-Afx237v7, leagris, Lewissaber, Nvidiot, Regian24, richardhendricks, yukieiji та іншим за пропозиції підказок
 #
-#Maximal characters for a tip: 77 (more can go out of the screen)
+#Максимальна кількість символів для підказки: 77 (більше може виходити за межі екрана)
 #Рядок нижче, включно з "#" містить 77 символів
 #Adventurer's backpack? Did you mean integrated crafting grid, bed and fluid
 #
@@ -35,21 +35,21 @@ Click on an item in the quest book to show its recipe in NEI
 Ви також стежите за своєю духовкою під час випікання?
 Завжди є щось інше, чим можна зайнятися, поки чекаєш
 Використовуй F3 + S, щоб перезавантажити звук, якщо він зник
-Life's all about opening issues, not closing them - Rongmario
-Visit r/feedthemems!
-I WANT ROCKET I WANT MOON - St4o
-Hello @Bufka2011 why did you copied our (GTNH) rules :kekwhat:
-Did you already crafted AE2 system?
-Press O to hide NEI overlay
-Also try GregTech: New Horizons!
-3.6 Roentegen?
-Factory Must Grow!
-Have you tried Schematica?
-There is a swarm ahead!
-Beware of glyphids
-Hydrogen Bomb VS Coughing Baby
-Say hello to DreamMaster from Bufka2011!
-What? Warden is a hard boss? Pfft... Martian Invasion Ship
+У житті важливо розв'язувати проблеми, а не закривати їх - Ронгмаріо
+Відвідай r/feedthemems!
+Я ХОЧУ РАКЕТУ, Я ХОЧУ МІСЯЦЬ - St4o
+Привіт @Bufka2011, чому ти скопіював наші (GTNH) правила :kekwhat:
+Ти вже створив Систему AE2?
+Натисніть O, щоб приховати накладання NEI
+Також спробуй GregTech: New Horizons!
+3,6 Рентгена?
+Завод має зростати!
+Ви пробували Schematica?
+Попереду рій!
+Остерігайся Гліфідів
+Воднева бомба проти кашлчого малюка
+Передавай привіт DreamMaster з Bufka2011!
+Що? Варден тяжкий бос? Pfft... Martian Invasion Ship
 This is not a bug, this is an anomaly!
 ZIRNOX going brrrrrr
 Oh no, ZIRNOX going BOOOOOM

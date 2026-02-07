@@ -1,5 +1,3 @@
-# NTNH Translations Project
-
 <!-- CROWDIN_CONTRIBUTORS_START -->
 <div align="center">
   <h2>🌟 Our Wonderful Translation Contributors 🌟</h2>

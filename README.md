@@ -1,5 +1,3 @@
-# NTNH Translations Project
-
 <!-- CROWDIN_CONTRIBUTORS_START -->
 <table>
   <tbody>

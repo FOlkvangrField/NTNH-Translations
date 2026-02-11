@@ -29,6 +29,14 @@ jobs:
           token: ${{ secrets.UNIVERSAL_FINE }}
           fetch-depth: 0
 
+      - name: Checkout NTNewHorizons.github.io repository
+        uses: actions/checkout@v4
+        with:
+          repository: NTNewHorizons/NTNewHorizons.github.io
+          path: github-io-upstream
+          token: ${{ secrets.UNIVERSAL_FINE }}
+          fetch-depth: 0
+
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
@@ -41,6 +49,8 @@ jobs:
           
           UPSTREAM_DIR="ntnh-upstream/config"
           WORK_DIR="${GITHUB_WORKSPACE}/config"
+          GITHUB_IO_DIR="github-io-upstream/resources/lang"
+          WEBSITE_DIR="${GITHUB_WORKSPACE}/website"
           
           found=0
           converted=0
@@ -56,7 +66,7 @@ jobs:
             # Get relative path from config directory
             relpath="${existing_file#$WORK_DIR/}"
             subdir="$(dirname "$relpath")"
-            basename="$(basename "$relpath")"
+            basename="$(basename "$existing_file")"
             
             # Skip if not an en_US file
             if [[ ! "$basename" =~ ^en_US\. ]]; then
@@ -117,16 +127,28 @@ jobs:
           
           if [ "$found" -eq 0 ]; then
             echo "⚠️  No matching files found to sync."
-            exit 0
+          fi
+          
+          # Sync website/en_US.json from NTNewHorizons.github.io
+          echo "Syncing website en_US.json from NTNewHorizons.github.io..."
+          GITHUB_IO_JSON="$GITHUB_IO_DIR/en_US.json"
+          WEBSITE_JSON="$WEBSITE_DIR/en_US.json"
+          
+          if [ -f "$GITHUB_IO_JSON" ]; then
+            mkdir -p "$WEBSITE_DIR"
+            sed '1s/^\xEF\xBB\xBF//' "$GITHUB_IO_JSON" | sed 's/\r$//' > "$WEBSITE_JSON"
+            echo "✓ Synced: website/en_US.json from NTNewHorizons.github.io"
+          else
+            echo "⚠️  en_US.json not found in NTNewHorizons.github.io repository"
           fi
 
       - name: Commit and push changes
         run: |
-          # Remove the upstream checkout directory (don't commit it)
-          rm -rf ntnh-upstream
+          # Remove the upstream checkout directories (don't commit them)
+          rm -rf ntnh-upstream github-io-upstream
           
-          # Add all changes in config directory
-          git add config
+          # Add all changes in config and website directories
+          git add config website
           
           # Check if there are changes
           if git diff --staged --quiet; then
@@ -136,9 +158,10 @@ jobs:
             CHANGED=$(git diff --staged --name-only | wc -l)
             echo "Committing $CHANGED changed file(s)..."
             
-            git commit -m "🌐 Sync translations from NTNH (updates/upcoming)" \
+            git commit -m "🌐 Sync translations from NTNH and website content from NTNewHorizons.github.io" \
                        -m "- Auto-converted .lang files to .properties format" \
-                       -m "- Synced all translation files from config directory"
+                       -m "- Synced all translation files from config directory" \
+                       -m "- Updated website/en_US.json from NTNewHorizons.github.io"
             
             git push origin main
             echo "✓ Pushed changes to main branch"

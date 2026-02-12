@@ -17,7 +17,7 @@
           <br />
           <sub><b>BufkaSecond</b></sub></a>
         <br />
-        <sub><b>194030 words</b></sub>
+        <sub><b>196090 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Ezzocorbi"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16084852/medium/1abbf6e29ed4f997223b4c66399a21b9.png" />
@@ -31,7 +31,7 @@
           <br />
           <sub><b>HiVerse</b></sub></a>
         <br />
-        <sub><b>2948 words</b></sub>
+        <sub><b>3079 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Aftobus01"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17417268/medium/e9c84f6ebc8f556b18993c7a5b1d8d78.jpeg" />

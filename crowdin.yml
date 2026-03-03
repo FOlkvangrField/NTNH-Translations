@@ -3,5 +3,3 @@ files:
     translation: /%original_path%/%locale_with_underscore%.properties
   - source: /config/**/en_US.txt
     translation: /%original_path%/%locale_with_underscore%.txt
-  - source: /website/en_US.json
-    translation: /%original_path%/%locale_with_underscore%.json

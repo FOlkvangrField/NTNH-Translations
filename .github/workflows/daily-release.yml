@@ -24,21 +24,18 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            // Get all open PRs to main branch
             const { data: pulls } = await github.rest.pulls.list({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
               base: 'main'
             });
-            
-            // Define allowed users
+
             const allowedUsers = ['Bufka2011', 'BufkaSecond'];
-            
-            // Filter PRs from allowed users and attempt to merge
+
             for (const pull of pulls) {
               if (!allowedUsers.includes(pull.user.login)) continue;
-              
+
               try {
                 await github.rest.pulls.merge({
                   owner: context.repo.owner,
@@ -46,10 +43,9 @@ jobs:
                   pull_number: pull.number,
                   merge_method: 'merge'
                 });
-                console.log(`✅ Successfully merged PR #${pull.number} from ${pull.user.login}`);
+                console.log(`✅ Merged PR #${pull.number} from ${pull.user.login}`);
               } catch (error) {
                 console.log(`⚠️ Failed to merge PR #${pull.number} from ${pull.user.login}: ${error.message}`);
-                // Continue execution even if merge fails
               }
             }
 
@@ -60,29 +56,26 @@ jobs:
           fetch-depth: 0
 
       - name: Clean up automatic backslashes from Crowdin
+        shell: bash
         run: |
           echo "🧹 Cleaning up automatic backslashes added by Crowdin..."
-          
-          # Remove backslashes before special characters: !, #, :, =
-          # This fixes Crowdin's automatic escaping while preserving intentional escapes
-          find . -type f -name "*.properties" -exec sed -i 's/\\\([!#:=]\)/\1/g' {} \;
-          find . -type f -name "*.lang" -exec sed -i 's/\\\([!#:=]\)/\1/g' {} \;
-          find . -type f -name "*.txt" -exec sed -i 's/\\\([!#:=]\)/\1/g' {} \;
-          
-          echo "✅ Automatic backslashes cleaned up successfully"
-        shell: bash
+
+          find . -type f \( -name "*.properties" -o -name "*.lang" -o -name "*.txt" \) \
+            -exec sed -i 's/\\\([!#:=]\)/\1/g' {} \;
+
+          echo "✅ Done"
 
       - name: Convert .properties files to .lang format
+        shell: bash
         run: |
           echo "🔄 Converting .properties files to .lang format..."
-          
+
           find config -type f -name "*.properties" | while read -r f; do
             mv "$f" "${f%.properties}.lang"
             echo "  Converted: $f → ${f%.properties}.lang"
           done
-          
-          echo "✅ All .properties files converted to .lang"
-        shell: bash
+
+          echo "✅ Done"
 
       - name: Set release name
         id: vars
@@ -90,37 +83,34 @@ jobs:
 
       - name: Create unified language packs ZIP
         id: zip
+        shell: bash
         run: |
-          # Create temporary directory for clean archive structure
           TEMP_DIR=$(mktemp -d)
-        
-          # Copy entire config directory if it exists
-          if [ -d "config" ]; then
-            cp -r config "$TEMP_DIR/"
-          else
-            echo "No config directory found, skipping ZIP creation"
-            exit 0
+
+          if [ ! -d "config" ]; then
+            echo "❌ No config directory found"
+            exit 1
           fi
-        
-          # Remove all en_US files
-          find "$TEMP_DIR/config" -type f -name "en_US.*" -delete 2>/dev/null || true
-        
-          # Create the unified ZIP archive
+
+          cp -r config "$TEMP_DIR/"
+
+          # Remove all en_US source files — these are not part of the translation pack
+          find "$TEMP_DIR/config" -type f -name "en_US.*" -delete
+
           ZIP_NAME="NTNH-Translations-${{ steps.vars.outputs.release_name }}.zip"
           ZIP_PATH="build_artifacts/$ZIP_NAME"
           mkdir -p build_artifacts
-        
+
           (
             cd "$TEMP_DIR"
             zip -r "$GITHUB_WORKSPACE/$ZIP_PATH" config/ -x "*.git*" "*.DS_Store" "__MACOSX/*"
           )
-        
-          # Clean up temporary directory
+
           rm -rf "$TEMP_DIR"
-        
-          # Output ZIP path for release step
+
           echo "zip_file=$ZIP_PATH" >> $GITHUB_OUTPUT
-        shell: bash
+          echo "zip_name=$ZIP_NAME" >> $GITHUB_OUTPUT
+          echo "✅ Created $ZIP_NAME"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
@@ -130,13 +120,25 @@ jobs:
           body: |
             📦 Unified language packs for Nuclear Tech: New Horizons
             🕒 Generated from branch `main` on ${{ steps.vars.outputs.release_name }}
-          
+
             This release contains a single ZIP archive with **all language packs**.
-           
-            How to use:
-            1. Download the ZIP file from the release assets.
-            2. Extract the contents to your Minecraft `config` directory.
+
+            **How to use:**
+            1. Download `${{ steps.zip.outputs.zip_name }}` from the assets below.
+            2. Extract the contents into your Minecraft `config` directory.
             3. Restart Minecraft to apply the new language packs.
           files: ${{ steps.zip.outputs.zip_file }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger pull-translations workflow in NTNH
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.UNIVERSAL_FINE }}
+          script: |
+            await github.rest.repos.createDispatchEvent({
+              owner: 'NTNewHorizons',
+              repo: 'NTNH',
+              event_type: 'translations-released'
+            });
+            console.log('✅ Dispatched translations-released event to NTNewHorizons/NTNH');

@@ -47,7 +47,7 @@
           <br />
           <sub><b>(ItsNeverLight)</b></sub></a>
         <br />
-        <sub><b>300 words</b></sub>
+        <sub><b>307 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/NKVDshni"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17283930/medium/b6f99536a90f590e689101c777aa3e48.jpg" />

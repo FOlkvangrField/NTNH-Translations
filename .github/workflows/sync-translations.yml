@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   sync:
-    name: Sync translations from NTNH
+    name: Sync en_US files from NTNH
     runs-on: ubuntu-latest
 
     steps:
@@ -29,140 +29,71 @@ jobs:
           token: ${{ secrets.UNIVERSAL_FINE }}
           fetch-depth: 0
 
-      - name: Checkout NTNewHorizons.github.io repository
-        uses: actions/checkout@v4
-        with:
-          repository: NTNewHorizons/NTNewHorizons.github.io
-          path: github-io-upstream
-          token: ${{ secrets.UNIVERSAL_FINE }}
-          fetch-depth: 0
-
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Sync and convert translation files
+      - name: Sync en_US files from NTNH upstream
         shell: bash
         run: |
           set -euo pipefail
-          
+
           UPSTREAM_DIR="ntnh-upstream/config"
           WORK_DIR="${GITHUB_WORKSPACE}/config"
-          GITHUB_IO_DIR="github-io-upstream/resources/lang"
-          WEBSITE_DIR="${GITHUB_WORKSPACE}/website"
-          
+
           found=0
-          converted=0
           copied=0
           skipped=0
-          
-          echo "Starting file sync from NTNH (updates/upcoming)..."
-          echo "Only syncing en_US files that already exist in this repository..."
+
+          echo "Scanning NTNH-Translations for en_US files to sync..."
           echo ""
-          
-          # Find all existing en_US files in NTNH-Translations
+
           while IFS= read -r -d '' existing_file; do
-            # Get relative path from config directory
             relpath="${existing_file#$WORK_DIR/}"
-            subdir="$(dirname "$relpath")"
             basename="$(basename "$existing_file")"
-            
-            # Skip if not an en_US file
-            if [[ ! "$basename" =~ ^en_US\. ]]; then
+
+            # Only process en_US.* files
+            if [[ ! "$basename" == en_US.* ]]; then
               continue
             fi
-            
-            ext="${basename##*.}"
-            
-            # Look for corresponding file in upstream
-            upstream_file=""
-            
-            if [ "$ext" = "properties" ]; then
-              # Look for either .properties or .lang in upstream
-              if [ -f "$UPSTREAM_DIR/$subdir/en_US.properties" ]; then
-                upstream_file="$UPSTREAM_DIR/$subdir/en_US.properties"
-              elif [ -f "$UPSTREAM_DIR/$subdir/en_US.lang" ]; then
-                upstream_file="$UPSTREAM_DIR/$subdir/en_US.lang"
-              fi
-            else
-              # For other extensions (e.g., .txt), look for exact match
-              if [ -f "$UPSTREAM_DIR/$relpath" ]; then
-                upstream_file="$UPSTREAM_DIR/$relpath"
-              fi
-            fi
-            
-            # Process if upstream file found
-            if [ -n "$upstream_file" ]; then
+
+            upstream_file="$UPSTREAM_DIR/$relpath"
+
+            if [ -f "$upstream_file" ]; then
               found=$((found + 1))
-              upstream_ext="${upstream_file##*.}"
-              
-              if [ "$upstream_ext" = "lang" ] && [ "$ext" = "properties" ]; then
-                # Convert .lang to .properties
-                awk 'BEGIN{FS=OFS=""} /^#/ {print; next} { if (index($0, ":") && !index($0, "=")) sub(/:/, "=") ; print }' "$upstream_file" |
-                  sed '1s/^\xEF\xBB\xBF//' | sed 's/\r$//' > "$existing_file"
-                
-                echo "✓ Converted: $subdir/en_US.lang → $subdir/en_US.properties"
-                converted=$((converted + 1))
-              else
-                # Copy file as-is and strip BOM/CRLF
-                sed '1s/^\xEF\xBB\xBF//' "$upstream_file" | sed 's/\r$//' > "$existing_file"
-                
-                echo "✓ Copied: $relpath"
-                copied=$((copied + 1))
-              fi
+              # Copy upstream file, stripping BOM and CRLF line endings
+              sed '1s/^\xEF\xBB\xBF//' "$upstream_file" | sed 's/\r$//' > "$existing_file"
+              echo "✓ Synced: $relpath"
+              copied=$((copied + 1))
             else
               echo "⚠️  Not found in upstream: $relpath"
               skipped=$((skipped + 1))
             fi
           done < <(find "$WORK_DIR" -type f -print0 2>/dev/null || true)
-          
+
           echo ""
           echo "Summary:"
-          echo "  Files processed: $found"
-          echo "  Converted (.lang → .properties): $converted"
-          echo "  Copied (as-is): $copied"
+          echo "  Matched and synced: $copied"
           echo "  Not found in upstream: $skipped"
-          echo ""
-          
+
           if [ "$found" -eq 0 ]; then
-            echo "⚠️  No matching files found to sync."
-          fi
-          
-          # Sync website/en_US.json from NTNewHorizons.github.io
-          echo "Syncing website en_US.json from NTNewHorizons.github.io..."
-          GITHUB_IO_JSON="$GITHUB_IO_DIR/en_US.json"
-          WEBSITE_JSON="$WEBSITE_DIR/en_US.json"
-          
-          if [ -f "$GITHUB_IO_JSON" ]; then
-            mkdir -p "$WEBSITE_DIR"
-            sed '1s/^\xEF\xBB\xBF//' "$GITHUB_IO_JSON" | sed 's/\r$//' > "$WEBSITE_JSON"
-            echo "✓ Synced: website/en_US.json from NTNewHorizons.github.io"
-          else
-            echo "⚠️  en_US.json not found in NTNewHorizons.github.io repository"
+            echo "⚠️  No en_US files found to sync."
           fi
 
       - name: Commit and push changes
         run: |
-          # Remove the upstream checkout directories (don't commit them)
-          rm -rf ntnh-upstream github-io-upstream
-          
-          # Add all changes in config and website directories
-          git add config website
-          
-          # Check if there are changes
+          rm -rf ntnh-upstream
+
+          git add config
+
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            # Count the changes
             CHANGED=$(git diff --staged --name-only | wc -l)
             echo "Committing $CHANGED changed file(s)..."
-            
-            git commit -m "🌐 Sync translations from NTNH and website content from NTNewHorizons.github.io" \
-                       -m "- Auto-converted .lang files to .properties format" \
-                       -m "- Synced all translation files from config directory" \
-                       -m "- Updated website/en_US.json from NTNewHorizons.github.io"
-            
+
+            git commit -m "🌐 Sync en_US translations from NTNH (updates/upcoming)"
             git push origin main
             echo "✓ Pushed changes to main branch"
           fi

@@ -17,7 +17,7 @@
           <br />
           <sub><b>BufkaSecond</b></sub></a>
         <br />
-        <sub><b>196681 words</b></sub>
+        <sub><b>197365 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Ezzocorbi"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16084852/medium/1abbf6e29ed4f997223b4c66399a21b9.png" />

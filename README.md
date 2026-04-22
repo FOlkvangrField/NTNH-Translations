@@ -34,6 +34,15 @@
         <sub><b>3079 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/ItsNeverLight"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16662049/medium/083e47975b1ca499c068c40cdd65caa7.png" />
+          <br />
+          <sub><b>NeverLight</b></sub>
+          <br />
+          <sub><b>(ItsNeverLight)</b></sub></a>
+        <br />
+        <sub><b>964 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/liamdamianlc"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17661920/medium/57974a2732c0aa9e8be92407e026a8b5.gif" />
           <br />
           <sub><b>Dorito Loco</b></sub>
@@ -48,15 +57,6 @@
           <sub><b>Aftobus01</b></sub></a>
         <br />
         <sub><b>758 words</b></sub>
-      </td>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/ItsNeverLight"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16662049/medium/083e47975b1ca499c068c40cdd65caa7.png" />
-          <br />
-          <sub><b>NeverLight</b></sub>
-          <br />
-          <sub><b>(ItsNeverLight)</b></sub></a>
-        <br />
-        <sub><b>548 words</b></sub>
       </td>
     </tr>
     <tr>

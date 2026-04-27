@@ -70,13 +70,11 @@
         <sub><b>758 words</b></sub>
       </td>
       <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/probogdan88"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/15116263/medium/e381ad2a54f8104adf22cada864a8c1b.jpeg" />
+        <a href="https://crowdin.com/profile/Axeleron"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/15116263/medium/e381ad2a54f8104adf22cada864a8c1b.jpeg" />
           <br />
-          <sub><b>Axeleron playTM</b></sub>
-          <br />
-          <sub><b>(probogdan88)</b></sub></a>
+          <sub><b>Axeleron</b></sub></a>
         <br />
-        <sub><b>416 words</b></sub>
+        <sub><b>589 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/NKVDshni"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17283930/medium/b6f99536a90f590e689101c777aa3e48.jpg" />
@@ -93,6 +91,15 @@
           <sub><b>(SYBAUpls)</b></sub></a>
         <br />
         <sub><b>52 words</b></sub>
+      </td>
+      <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/samnothere25"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17680980/medium/7a93c4773a995d6bf8f7fe252c23dfa0.jpeg" />
+          <br />
+          <sub><b>samuel buček</b></sub>
+          <br />
+          <sub><b>(samnothere25)</b></sub></a>
+        <br />
+        <sub><b>11 words</b></sub>
       </td>
     </tr>
   </tbody>

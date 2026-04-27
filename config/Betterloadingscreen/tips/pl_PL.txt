@@ -58,15 +58,15 @@ Sprawdziłeś ustawienia grafiki?
 Ile masz pamięci RAM? 6GB dla NT:NH jest idealne!
 Nie wychodź z gry w złości
 Historycznie dokładne! Może...
-50% scientific accurate!
-How about to share this modpack with your friends?
-The freaking meteorite landed INSIDE our rock cave!
-Yaaay, pollution! >:D
-Oh no, pollution. :(
-Do you have radiation protection with you?
-Be sure to check out if there is a new update!
+W 50% poparte naukowo!
+Może podzielisz się tym modpackiem ze swoimi znajomymi?
+Ten cholerny meteoryt wylądował WEWNĄTRZ naszej skalnej jaskini!
+Jupiii, zanieczyszczenie! >:D
+O nie, zanieczyszczenie. :(
+Czy masz przy sobie ochronę przed promieniowaniem?
+Upewnij się, że sprawdziłeś, czy jest nowa aktualizacja!
 The best way to process ore is Acidizer + Centrifuge
-Crystallized ore gives you 2 ingots when smelting
+Krystaliczna ruda daje 2 sztabki po przetopieniu
 NTM's Electric Furnaces are must!
 Don't mine coal without breathing protection
 Number One Asbestos Fan
@@ -110,15 +110,15 @@ Call your mom, make her happy
 NEI recipe lookup: hover + R
 Standard boilers may explode when running full.
 Fluids can be voided with a drainage pipe.
-Drainage pipe may not be too good for the environment.
-Foundry casts can be removed with a screwdriver.
-It's all about the game
+Rura drenażowa może nie być zbyt dobra dla środowiska.
+Formy odlewnicze można usunąć za pomocą śrubokręta.
+To wszystko kwestia gry
 Craft flippers to swim faster.
-GregTech 6 is peak.
-Supersymmetry is peak.
-bob pls port to 1.20
-1.8.9 port is happening soon trust me guys.
-There's meteors. Build a roof. (#1)
+GregTech 6 to absolutny szczyt.
+Supersymmetry to absolutny szczyt.
+bob proszę przenieś na 1.20
+port na 1.8.9 nadchodzi już niedługo, zaufajcie mi.
+Są meteoryty. Build a roof. (#1)
 The blast furnace extension increases speed with the same fuel consumption. (#2)
 Don't want to use buckets for water? Use an infinite barrel instead. (#3)
 Iron furnaces are more fuel efficient, and don't burn while idle. (#4)

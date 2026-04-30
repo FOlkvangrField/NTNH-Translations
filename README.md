@@ -67,7 +67,7 @@
           <br />
           <sub><b>Aftobus01</b></sub></a>
         <br />
-        <sub><b>792 words</b></sub>
+        <sub><b>821 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Axeleron"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/15116263/medium/e381ad2a54f8104adf22cada864a8c1b.jpeg" />

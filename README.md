@@ -101,6 +101,13 @@
         <br />
         <sub><b>11 words</b></sub>
       </td>
+      <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/FOlkvangrField"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17559874/medium/8a8eba2951e60af080fab42d8d076c8a.png" />
+          <br />
+          <sub><b>FOlkvangrField</b></sub></a>
+        <br />
+        <sub><b>11 words</b></sub>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -49,14 +49,14 @@
           <br />
           <sub><b>(ItsNeverLight)</b></sub></a>
         <br />
-        <sub><b>964 words</b></sub>
+        <sub><b>1065 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Aftobus01"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17417268/medium/e9c84f6ebc8f556b18993c7a5b1d8d78.jpeg" />
           <br />
           <sub><b>Aftobus01</b></sub></a>
         <br />
-        <sub><b>956 words</b></sub>
+        <sub><b>1019 words</b></sub>
       </td>
     </tr>
     <tr>

@@ -101,7 +101,7 @@ OMGWTF NUCLEAR CREEPER
 Експеримент з покращенням машини для підвищення ефективності
 Не забувайте за механіку забруднення - вона впливає на геймплей
 Контролюйте забруднення щоб уникнути проблеми з тарганами
-Use soot towers to reduce pollution
+Використовуй димову трубу для того щоб зменшити забруднення
 Have fun and experiment - NTM offers endless possibilities
 Кріпери тут ДУЖЕ страшні
 Також спробуйте S.T.A.L.K.E.R. Anomaly ГАММА!
@@ -111,7 +111,7 @@ Have fun and experiment - NTM offers endless possibilities
 Стандартні бойлери можуть вибухнути коли заповняться.
 Рідини можна анігілювати за допомогою стічних труб
 Стічні труби можуть бути шкідливими для середовищя
-Foundry casts can be removed with a screwdriver.
+Формочки ливальні можна зняти за допомогою  викрутки
 It's all about the game
 Зробіть ласти щоб плавати швидше
 GregTech 6 найкращий

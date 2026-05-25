@@ -1,4 +1,7 @@
 <!-- CROWDIN_CONTRIBUTORS_START -->
+<div align="center">
+  <h2>🌟 Our Wonderful Translation Contributors 🌟</h2>
+  
 <table>
   <tbody>
     <tr>
@@ -7,7 +10,7 @@
           <br />
           <sub><b>Bufka2011</b></sub></a>
         <br />
-        <sub><b>400789 words</b></sub>
+        <sub><b>400945 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/BufkaSecond"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16895253/medium/0b29547a406506ea79d4bbd68608d6ed.png" />
@@ -137,6 +140,7 @@
     </tr>
   </tbody>
 </table>
+</div>
 <!-- CROWDIN_CONTRIBUTORS_END -->
 
 How to contribute:

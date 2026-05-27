@@ -10,14 +10,14 @@
           <br />
           <sub><b>Bufka2011</b></sub></a>
         <br />
-        <sub><b>400945 words</b></sub>
+        <sub><b>401819 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/BufkaSecond"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16895253/medium/0b29547a406506ea79d4bbd68608d6ed.png" />
           <br />
           <sub><b>BufkaSecond</b></sub></a>
         <br />
-        <sub><b>197365 words</b></sub>
+        <sub><b>197551 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Ezzocorbi"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16084852/medium/1abbf6e29ed4f997223b4c66399a21b9.png" />

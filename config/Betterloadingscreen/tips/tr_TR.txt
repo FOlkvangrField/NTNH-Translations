@@ -6,9 +6,9 @@
 #Maceracının çantası? Entegre üretim ızgarası, yatak ve sıvı mı demek istediniz
 #
 Sorun mu var? Discord sunucumuza katıl: discord.gg/wtNVzeE5QB
-You can bind the quests menu to a key, instead of using the book
-Be sure to check out what you can do with Mouse Tweaks
-Literally flint and steel!
+Görev menüsü için tuş atayabilirsin, kitabı kullanmak yerine
+Mouse Tweaks ile neler yapabileceğini kontrol ettiğinden emin ol
+Gerçekten çakmaktaşı ve çelik!
 Adventurer's backpack: integrated crafting grid, bed and fluid storage
 Beware of pollution!
 Bir hata mı buldunuz? GitHub veya Discord üzerinden bildir

@@ -2,8 +2,8 @@
 #Teşekkürler 0lafe, boubou19, chochem, interstingusernam3, glowredman, GTNH-Afx237v7, leagris, Lewissaber, Nvidiot, Regian24, richardhendricks, yukieiji ve diğerleri önerdiğiniz ipuçları için
 #
 #Maximum karakter sayısı ipucu için: 77 (fazlası ekran dışına taşabilir)
-#The line below, including the "#" are 77 chars
-#Adventurer's backpack? Did you mean integrated crafting grid, bed and fluid
+#aşağıdaki satır, "#" dahil 77 karakter
+#Maceracının çantası? Entegre üretim ızgarası, yatak ve sıvı mı demek istediniz
 #
 Sorun mu var? Discord sunucumuza katıl: discord.gg/wtNVzeE5QB
 You can bind the quests menu to a key, instead of using the book

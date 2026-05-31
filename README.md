@@ -72,20 +72,20 @@
         <sub><b>1065 words</b></sub>
       </td>
       <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/Aftobus01"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17417268/medium/e9c84f6ebc8f556b18993c7a5b1d8d78.jpeg" />
-          <br />
-          <sub><b>Aftobus01</b></sub></a>
-        <br />
-        <sub><b>1019 words</b></sub>
-      </td>
-      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Trkemal67"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17714620/medium/43865364ac916e0644b1ed27c458a3e9.jpeg" />
           <br />
           <sub><b>Mustafa Kemal Uzun</b></sub>
           <br />
           <sub><b>(Trkemal67)</b></sub></a>
         <br />
-        <sub><b>811 words</b></sub>
+        <sub><b>860 words</b></sub>
+      </td>
+      <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/Aftobus01"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17417268/medium/e9c84f6ebc8f556b18993c7a5b1d8d78.jpeg" />
+          <br />
+          <sub><b>Aftobus01</b></sub></a>
+        <br />
+        <sub><b>1019 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/liamdamianlc"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17661920/medium/57974a2732c0aa9e8be92407e026a8b5.gif" />

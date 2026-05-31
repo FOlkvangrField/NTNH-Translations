@@ -10,18 +10,18 @@ Görev menüsü için tuş atayabilirsin, kitabı kullanmak yerine
 Mouse Tweaks ile neler yapabileceğini kontrol ettiğinden emin ol
 Gerçekten çakmaktaşı ve çelik!
 Adventurer's backpack: integrated crafting grid, bed and fluid storage
-Beware of pollution!
+Kirliliğe dikkat et!
 Bir hata mı buldunuz? GitHub veya Discord üzerinden bildir
-You can bookmark items with NEI ("a" by default)
-Bu NEI, JEI değil. Use it frequently.
-Your pick is not ready
-Also try GT:NH!
-Put the "Mine" back in Minecraft
+Eşyaları NEI ile etiketliyebilirsin ("a" varsayılan)
+Bu NEI, JEI değil. Sıkça kullan onu.
+Seçimin hazır değil
+Ayrıca GT:NH yi deneyin!
+"Maden"i Minecraft'a geri ekleyin
 Geceleri dışarı çıkma!
-Abandon all vanilla knowledge all ye who enter here
-Sometimes it's better to flee than fight some mobs
-Be prepared to take hours to build a single multiblock machine!
-Press F7 to see spots where mobs can spawn!
+Buraya giren herkes, tüm sıradan bilgileri bir kenara bıraksın
+Bazen kaçmak yaratıklarla dövüşmekten iyidir
+Tek bir çoklu blok makinesi inşaatına saatler harcamaya hazır ol!
+F7 basarak yaratıkların canlanma noktalarını görebilirsin!
 Chunk sınırlarını görmek için F9'a bas!
 Mikro üretim sevgidir, mikro üretim hayattır
 Hayatında kaç tane devre ürettin?
@@ -29,18 +29,19 @@ XAERO'nun DÜNYA HARİTASI: BAS[M]
 sqrt(-1) seni seviyor!
 (MultiMC > Lanet) && (Teknik > Lanet): doğru
 Tüm yapacağın iş lanet olası görev sırasını takip etmekti, CJ!
-Click on an item in the quest book to show its recipe in NEI
+
+Görev kitabındaki bir eşyaya tıklayarak NEI'deki tarifini görüntüleyebilirsiniz.
 Nükleer Teknolojiyi neden ziyaret etmiyorsun? Şeye sahibiz... hidrojen bombaları
 Eğer çok can sıkıcıysa sen yanlış yapıyorsun
 Sen de mi fırının yemek pişirirken izliyorsun?
-There's always something else you can do while waiting
+Beklerken yapılacak bir şeyler her zaman vardır
 Eğer sesler gittiyse F3 + S kullanarak sesleri yenile
-Life's all about opening issues, not closing them - Rongmario
+Hayat, sorunları kapatmak değil, onları açmakla ilgilidir - Rongmario
 R/feedthemems'i ziyaret et!
-I WANT ROCKET I WANT MOON - St4o
-Hello @Bufka2011 why did you copied our (GTNH) rules :kekwhat:
+ROKET İSTİYORUM AY İSTİYORUM - St4o
+Merhaba @Bufka2011, neden bizim (GTNH) kurallarımızı kopyaladın? :kekwhat
 Şimdiden AE2 sistemini ürettin mi?
-Press O to hide NEI overlay
+NEI katmanını gizlemek için O tuşuna basın
 Also try GregTech: New Horizons!
 3,6 Röntgen?
 Fabrika Büyümeli!
@@ -70,9 +71,9 @@ Crystallized ore gives you 2 ingots when smelting
 NTM's Electric Furnaces are must!
 Don't mine coal without breathing protection
 Number One Asbestos Fan
-She was 'Nuclear' on my 'Tech' until I 'New Horizons'
-Did you already automated food production?
-It's automated, not automized
+O, 'Yeni Ufuklar'a kadar benim 'Teknoloji'mde 'Nükleer'di.
+Şimdiden otomatik yemek üretimine başladın mı?
+O otomatik, otomatikleştirilmiş değil
 Kedini beslemeyi unutma!
 Minecraft'ın yüklenmesi biraz zaman alabilir
 Dünyanın yüklenmesi biraz zaman alabilir
@@ -82,7 +83,7 @@ NTM ile ilgili yardıma mı ihtiyacın var? YouTube'da SavageVegeta'yı bul!
 Matematik biliyor musun? Buna ihtiyacın olacak
 2 aptal 1 reaktör
 Gece GERÇEKTEN korkunç!
-OMGWTF NUCLEAR CREEPER
+AMAN TANRIM HAS SİKTİR NÜKLEER CREEPER
 Göt Ağrısı mod paketi!
 Merhaba Mellow!
 Merhaba HBMTheBobcat!

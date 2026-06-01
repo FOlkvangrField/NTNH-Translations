@@ -63,6 +63,15 @@
     </tr>
     <tr>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/Trkemal67"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17714620/medium/43865364ac916e0644b1ed27c458a3e9.jpeg" />
+          <br />
+          <sub><b>Mustafa Kemal Uzun</b></sub>
+          <br />
+          <sub><b>(Trkemal67)</b></sub></a>
+        <br />
+        <sub><b>1356 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/ItsNeverLight"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16662049/medium/083e47975b1ca499c068c40cdd65caa7.png" />
           <br />
           <sub><b>NeverLight</b></sub>
@@ -70,15 +79,6 @@
           <sub><b>(ItsNeverLight)</b></sub></a>
         <br />
         <sub><b>1065 words</b></sub>
-      </td>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/Trkemal67"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17714620/medium/43865364ac916e0644b1ed27c458a3e9.jpeg" />
-          <br />
-          <sub><b>Mustafa Kemal Uzun</b></sub>
-          <br />
-          <sub><b>(Trkemal67)</b></sub></a>
-        <br />
-        <sub><b>860 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Aftobus01"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17417268/medium/e9c84f6ebc8f556b18993c7a5b1d8d78.jpeg" />

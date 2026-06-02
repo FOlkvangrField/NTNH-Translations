@@ -69,7 +69,7 @@
           <br />
           <sub><b>(Trkemal67)</b></sub></a>
         <br />
-        <sub><b>1356 words</b></sub>
+        <sub><b>1363 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/ItsNeverLight"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16662049/medium/083e47975b1ca499c068c40cdd65caa7.png" />

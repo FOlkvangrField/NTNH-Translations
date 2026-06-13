@@ -88,6 +88,15 @@
         <sub><b>1019 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/rooto"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17746689/medium/f3028a63bae2cb2744d5aabf7d1a0460.png" />
+          <br />
+          <sub><b>Влад Папулов</b></sub>
+          <br />
+          <sub><b>(rooto)</b></sub></a>
+        <br />
+        <sub><b>749 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/liamdamianlc"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17661920/medium/57974a2732c0aa9e8be92407e026a8b5.gif" />
           <br />
           <sub><b>Dorito Loco</b></sub>
@@ -112,6 +121,17 @@
         <br />
         <sub><b>383 words</b></sub>
       </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/pilorama9a"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17747437/medium/1d9b08201861e1fb77456b9e257d8f8b.png" />
+          <br />
+          <sub><b>pilorama</b></sub>
+          <br />
+          <sub><b>(pilorama9a)</b></sub></a>
+        <br />
+        <sub><b>343 words</b></sub>
+      </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/NKVDshni"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17283930/medium/b6f99536a90f590e689101c777aa3e48.jpg" />
           <br />
@@ -119,8 +139,6 @@
         <br />
         <sub><b>224 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/SYBAUpls"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17555804/medium/2991dd27ce2e1cdd034ca2d3c6d98d30.png" />
           <br />

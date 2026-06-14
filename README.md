@@ -10,7 +10,7 @@
           <br />
           <sub><b>Bufka2011</b></sub></a>
         <br />
-        <sub><b>401819 words</b></sub>
+        <sub><b>402355 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/BufkaSecond"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16895253/medium/0b29547a406506ea79d4bbd68608d6ed.png" />
@@ -81,20 +81,20 @@
         <sub><b>1065 words</b></sub>
       </td>
       <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/Aftobus01"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17417268/medium/e9c84f6ebc8f556b18993c7a5b1d8d78.jpeg" />
-          <br />
-          <sub><b>Aftobus01</b></sub></a>
-        <br />
-        <sub><b>1019 words</b></sub>
-      </td>
-      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/rooto"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17746689/medium/f3028a63bae2cb2744d5aabf7d1a0460.png" />
           <br />
           <sub><b>Влад Папулов</b></sub>
           <br />
           <sub><b>(rooto)</b></sub></a>
         <br />
-        <sub><b>749 words</b></sub>
+        <sub><b>1020 words</b></sub>
+      </td>
+      <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/Aftobus01"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17417268/medium/e9c84f6ebc8f556b18993c7a5b1d8d78.jpeg" />
+          <br />
+          <sub><b>Aftobus01</b></sub></a>
+        <br />
+        <sub><b>1019 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/liamdamianlc"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17661920/medium/57974a2732c0aa9e8be92407e026a8b5.gif" />

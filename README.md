@@ -113,6 +113,17 @@
         <sub><b>595 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/pilorama9a"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17747437/medium/1d9b08201861e1fb77456b9e257d8f8b.png" />
+          <br />
+          <sub><b>pilorama</b></sub>
+          <br />
+          <sub><b>(pilorama9a)</b></sub></a>
+        <br />
+        <sub><b>588 words</b></sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Liman69"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17698340/medium/b08c7239ee47c01e3222f990bf9debfa.jpeg" />
           <br />
           <sub><b>LinDemann</b></sub>
@@ -120,17 +131,6 @@
           <sub><b>(Liman69)</b></sub></a>
         <br />
         <sub><b>383 words</b></sub>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/pilorama9a"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17747437/medium/1d9b08201861e1fb77456b9e257d8f8b.png" />
-          <br />
-          <sub><b>pilorama</b></sub>
-          <br />
-          <sub><b>(pilorama9a)</b></sub></a>
-        <br />
-        <sub><b>343 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/NKVDshni"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17283930/medium/b6f99536a90f590e689101c777aa3e48.jpg" />

@@ -43,6 +43,13 @@
         <sub><b>3079 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/AdUhTkJm"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17757327/medium/918854712a4e8aa172ca9a61537e7f26.png" />
+          <br />
+          <sub><b>AdUhTkJm</b></sub></a>
+        <br />
+        <sub><b>3494 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/1595942365"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17677480/medium/851fca91ce277a6af2f84455764457bd.jpeg" />
           <br />
           <sub><b>night star</b></sub>
@@ -50,13 +57,6 @@
           <sub><b>(1595942365)</b></sub></a>
         <br />
         <sub><b>2352 words</b></sub>
-      </td>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/AdUhTkJm"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17757327/medium/918854712a4e8aa172ca9a61537e7f26.png" />
-          <br />
-          <sub><b>AdUhTkJm</b></sub></a>
-        <br />
-        <sub><b>1979 words</b></sub>
       </td>
     </tr>
     <tr>

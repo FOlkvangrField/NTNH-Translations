@@ -40,7 +40,7 @@
           <br />
           <sub><b>AdUhTkJm</b></sub></a>
         <br />
-        <sub><b>3616 words</b></sub>
+        <sub><b>4187 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/HiVerse"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17571872/medium/cb057ad9f5c1997be44bbc2ce9111839.jpg" />

@@ -3,7 +3,7 @@ name: Sync Translations
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 23 * * *'  # Run daily at 11 PM UTC
+    - cron: '0 23 * * *'
 
 permissions:
   contents: write
@@ -51,6 +51,20 @@ jobs:
           unchanged=0
           orphaned=0
 
+          # Helper: swap .properties <-> .lang
+          swap_ext() {
+            local path="$1"
+            local base="${path%.*}"
+            local ext="${path##*.}"
+            if [ "$ext" = "properties" ]; then
+              echo "${base}.lang"
+            elif [ "$ext" = "lang" ]; then
+              echo "${base}.properties"
+            else
+              echo "$path"
+            fi
+          }
+
           echo "Scanning upstream NTNH (updates/upcoming) for en_US files..."
           echo ""
 
@@ -59,34 +73,45 @@ jobs:
             relpath="${upstream_file#$UPSTREAM_DIR/}"
             basename="$(basename "$upstream_file")"
 
-            # Only process en_US.* files
             if [[ ! "$basename" == en_US.* ]]; then
               continue
             fi
 
             local_file="$WORK_DIR/$relpath"
-            mkdir -p "$(dirname "$local_file")"
+            local_alt="$(swap_ext "$local_file")"
 
-            # Strip BOM and CRLF into a temp file
-            sed '1s/^\xEF\xBB\xBF//' "$upstream_file" | sed 's/\r$//' > "$local_file.tmp"
-
+            # Prefer same extension; fallback to swapped extension if local exists
             if [ -f "$local_file" ]; then
-              if diff -q "$local_file" "$local_file.tmp" > /dev/null 2>&1; then
-                rm "$local_file.tmp"
+              target="$local_file"
+            elif [ -f "$local_alt" ]; then
+              target="$local_alt"
+              echo "  ↻ Extension mismatch: upstream $relpath → local ${target#$WORK_DIR/}"
+            else
+              target="$local_file"
+            fi
+
+            mkdir -p "$(dirname "$target")"
+
+            # Strip BOM and CRLF
+            sed '1s/^\xEF\xBB\xBF//' "$upstream_file" | sed 's/\r$//' > "$target.tmp"
+
+            if [ -f "$target" ]; then
+              if diff -q "$target" "$target.tmp" > /dev/null 2>&1; then
+                rm "$target.tmp"
                 unchanged=$((unchanged + 1))
               else
-                mv "$local_file.tmp" "$local_file"
-                echo "  ✓ Updated: $relpath"
+                mv "$target.tmp" "$target"
+                echo "  ✓ Updated: ${target#$WORK_DIR/}"
                 updated=$((updated + 1))
               fi
             else
-              mv "$local_file.tmp" "$local_file"
-              echo "  ✓ New:     $relpath"
+              mv "$target.tmp" "$target"
+              echo "  ✓ New:     ${target#$WORK_DIR/}"
               new=$((new + 1))
             fi
           done < <(find "$UPSTREAM_DIR" -type f -print0 2>/dev/null || true)
 
-          # ── 2. Warn about local en_US files no longer present upstream ──
+          # ── 2. Warn about orphaned local en_US files ──
           while IFS= read -r -d '' local_file; do
             relpath="${local_file#$WORK_DIR/}"
             basename="$(basename "$local_file")"
@@ -96,8 +121,10 @@ jobs:
             fi
 
             upstream_file="$UPSTREAM_DIR/$relpath"
-            if [ ! -f "$upstream_file" ]; then
-              echo "  ⚠️  Orphaned: $relpath (exists locally but not in upstream)"
+            upstream_alt="$(swap_ext "$upstream_file")"
+
+            if [ ! -f "$upstream_file" ] && [ ! -f "$upstream_alt" ]; then
+              echo "  ⚠️  Orphaned: $relpath"
               orphaned=$((orphaned + 1))
             fi
           done < <(find "$WORK_DIR" -type f -print0 2>/dev/null || true)

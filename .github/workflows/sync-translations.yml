@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   sync:
     name: Sync en_US files from NTNH
@@ -42,44 +46,68 @@ jobs:
           UPSTREAM_DIR="ntnh-upstream/config"
           WORK_DIR="${GITHUB_WORKSPACE}/config"
 
-          found=0
-          copied=0
-          skipped=0
+          new=0
+          updated=0
+          unchanged=0
+          orphaned=0
 
-          echo "Scanning NTNH-Translations for en_US files to sync..."
+          echo "Scanning upstream NTNH (updates/upcoming) for en_US files..."
           echo ""
 
-          while IFS= read -r -d '' existing_file; do
-            relpath="${existing_file#$WORK_DIR/}"
-            basename="$(basename "$existing_file")"
+          # ── 1. Pull all en_US files from upstream ──
+          while IFS= read -r -d '' upstream_file; do
+            relpath="${upstream_file#$UPSTREAM_DIR/}"
+            basename="$(basename "$upstream_file")"
 
             # Only process en_US.* files
             if [[ ! "$basename" == en_US.* ]]; then
               continue
             fi
 
-            upstream_file="$UPSTREAM_DIR/$relpath"
+            local_file="$WORK_DIR/$relpath"
+            mkdir -p "$(dirname "$local_file")"
 
-            if [ -f "$upstream_file" ]; then
-              found=$((found + 1))
-              # Copy upstream file, stripping BOM and CRLF line endings
-              sed '1s/^\xEF\xBB\xBF//' "$upstream_file" | sed 's/\r$//' > "$existing_file"
-              echo "✓ Synced: $relpath"
-              copied=$((copied + 1))
+            # Strip BOM and CRLF into a temp file
+            sed '1s/^\xEF\xBB\xBF//' "$upstream_file" | sed 's/\r$//' > "$local_file.tmp"
+
+            if [ -f "$local_file" ]; then
+              if diff -q "$local_file" "$local_file.tmp" > /dev/null 2>&1; then
+                rm "$local_file.tmp"
+                unchanged=$((unchanged + 1))
+              else
+                mv "$local_file.tmp" "$local_file"
+                echo "  ✓ Updated: $relpath"
+                updated=$((updated + 1))
+              fi
             else
-              echo "⚠️  Not found in upstream: $relpath"
-              skipped=$((skipped + 1))
+              mv "$local_file.tmp" "$local_file"
+              echo "  ✓ New:     $relpath"
+              new=$((new + 1))
+            fi
+          done < <(find "$UPSTREAM_DIR" -type f -print0 2>/dev/null || true)
+
+          # ── 2. Warn about local en_US files no longer present upstream ──
+          while IFS= read -r -d '' local_file; do
+            relpath="${local_file#$WORK_DIR/}"
+            basename="$(basename "$local_file")"
+
+            if [[ ! "$basename" == en_US.* ]]; then
+              continue
+            fi
+
+            upstream_file="$UPSTREAM_DIR/$relpath"
+            if [ ! -f "$upstream_file" ]; then
+              echo "  ⚠️  Orphaned: $relpath (exists locally but not in upstream)"
+              orphaned=$((orphaned + 1))
             fi
           done < <(find "$WORK_DIR" -type f -print0 2>/dev/null || true)
 
           echo ""
           echo "Summary:"
-          echo "  Matched and synced: $copied"
-          echo "  Not found in upstream: $skipped"
-
-          if [ "$found" -eq 0 ]; then
-            echo "⚠️  No en_US files found to sync."
-          fi
+          echo "  New files added:     $new"
+          echo "  Existing updated:    $updated"
+          echo "  Unchanged:           $unchanged"
+          echo "  Orphaned local:      $orphaned"
 
       - name: Commit and push changes
         run: |

@@ -10,7 +10,7 @@
           <br />
           <sub><b>Bufka2011</b></sub></a>
         <br />
-        <sub><b>402355 words</b></sub>
+        <sub><b>402802 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/BufkaSecond"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16895253/medium/0b29547a406506ea79d4bbd68608d6ed.png" />
@@ -104,6 +104,15 @@
         <sub><b>1019 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/Q-Cold"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17768555/medium/db0502d3deb1defd7d857d2244fe79a7.png" />
+          <br />
+          <sub><b>Gey</b></sub>
+          <br />
+          <sub><b>(Q-Cold)</b></sub></a>
+        <br />
+        <sub><b>693 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/liamdamianlc"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17661920/medium/57974a2732c0aa9e8be92407e026a8b5.gif" />
           <br />
           <sub><b>Dorito Loco</b></sub>
@@ -112,6 +121,8 @@
         <br />
         <sub><b>658 words</b></sub>
       </td>
+    </tr>
+    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Axeleron"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/15116263/medium/e381ad2a54f8104adf22cada864a8c1b.jpeg" />
           <br />
@@ -119,8 +130,6 @@
         <br />
         <sub><b>595 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/pilorama9a"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17747437/medium/1d9b08201861e1fb77456b9e257d8f8b.png" />
           <br />
@@ -173,6 +182,8 @@
         <br />
         <sub><b>11 words</b></sub>
       </td>
+    </tr>
+    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/FOlkvangrField"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17559874/medium/8a8eba2951e60af080fab42d8d076c8a.png" />
           <br />

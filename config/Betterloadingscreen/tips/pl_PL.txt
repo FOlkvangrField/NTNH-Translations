@@ -3,12 +3,12 @@
 #
 #Maksymalna liczba znaków porady: 77 (więcej może wyjść poza ekran)
 #Linia poniżej, wliczając "#", ma 77 znaków
-#Adventurer's backpack? Did you mean integrated crafting grid, bed and fluid
+Plecak odkrywcy? Czy masz na myśli warsztat, łóżko i płyny w jednym?
 #
 Masz pytanie? Dołącz do naszego serwera Discord: discord.gg/wtNVzeE5QB
 Możesz przypisać menu zadań do klawisza, zamiast używać książki
 Koniecznie sprawdź, co możesz zrobić za pomocą Mouse Tweaks
-Literally flint and steel!
+Literalnie krzesiwo!
 Adventurer's backpack: stół rzemieślniczy, łóżko i zbiornik na płyny
 Uważaj na zanieczyszczenia!
 Znalazłeś błąd? Zgłoś go na GitHubie lub Discordzie
@@ -24,7 +24,7 @@ Przygotuj się na to, że budowa jednej maszyny wieloblokowej zajmie ci godziny!
 Naciśnij F7, aby zobaczyć miejsca, w których mogą odradzać się moby!
 Naciśnij F9, aby zobaczyć granice chunków!
 Microcrafting to miłość, microcrafting to życie
-How many circuits have you crafted in your life?
+Ile w sumie obwodów wyprodukowałeś?
 XAERO'S WORLD MAP: NACIŚNIJ [M]
 sqrt(-1) kocha Cię!
 (MultiMC > Curse) && (Technic > Curse): true
@@ -37,7 +37,7 @@ Zawsze jest coś innego, co możesz robić podczas czekania
 Użyj F3 + S, aby przeładować dźwięk, jeśli zniknął
 Życie polega na otwieraniu zgłoszeń, a nie na ich zamykaniu - Rongmario
 Odwiedź r/feedthemems!
-I WANT ROCKET I WANT MOON - St4o
+CHCĘ RAKIETY CHCĘ KSIĘŻYC ~ St4o
 Hej @Bufka2011, dlaczego skopiowałeś nasze zasady (GTNH) :kekwhat:
 Czy już wytworzyłeś system AE2?
 Naciśnij O, aby ukryć nakładkę NEI
@@ -55,7 +55,7 @@ ZIRNOX robi brrrrrr
 O nie, ZIRNOX robi BUMMMM
 PotatOS jest zabawny :D
 Sprawdziłeś ustawienia grafiki?
-Ile masz pamięci RAM? 6GB for NT:NH is perfect!
+Ile masz pamięci RAM? 6 gigabajtów na NT:NH starcza!
 Nie wychodź z gry w złości
 Historycznie dokładne! Może...
 W 50% poparte naukowo!
@@ -65,46 +65,46 @@ Jupiii, zanieczyszczenie! >:D
 O nie, zanieczyszczenie. :(
 Czy masz przy sobie ochronę przed promieniowaniem?
 Upewnij się, że sprawdziłeś, czy jest nowa aktualizacja!
-The best way to process ore is Acidizer + Centrifuge
-Crystallized ore gives you 2 ingots when smelting
-NTM's Electric Furnaces are must!
-Don't mine coal without breathing protection
-Number One Asbestos Fan
+Rudy najlepiej potraktować zakwaszaczem i wirówką
+Skrystalizowana ruda daje 2 sztabki po przetopieniu
+Piece elektryczne z NTM to podstawa!
+Nie kop węgla bez zabezpieczenia dróg oddechowych
+Fan Azbestu Numer Jeden
 Ona była "Nuklearna" na moim "Techu" dopóki ja "Nowe Horyzonty"
-Did you already automated food production?
-It's automated, not automized
-Don't forget to feed your cat!
-Minecraft loading can take a while
-World loading can take a while
-You can suggest your ideas on NTNH's GitHub repo!
-You can suggest your ideas on NTNH's Discord!
-You need help with NTM? Find SavageVegeta on YouTube!
-Do you know math? You'll need it
-2 idiots 1 reactor
-Night is REALLY scary!
-OMGWTF NUCLEAR CREEPER
-Pain-In-The-Ass modpack!
-Hello Mellow!
-Hello HBMTheBobcat!
-Hello DreamMaster!
-Hello JamesH2!
-Hello everyone!
-Explore structures like antennas for early resources  
-Build multiple furnaces to speed up alloy production  
-Sirens going UUUUUUUUUAAAAAAAAAAAAAAAAAAAAAAAAUUUUUUUUUUUUUUU
-Bro this RBMK is so hot... Nevermind
-Turrets are doing RATATATATATA
-Brother. The darkness is coming.
-Use HE to RF converters!
-Use RF to HE converters!
-Check the mod’s wiki for detailed information
-Experiment with machine upgrades to increase efficiency
+Czy twoje jedzenie jest zautomatyzowane?
+Mówi się "zautomatyzowany", nie "zautomizowany"
+Pamiętaj o nakarmieniu twojego kotka!
+Ładowanie Minecrafta może chwilkę zająć
+Ładowanie świata może chwilkę zająć
+Możesz zasugerować swoje pomysły na repozytorium NTNH na GitHubie!
+Możesz zasugerować swoje pomysły na serwerze Discord NTNH!
+Potrzebujesz pomocy z NTM? Znajdź SavageVegeta na YouTubie!
+Ogarniasz matmę? Przyda ci się
+2 debili 1 reaktor
+W nocy SERIO straszy!
+OBOŻEOKURWA ATOMOWY CREEPER 
+Paczka typu "ból w dupie"
+Witaj, Mellow!
+Witaj, HBMTheBobcat!
+Witaj, DreamMaster!
+Witaj, JamesH2!
+Witajcie!
+Zwiedź struktury takie jak anteny dla początkowych zasobów  
+Zbuduj trochę pieców dla przyspieszenia produkcji stopów  
+Syreny wyją: UUUUUUUUAAAAAAAAAAAAAAAAAAAAAAAAAAAAUUUUUUUUUUUUUU
+Brachu, ten RBMK jest taki gorący... Zapomnij
+Wieżyczki robią RATATATATA
+Bracie. Ciemność nadchodzi.
+Używaj przetworników HE-RF!
+Używaj przetworników RE-HF!
+Sprawdź wiki moda dla szczegółów
+Eksperymentuj z ulepszeniami do maszyn aby zwiększyć wydajność
 Pamiętaj o zanieczyszczeniach - mają znaczenie
-Control pollution to avoid problems with these cockroaches
+Miej oko na zanieczyszczenia, aby uniknąć karaluchów pod poduchą 
 Use soot towers to reduce pollution
-Have fun and experiment - NTM offers endless possibilities
-Creepers are TERRIFYING in here
-Also try S.T.A.L.K.E.R. Anomaly GAMMA!
+Raduj się i doświadczaj - NTM nasuwa nieskończonych możliwości
+Tutaj, czychacze są PRZERAŻAJĄCE 
+Spróbuj również S.T.A.L.K.E.R'a Anomaly GAMMA!
 Also try Factorio!
 Call your mom, make her happy
 NEI recipe lookup: hover + R
@@ -123,7 +123,7 @@ The blast furnace extension increases speed with the same fuel consumption. (#2)
 Don't want to use buckets for water? Use an infinite barrel instead. (#3)
 Iron furnaces are more fuel efficient, and don't burn while idle. (#4)
 Press F1 for help. (#5)
-Bricked furnaces smelt construction materials faster, like sand, stone or clay. (#6)
+Piece ceglane przetapiają szybciej materiały konstrukcyjne pokroju piasku, kamienia czy gliny. (#6)
 Standard boilers may explode when running full. Industrial boilers will simply stop. (#7)
 Is your RBMK leaking radiation? Use cover panels. (#8)
 Flow control pumps can be used to change fluid distribution priority. (#9)

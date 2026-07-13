@@ -1,19 +1,19 @@
-#Tips for the loading screen
-#Thanks to 0lafe, boubou19, chochem, interestingusernam3, glowredman, GTNH-Afx237v7, leagris, Lewissaber, Nvidiot, Regian24, richardhendricks, yukieiji and others for tip suggestions
+#Conseils pour l'écran de chargement
+#Merci à 0lafe, boubou19, chochem, interestingusernam3, glowredman, GTNH-Afx237v7, leagris, Lewissaber, Nvidiot, Regian24, richardhendricks, yukieiji et bien d'autres encore pour leurs suggestions d'astuces
 #
-#Maximal characters for a tip: 77 (more can go out of the screen)
-#The line below, including the "#" are 77 chars
+#Nombre maximal de caractères pour un pourboire : 77 (les caractères supplémentaires peuvent ne pas s'afficher à l'écran)
+#La ligne ci-dessous, « # » compris, compte 77 caractères
 #Adventurer's backpack? Did you mean integrated crafting grid, bed and fluid
 #
-Got a question? Join our Discord server: discord.gg/wtNVzeE5QB
-You can bind the quests menu to a key, instead of using the book
-Be sure to check out what you can do with Mouse Tweaks
-Literally flint and steel!
-Adventurer's backpack: integrated crafting grid, bed and fluid storage
-Beware of pollution!
-Found a bug? Report it on GitHub or Discord
-You can bookmark items with NEI ("a" by default)
-It's NEI, not JEI. Use it frequently.
+Vous avez une question ? Rejoignez notre serveur Discord : discord.gg/wtNVzeE5QB
+Vous pouvez attribuer une touche au menu des quêtes, au lieu d'utiliser le livre
+N'oubliez pas de découvrir tout ce que vous pouvez faire avec Mouse Tweaks
+Littéralement, du silex et de l'acier !
+Sac à dos de l'aventurier : grille d'artisanat intégrée, lit et compartiment de stockage de liquides
+Attention à la pollution !
+Vous avez repéré un bug ? Signalez-le sur GitHub ou Discord
+Vous pouvez mettre en favoris les éléments avec NEI ("a" par défaut)
+C'est NEI, pas JEI. Use it frequently.
 Your pick is not ready
 Also try GT:NH!
 Put the "Mine" back in Minecraft
@@ -57,19 +57,19 @@ PotatOS is funny :D
 Did you checked graphics settings?
 How much RAM do you have? 6GB for NT:NH is perfect!
 Do not ragequit
-Historically accurate! Maybe...
-50% scientific accurate!
-How about to share this modpack with your friends?
-The freaking meteorite landed INSIDE our rock cave!
-Yaaay, pollution! >:D
-Oh no, pollution. :(
-Do you have radiation protection with you?
-Be sure to check out if there is a new update!
-The best way to process ore is Acidizer + Centrifuge
-Crystallized ore gives you 2 ingots when smelting
-NTM's Electric Furnaces are must!
-Don't mine coal without breathing protection
-Number One Asbestos Fan
+Historiquement exact ! Peut-être...
+50% de précision scientifique !
+Que diriez-vous de partager ce modpack avec vos amis ?
+Cette fichue météorite s'est écrasée À L'INTÉRIEUR de notre grotte !
+Youpi, la pollution ! >:D
+Oh non, la pollution. :(
+Avez-vous votre équipement de radioprotection avec vous ?
+Assurez-vous de vérifier s'il y a une nouvelle mise à jour !
+Le meilleur moyen de traiter le minerai est l'acidificateur + centrifuge
+Le minerai cristallisé vous donne 2 lingots lors de la fonte
+Les fours électriques NTM sont incontournables !
+N'exploitez pas de charbon sans équipement de protection respiratoire
+Le plus grand fan d'amiante
 She was 'Nuclear' on my 'Tech' until I 'New Horizons'
 Did you already automated food production?
 It's automated, not automized

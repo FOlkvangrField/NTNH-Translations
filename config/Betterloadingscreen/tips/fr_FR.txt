@@ -71,7 +71,7 @@ Les fours électriques NTM sont incontournables !
 N'exploitez pas de charbon sans équipement de protection respiratoire
 Le plus grand fan d'amiante
 Elle était 'nucléaire' sur ma 'Tech' jusqu'à ce que je 'New Horizons'
-Did you already automated food production?
+Avez-vous déjà automatisé la production alimentaire ?
 C'est automatisé, et non automisé
 N'oubliez pas de nourrir votre chat!
 Le chargement de Minecraft peut prendre un moment
@@ -83,7 +83,7 @@ Connaissez-vous les mathématiques? Vous en aurez besoin
 2 idiots 1 réacteur
 La nuit est VRAIMENT effrayante!
 CREEPER NUCLEAR OMGWTF
-Pain-In-The-Ass modpack!
+Le modpack infernal !
 Bonjour Mellow!
 Bonjour HBMLe Bobcat!
 Bonjour DreamMaster !
@@ -117,7 +117,8 @@ Fabriquez des palmes pour nager plus vite.
 GregTech 6, c'est le summum.
 La supersymétrie, c'est le summum.
 Bob, s'il te plaît, apporte le mod en 1.20.
-1.8.9 port is happening soon trust me guys.
+La mise à jour vers la version 1.8.9 arrive bientôt, croyez-moi.
+
 Il y a des météores. Construisez un toit. (#1)
 L'extension du haut fourneau augmente la cadence pour une même consommation de combustible. (#2)
 Vous ne voulez pas utiliser de seaux pour l'eau ? Utilisez plutôt un canon infini. (#3)
@@ -138,32 +139,32 @@ Vous vous sentez mal ? Vérifiez la présence d'amiante à proximité. (#17)
 Besoin de beaucoup de carburant dès le début ? Le Nether regorge de charbon enflammé. (#18)
 Procurez-vous une arme à feu. (#19)
 L'extraction de l'alexandrite nécessite des explosifs. (#20)
-Foundry casts can be removed with a screwdriver. (#21)
-No, you can't upgrade a damaged pickaxe. (#22)
-Using a screwdriver on a fluid burner will increase its burn rate. (#23)
-Using dye on a pylon will change the color of the connected wires. (#24)
-Capacitors are cheaper than energy storage blocks, and have faster discharging rates. (#25)
-Any foundry part can be emptied by using a shovel. This drops the contents as foundry scraps. (#26)
-Teleporters can teleport any entity, even items on a conveoyr belt. (#27)
-Some recipes require blueprints which are found in structures. You can also buy them from Bobmazon. (#28)
-It's all about the game. (#V9)
-Winter will end just the same, no matter what. (#V9)
-You know how we do it. (#V9)
-Man, I'm dead. (#328)
-We never did find the body. ( )
-Shred wheat to triple your bread. (#S1)
-how many breads have you eaten (#S2)
-The two right-hand slots of the VAB are for calculating trips FROM and TO another planet. (#S3)
-Dyson swarm units decay faster the more of them there are. (#S4)
-Clay is valuable in space! (#S5)
-Don't land at Y=63 on Moho, Laythe, or Eve! (#S6)
-An armor modification table can add a PLSS to your armor, for breathing in space. (#S7)
-Friendly fire will not be tolerated! (#S8)
-Craft flippers to swim faster. (#S9)
-Occasionally Heavy Boots are great in low gravity. (#S10)
-You can survive in as little as 0.1atm of pure O2. (#S11)
-You only need one air vent for breathing unaided. (#S12)
-CO2 scrubbers and algae films can recover O2 continuously in orbit. (#S13)
-Orbital station can't make a trip? Add more engines! (#S14)
-Don't forget to clone your orbital station drive! (#S15)
+Les pièces de fonderie peuvent être retirées à l'aide d'un tournevis. (#21)
+Non, vous ne pouvez pas améliorer une pioche endommagée. (#22)
+L'utilisation d'un tournevis sur un brûleur à combustible augmentera sa vitesse de combustion. (#23)
+L'utilisation de colorant sur un pylône modifiera la couleur des câbles qui y sont reliés. (#24)
+Les condensateurs sont moins coûteux que les blocs de stockage d'énergie et présentent des vitesses de décharge plus élevées. (#25)
+N'importe quelle pièce de fonderie peut être vidée en utilisant une pelle. Cela dépose le contenu sous forme de morceaux de fonderie. (#26)
+Les téléporteurs peuvent téléporter n'importe quelle entité, même des objets sur un convoyeur. (#27)
+Certaines recettes requièrent des plans qui se trouvent dans des structures. Vous pouvez également les acheter à Bobmazon. (#28)
+C'est tout à propos du jeu. (#V9)
+L'hiver se terminera exactement de la même manière, quoi qu'il arrive. (#V9)
+Vous savez ce que nous faisons. (#V9)
+Mec, je suis mort. (#328)
+Nous n'avons jamais trouvé le corps. ( )
+Broie du blé pour tripler ton pain. (#S1)
+Combien de pains avez-vous mangés (#S2)
+Les deux emplacements de droite du VAB servent à calculer les trajets depuis et vers une autre planète. (#S3)
+Les unités de la nuée de Dyson se dégradent plus rapidement à mesure que leur nombre augmente. (#S4)
+L'argile est précieuse dans l'espace ! (#S5)
+N'atterrissez pas à Y=63 sur Moho, Laythe ou Ève ! (#S6)
+Une table de modification d'armure peut ajouter une PLSS à votre armure, pour respirer dans l'espace. (#S7)
+Le feu allié ne sera pas toléré! (#S8)
+Fabriquez des palmes pour nager plus vite. (#S9)
+Les Bottes lourdes sont parfois excellentes en faible gravité. (#S10)
+Vous pouvez survivre avec seulement 0,1 atm d'O2 pur. (#S11)
+Il suffit d'une seule prise d'air pour respirer sans assistance. (#S12)
+Les épurateurs de CO2 et les films d'algues peuvent régénérer de l'O2 en continu en orbite. (#S13)
+La station orbitale ne peut pas effectuer de trajet ? Ajoutez plus de moteurs ! (#S14)
+N'oubliez pas de cloner le disque de votre station orbitale ! (#S15)
 wi wi wi. (#???)

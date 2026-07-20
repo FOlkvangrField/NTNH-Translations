@@ -193,6 +193,13 @@
         <sub><b>550 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/Suciiiiii"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17798435/medium/9f9b771efa6800629c89413c5d197118.jpeg" />
+          <br />
+          <sub><b>Suciiiiii</b></sub></a>
+        <br />
+        <sub><b>475 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Error_0804"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/15827421/medium/b2a8a84deb318292e1ac1323a5a2a926.jpeg" />
           <br />
           <sub><b>Андрій Каменський</b></sub>
@@ -226,6 +233,8 @@
         <br />
         <sub><b>224 words</b></sub>
       </td>
+    </tr>
+    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/LordJiriX"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16932143/medium/f3c6cf61e0e32366d285cd2828100d41_default.png" />
           <br />
@@ -233,8 +242,6 @@
         <br />
         <sub><b>143 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/SYBAUpls"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17555804/medium/2991dd27ce2e1cdd034ca2d3c6d98d30.png" />
           <br />

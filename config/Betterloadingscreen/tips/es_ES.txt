@@ -146,7 +146,7 @@ Capacitors are cheaper than energy storage blocks, and have faster discharging r
 Any foundry part can be emptied by using a shovel. This drops the contents as foundry scraps. (#26)
 Teleporters can teleport any entity, even items on a conveoyr belt. (#27)
 Some recipes require blueprints which are found in structures. También los puedes comprar en Bobmazon. (#28)
-It's all about the game. (#V9)
+Todo se trata del juego. (#V9)
 Winter will end just the same, no matter what. (#V9)
 You know how we do it. (#V9)
 Man, I'm dead. (#328)

@@ -87,30 +87,30 @@ OH DIOS MIO EL CREEPER NUCLEAR ES VERDADERO.
 ¡Hola Mellow!
 ¡Hola HBMTheBobcat!
 ¡Hola DreamMaster!
-Hello JamesH2!
-Hello everyone!
-Explore structures like antennas for early resources  
-Build multiple furnaces to speed up alloy production  
-Sirens going UUUUUUUUUAAAAAAAAAAAAAAAAAAAAAAAAUUUUUUUUUUUUUUU
-Bro this RBMK is so hot... Nevermind
-Turrets are doing RATATATATATA
-Brother. The darkness is coming.
-Use HE to RF converters!
-Use RF to HE converters!
-Check the mod’s wiki for detailed information
-Experiment with machine upgrades to increase efficiency
-Account for pollution mechanics - they impact gameplay
-Control pollution to avoid problems with these cockroaches
-Use soot towers to reduce pollution
-Have fun and experiment - NTM offers endless possibilities
-Creepers are TERRIFYING in here
-Also try S.T.A.L.K.E.R. Anomaly GAMMA!
-Also try Factorio!
-Call your mom, make her happy
-NEI recipe lookup: hover + R
-Standard boilers may explode when running full.
-Fluids can be voided with a drainage pipe.
-Drainage pipe may not be too good for the environment.
+¡Hola JamesH2!
+¡Hola a todos!
+Explora estructuras como antenas para obtener recursos iniciales  
+Construye varios hornos para acelerar la producción de aleaciones  
+Sirenas haciendo UUUUUUUUUAAAAAAAAAAAAAAAAAAAAAAAAUUUUUUUUUUUUUUU
+Bro este RBMK está tan caliente... Olvídalo
+Las torretas están haciendo RATATATATATA
+Hermano. La oscuridad se acerca.
+¡Usa convertidores de HE a RF!
+¡Usa convertidores de RF a HE!
+Consulta la wiki del mod para obtener información detallada
+Experimenta con mejoras de máquinas para aumentar la eficiencia
+Ten en cuenta las mecánicas de contaminación - tienen un impacto en el juego
+Controla la contaminación para evitarte problemas con esas cucarachas
+Utiliza las torres de hollín para reducir la contaminación
+Diviértete y experimenta - NTM ofrece una infinidad de posibilidades
+Los creepers son ATERRADORES aquí
+También prueba S.T.A.L.K.E.R. ¡Anomalía GAMMA!
+¡También prueba Factorio!
+Llama a tu mamá, hazla feliz
+Búsqueda de recetas NEI: pasar el cursor + R
+Las calderas estándar pueden explotar cuando trabajan llenas.
+Los fluidos pueden ser vaciados con una tubería de drenaje.
+Las tuberías de drenaje pueden no ser muy buenas para el medio ambiente.
 Foundry casts can be removed with a screwdriver.
 It's all about the game
 Craft flippers to swim faster.

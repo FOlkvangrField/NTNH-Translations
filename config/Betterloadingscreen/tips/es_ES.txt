@@ -111,20 +111,20 @@ Búsqueda de recetas NEI: pasar el cursor + R
 Las calderas estándar pueden explotar cuando trabajan llenas.
 Los fluidos pueden ser vaciados con una tubería de drenaje.
 Las tuberías de drenaje pueden no ser muy buenas para el medio ambiente.
-Foundry casts can be removed with a screwdriver.
-It's all about the game
-Craft flippers to swim faster.
-GregTech 6 is peak.
-Supersymmetry is peak.
-bob pls port to 1.20
-1.8.9 port is happening soon trust me guys.
-There's meteors. Build a roof. (#1)
-The blast furnace extension increases speed with the same fuel consumption. (#2)
-Don't want to use buckets for water? Use an infinite barrel instead. (#3)
-Iron furnaces are more fuel efficient, and don't burn while idle. (#4)
-Press F1 for help. (#5)
-Bricked furnaces smelt construction materials faster, like sand, stone or clay. (#6)
-Standard boilers may explode when running full. Industrial boilers will simply stop. (#7)
+Los moldes de la forja pueden ser removidos con un destornillador.
+Todo se trata del juego
+Crea aletas para nadar más rápido.
+GregTech 6 es genial.
+Supersymmetry es genial.
+bob por favor portea a la 1.20
+El porteo a la 1.8.9 sucederá pronto créanme chicos.
+Hay meteoritos. Construye un techo. (#1)
+Las extensiones del alto horno incrementan la velocidad con el mismo consumo de combustible. (#2)
+¿No quieres usar cubetas para el agua? En su lugar usa un barril infinito. (#3)
+Los hornos de hierro consumen combustible de forma más eficiente y no lo queman al estar inactivos. (#4)
+Presiona F1 para recibir ayuda. (#5)
+Los hornos de ladrillo funden materiales de construcción más rápido, como la arena, piedra y arcilla. (#6)
+Las calderas estándar pueden explotar cuando trabajan llenas. Las calderas industriales simplemente se detendrán. (#7)
 Is your RBMK leaking radiation? Use cover panels. (#8)
 Flow control pumps can be used to change fluid distribution priority. (#9)
 Pneumatic pipes move items instantly, and through unloaded chunks. (#10)
@@ -145,7 +145,7 @@ Using dye on a pylon will change the color of the connected wires. (#24)
 Capacitors are cheaper than energy storage blocks, and have faster discharging rates. (#25)
 Any foundry part can be emptied by using a shovel. This drops the contents as foundry scraps. (#26)
 Teleporters can teleport any entity, even items on a conveoyr belt. (#27)
-Some recipes require blueprints which are found in structures. You can also buy them from Bobmazon. (#28)
+Some recipes require blueprints which are found in structures. También los puedes comprar en Bobmazon. (#28)
 It's all about the game. (#V9)
 Winter will end just the same, no matter what. (#V9)
 You know how we do it. (#V9)

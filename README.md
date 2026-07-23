@@ -68,6 +68,15 @@
         <sub><b>2352 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/GamerRabbit22"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17800493/medium/3dbe0ae2f49f1047180c8b2511069764.png" />
+          <br />
+          <sub><b>Gamer Rabbit 22</b></sub>
+          <br />
+          <sub><b>(GamerRabbit22)</b></sub></a>
+        <br />
+        <sub><b>2142 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Scumbrt"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17781689/medium/803ed2c55c1f11c1bbce3631395beea0.png" />
           <br />
           <sub><b>Scumbrt</b></sub></a>
@@ -108,6 +117,8 @@
         <br />
         <sub><b>1276 words</b></sub>
       </td>
+    </tr>
+    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Daxtarah"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17783017/medium/d7511b473da842d2fbf482be32a33b91.png" />
           <br />
@@ -115,8 +126,6 @@
         <br />
         <sub><b>1218 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/ItsNeverLight"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16662049/medium/083e47975b1ca499c068c40cdd65caa7.png" />
           <br />
@@ -141,15 +150,6 @@
           <sub><b>Aftobus01</b></sub></a>
         <br />
         <sub><b>1019 words</b></sub>
-      </td>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/GamerRabbit22"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17800493/medium/3dbe0ae2f49f1047180c8b2511069764.png" />
-          <br />
-          <sub><b>Gamer Rabbit 22</b></sub>
-          <br />
-          <sub><b>(GamerRabbit22)</b></sub></a>
-        <br />
-        <sub><b>728 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Q-Cold"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17768555/medium/db0502d3deb1defd7d857d2244fe79a7.png" />
@@ -252,6 +252,15 @@
         <sub><b>143 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/eiko0"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17801663/medium/431999895c7c5b1994f1cc5938f82e72.jpg" />
+          <br />
+          <sub><b>Diko Ahlo</b></sub>
+          <br />
+          <sub><b>(eiko0)</b></sub></a>
+        <br />
+        <sub><b>120 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/SYBAUpls"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17555804/medium/2991dd27ce2e1cdd034ca2d3c6d98d30.png" />
           <br />
           <sub><b>Vlad Komisar</b></sub>
@@ -283,6 +292,8 @@
         <br />
         <sub><b>26 words</b></sub>
       </td>
+    </tr>
+    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Caduzin"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17019702/medium/17cc546196633a20ee352a515e3ec0df.png" />
           <br />
@@ -292,8 +303,6 @@
         <br />
         <sub><b>12 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/samnothere25"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17680980/medium/7a93c4773a995d6bf8f7fe252c23dfa0.jpeg" />
           <br />

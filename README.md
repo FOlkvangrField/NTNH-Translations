@@ -59,6 +59,15 @@
     </tr>
     <tr>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/GamerRabbit22"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17800493/medium/3dbe0ae2f49f1047180c8b2511069764.png" />
+          <br />
+          <sub><b>Gamer Rabbit 22</b></sub>
+          <br />
+          <sub><b>(GamerRabbit22)</b></sub></a>
+        <br />
+        <sub><b>2492 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/1595942365"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17677480/medium/851fca91ce277a6af2f84455764457bd.jpeg" />
           <br />
           <sub><b>night star</b></sub>
@@ -66,15 +75,6 @@
           <sub><b>(1595942365)</b></sub></a>
         <br />
         <sub><b>2352 words</b></sub>
-      </td>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/GamerRabbit22"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17800493/medium/3dbe0ae2f49f1047180c8b2511069764.png" />
-          <br />
-          <sub><b>Gamer Rabbit 22</b></sub>
-          <br />
-          <sub><b>(GamerRabbit22)</b></sub></a>
-        <br />
-        <sub><b>2142 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Scumbrt"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17781689/medium/803ed2c55c1f11c1bbce3631395beea0.png" />

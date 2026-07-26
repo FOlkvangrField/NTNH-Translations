@@ -2,7 +2,7 @@
 #Podziękowania dla 0lafe, boubou19, chochem, interestingusernam3, glowredman, GTNH-Afx237v7, leagris, Lewissaber, Nvidiot, Regian24, richardhendricks, yukieiji i innych za sugestie porad
 #
 #Maksymalna liczba znaków porady: 77 (więcej może wyjść poza ekran)
-#The line below, including the "#" is 77 chars
+#Linia poniżej, wliczając "#" ma 77 znaków
 Plecak odkrywcy? Czy masz na myśli warsztat, łóżko i płyny w jednym?
 #
 Masz pytanie? Dołącz do naszego serwera Discord: discord.gg/wtNVzeE5QB
@@ -28,7 +28,7 @@ Ile w sumie obwodów wyprodukowałeś?
 XAERO'S WORLD MAP: NACIŚNIJ [M]
 sqrt(-1) kocha Cię!
 (MultiMC > Curse) && (Technic > Curse): true
-All you had to do was to follow the damn quest line, CJ!
+Wszytko, co miałeś zrobić, to podążać za tą przeklętą linią zadań, CJ!
 Kliknij przedmiot w księdze zadań, aby pokazać jego recepturę w NEI
 Dlaczego by nie odwiedzić Nuclear Tech? Mamy... bomby wodorowe
 Jeśli jest to zbyt nużące, robisz to źle
@@ -39,10 +39,10 @@ Użyj F3 + S, aby przeładować dźwięk, jeśli zniknął
 Odwiedź r/feedthemems!
 CHCĘ RAKIETY CHCĘ KSIĘŻYC ~ St4o
 Hello @Bufka2011 why did you copy our (GTNH) rules :kekwhat:
-Did you already craft an AE2 system?
+Czy już wytworzyłeś system AE2?
 Naciśnij O, aby ukryć nakładkę NEI
 Wypróbuj także GregTech: New Horizons!
-3.6 Roentgen?
+3,6 Rentgena?
 Fabryka Musi Rosnąć!
 Czy wypróbowałeś Schematica?
 Przed Tobą rój!
@@ -54,7 +54,7 @@ To nie jest błąd, to anomalia!
 ZIRNOX robi brrrrrr
 O nie, ZIRNOX robi BUMMMM
 PotatOS jest zabawny :D
-Did you check graphics settings?
+Czy sprawdziłeś ustawienia graficzne?
 Ile masz pamięci RAM? 6 gigabajtów na NT:NH starcza!
 Nie wychodź z gry w złości
 Historycznie dokładne! Może...
@@ -71,7 +71,7 @@ NTM's Electric Furnaces are a must!
 Nie kop węgla bez zabezpieczenia dróg oddechowych
 Fan Azbestu Numer Jeden
 Ona była "Nuklearna" na moim "Techu" dopóki ja "Nowe Horyzonty"
-Did you already automate food production?
+Czy już zautomatyzowałeś produkcje jedzenia?
 Mówi się "zautomatyzowany", nie "zautomizowany"
 Pamiętaj o nakarmieniu twojego kotka!
 Ładowanie Minecrafta może chwilkę zająć
@@ -164,6 +164,6 @@ Od czasu do czasu Ciężkie Buty są świetne w warunkach słabej grawitacji. (#
 You can survive in as little as 0.1 atm of pure O2. (#S11)
 Potrzebujesz zaledwie jednego otworu wentylacyjnego, by oddychać bez innych środków. (#S12)
 Filtry dwutlenku węgla i folie z alg wychwytują tlen na orbicie. (#S13)
-Your orbital station can't make a trip? Więcej silników! (#S14)
+Twoja stacja orbitalna nie może dotrzeć do celu? Więcej silników! (#S14)
 Nie zapomnij zduplikować napędu twojej stacji orbitalnej. (#S15)
 łi łi łi. (#???)

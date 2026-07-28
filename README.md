@@ -127,6 +127,15 @@
         <sub><b>1218 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/imnotdonat1k"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16737111/medium/39ec062e0d2078eb4fcd9feabf8c343f.jpg" />
+          <br />
+          <sub><b>donatik</b></sub>
+          <br />
+          <sub><b>(imnotdonat1k)</b></sub></a>
+        <br />
+        <sub><b>1126 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/ItsNeverLight"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16662049/medium/083e47975b1ca499c068c40cdd65caa7.png" />
           <br />
           <sub><b>NeverLight</b></sub>
@@ -169,6 +178,8 @@
         <br />
         <sub><b>658 words</b></sub>
       </td>
+    </tr>
+    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Axeleron"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/15116263/medium/e381ad2a54f8104adf22cada864a8c1b.jpeg" />
           <br />
@@ -176,8 +187,6 @@
         <br />
         <sub><b>595 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/pilorama9a"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17747437/medium/1d9b08201861e1fb77456b9e257d8f8b.png" />
           <br />
@@ -226,6 +235,8 @@
         <br />
         <sub><b>383 words</b></sub>
       </td>
+    </tr>
+    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Syks"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/15430690/medium/37828ce414bcd9335e2bcaa86c014930.jpeg" />
           <br />
@@ -234,17 +245,6 @@
           <sub><b>(Syks)</b></sub></a>
         <br />
         <sub><b>275 words</b></sub>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/imnotdonat1k"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16737111/medium/39ec062e0d2078eb4fcd9feabf8c343f.jpg" />
-          <br />
-          <sub><b>donatik</b></sub>
-          <br />
-          <sub><b>(imnotdonat1k)</b></sub></a>
-        <br />
-        <sub><b>236 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/NKVDshni"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17283930/medium/b6f99536a90f590e689101c777aa3e48.jpg" />

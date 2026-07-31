@@ -43,12 +43,21 @@
         <sub><b>4275 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/Zors_o"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17811457/medium/3f0165b696be2a9b21e7e5379e06a98b.png" />
+          <br />
+          <sub><b>Zors_o</b></sub></a>
+        <br />
+        <sub><b>3119 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/HiVerse"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17571872/medium/cb057ad9f5c1997be44bbc2ce9111839.jpg" />
           <br />
           <sub><b>HiVerse</b></sub></a>
         <br />
         <sub><b>3079 words</b></sub>
       </td>
+    </tr>
+    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Astu_c"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17790049/medium/68ee496cd387db7874ec66fee25c6129_default.png" />
           <br />
@@ -56,8 +65,6 @@
         <br />
         <sub><b>2739 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/GamerRabbit22"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17800493/medium/3dbe0ae2f49f1047180c8b2511069764.png" />
           <br />
@@ -84,13 +91,6 @@
           <sub><b>(imnotdonat1k)</b></sub></a>
         <br />
         <sub><b>2118 words</b></sub>
-      </td>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/Zors_o"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17811457/medium/3f0165b696be2a9b21e7e5379e06a98b.png" />
-          <br />
-          <sub><b>Zors_o</b></sub></a>
-        <br />
-        <sub><b>1976 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Scumbrt"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17781689/medium/803ed2c55c1f11c1bbce3631395beea0.png" />

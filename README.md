@@ -40,7 +40,7 @@
           <br />
           <sub><b>Zors_o</b></sub></a>
         <br />
-        <sub><b>4329 words</b></sub>
+        <sub><b>5469 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/AdUhTkJm"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17757327/medium/918854712a4e8aa172ca9a61537e7f26.png" />
@@ -107,6 +107,17 @@
         <sub><b>1700 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/m4cchiat"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16765343/medium/88ec36ccef4af6bb4737c80d69084eb9.jpeg" />
+          <br />
+          <sub><b>Macchiato</b></sub>
+          <br />
+          <sub><b>(m4cchiat)</b></sub></a>
+        <br />
+        <sub><b>1605 words</b></sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/acioshr"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17718100/medium/0ed4fe167596c1075c9b5aad47521f4f.png" />
           <br />
           <sub><b>Acio</b></sub>
@@ -115,8 +126,6 @@
         <br />
         <sub><b>1565 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Trkemal67"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17714620/medium/43865364ac916e0644b1ed27c458a3e9.jpeg" />
           <br />
@@ -125,15 +134,6 @@
           <sub><b>(Trkemal67)</b></sub></a>
         <br />
         <sub><b>1363 words</b></sub>
-      </td>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/m4cchiat"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16765343/medium/88ec36ccef4af6bb4737c80d69084eb9.jpeg" />
-          <br />
-          <sub><b>Macchiato</b></sub>
-          <br />
-          <sub><b>(m4cchiat)</b></sub></a>
-        <br />
-        <sub><b>1276 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Daxtarah"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17783017/medium/d7511b473da842d2fbf482be32a33b91.png" />

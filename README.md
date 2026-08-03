@@ -40,7 +40,7 @@
           <br />
           <sub><b>Zors_o</b></sub></a>
         <br />
-        <sub><b>5469 words</b></sub>
+        <sub><b>6386 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/AdUhTkJm"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17757327/medium/918854712a4e8aa172ca9a61537e7f26.png" />
@@ -50,29 +50,29 @@
         <sub><b>4275 words</b></sub>
       </td>
       <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/HiVerse"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17571872/medium/cb057ad9f5c1997be44bbc2ce9111839.jpg" />
-          <br />
-          <sub><b>HiVerse</b></sub></a>
-        <br />
-        <sub><b>3079 words</b></sub>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/Astu_c"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17790049/medium/68ee496cd387db7874ec66fee25c6129_default.png" />
-          <br />
-          <sub><b>Astu_c</b></sub></a>
-        <br />
-        <sub><b>2739 words</b></sub>
-      </td>
-      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/GamerRabbit22"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17800493/medium/3dbe0ae2f49f1047180c8b2511069764.png" />
           <br />
           <sub><b>Gamer Rabbit 22</b></sub>
           <br />
           <sub><b>(GamerRabbit22)</b></sub></a>
         <br />
-        <sub><b>2601 words</b></sub>
+        <sub><b>3594 words</b></sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/HiVerse"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17571872/medium/cb057ad9f5c1997be44bbc2ce9111839.jpg" />
+          <br />
+          <sub><b>HiVerse</b></sub></a>
+        <br />
+        <sub><b>3079 words</b></sub>
+      </td>
+      <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/Astu_c"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17790049/medium/68ee496cd387db7874ec66fee25c6129_default.png" />
+          <br />
+          <sub><b>Astu_c</b></sub></a>
+        <br />
+        <sub><b>2739 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/1595942365"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17677480/medium/851fca91ce277a6af2f84455764457bd.jpeg" />
@@ -286,6 +286,17 @@
         <sub><b>120 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/RX0kas"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16733639/medium/96b337eae62d1b1dcbf243e96d7bbfb9.png" />
+          <br />
+          <sub><b>RXokas</b></sub>
+          <br />
+          <sub><b>(RX0kas)</b></sub></a>
+        <br />
+        <sub><b>70 words</b></sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/SYBAUpls"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17555804/medium/2991dd27ce2e1cdd034ca2d3c6d98d30.png" />
           <br />
           <sub><b>Vlad Komisar</b></sub>
@@ -294,8 +305,6 @@
         <br />
         <sub><b>52 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/TiBoio"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17231268/medium/45c25c8ad3b330434c8adc10eabc7931.jpeg" />
           <br />

@@ -43,20 +43,20 @@
         <sub><b>14573 words</b></sub>
       </td>
       <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/AdUhTkJm"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17757327/medium/918854712a4e8aa172ca9a61537e7f26.png" />
-          <br />
-          <sub><b>AdUhTkJm</b></sub></a>
-        <br />
-        <sub><b>4275 words</b></sub>
-      </td>
-      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/GamerRabbit22"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17800493/medium/3dbe0ae2f49f1047180c8b2511069764.png" />
           <br />
           <sub><b>Gamer Rabbit 22</b></sub>
           <br />
           <sub><b>(GamerRabbit22)</b></sub></a>
         <br />
-        <sub><b>3594 words</b></sub>
+        <sub><b>4956 words</b></sub>
+      </td>
+      <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/AdUhTkJm"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17757327/medium/918854712a4e8aa172ca9a61537e7f26.png" />
+          <br />
+          <sub><b>AdUhTkJm</b></sub></a>
+        <br />
+        <sub><b>4275 words</b></sub>
       </td>
     </tr>
     <tr>
@@ -75,6 +75,15 @@
         <sub><b>2739 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/imnotdonat1k"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16737111/medium/39ec062e0d2078eb4fcd9feabf8c343f.jpg" />
+          <br />
+          <sub><b>donatik</b></sub>
+          <br />
+          <sub><b>(imnotdonat1k)</b></sub></a>
+        <br />
+        <sub><b>2449 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/1595942365"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17677480/medium/851fca91ce277a6af2f84455764457bd.jpeg" />
           <br />
           <sub><b>night star</b></sub>
@@ -82,15 +91,6 @@
           <sub><b>(1595942365)</b></sub></a>
         <br />
         <sub><b>2352 words</b></sub>
-      </td>
-      <td align="center" valign="top">
-        <a href="https://crowdin.com/profile/imnotdonat1k"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16737111/medium/39ec062e0d2078eb4fcd9feabf8c343f.jpg" />
-          <br />
-          <sub><b>donatik</b></sub>
-          <br />
-          <sub><b>(imnotdonat1k)</b></sub></a>
-        <br />
-        <sub><b>2191 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Scumbrt"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17781689/medium/803ed2c55c1f11c1bbce3631395beea0.png" />
@@ -245,6 +245,13 @@
         <sub><b>383 words</b></sub>
       </td>
       <td align="center" valign="top">
+        <a href="https://crowdin.com/profile/Othix"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17820091/medium/0ed3b80276aa1d1bfc486c608420f120.png" />
+          <br />
+          <sub><b>Othix</b></sub></a>
+        <br />
+        <sub><b>349 words</b></sub>
+      </td>
+      <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Syks"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/15430690/medium/37828ce414bcd9335e2bcaa86c014930.jpeg" />
           <br />
           <sub><b>Sykhasamann</b></sub>
@@ -285,6 +292,8 @@
         <br />
         <sub><b>120 words</b></sub>
       </td>
+    </tr>
+    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/RX0kas"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16733639/medium/96b337eae62d1b1dcbf243e96d7bbfb9.png" />
           <br />
@@ -294,8 +303,6 @@
         <br />
         <sub><b>70 words</b></sub>
       </td>
-    </tr>
-    <tr>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/SYBAUpls"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17555804/medium/2991dd27ce2e1cdd034ca2d3c6d98d30.png" />
           <br />

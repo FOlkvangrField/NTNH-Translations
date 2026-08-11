@@ -33,7 +33,7 @@
           <br />
           <sub><b>Zors_o</b></sub></a>
         <br />
-        <sub><b>7824 words</b></sub>
+        <sub><b>8525 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/Ezzocorbi"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/16084852/medium/1abbf6e29ed4f997223b4c66399a21b9.png" />
@@ -49,7 +49,7 @@
           <br />
           <sub><b>(GamerRabbit22)</b></sub></a>
         <br />
-        <sub><b>4959 words</b></sub>
+        <sub><b>5410 words</b></sub>
       </td>
       <td align="center" valign="top">
         <a href="https://crowdin.com/profile/AdUhTkJm"><img alt="logo" style="width: 50px" src="https://crowdin-static.cf-downloads.crowdin.com/avatar/17757327/medium/918854712a4e8aa172ca9a61537e7f26.png" />

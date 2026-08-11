@@ -2,7 +2,7 @@
 #Grazie a 0lafe, boubou19, chochem, interestingusernam3, glowredman, GTNH-Afx237v7, leagris, Lewissaber, Nvidiot, Regian24, richardhendricks, yukieiji e altri per i suggerimenti dei trucchi
 #
 #Massimi caratteri per un suggerimento: 77 (di più potrebbero uscire dallo schermo)
-#The line below, including the "#" is 77 chars
+La riga qui sotto, incluso #, è lunga 77 caratteri
 #Adventurer's backpack? Volevi dire griglia di crafting, letto e fluidi integrati
 #
 Hai una domanda? Unisciti al nostro server Discord: discord.gg/wtNVzeE5QB
@@ -28,7 +28,7 @@ Quanti circuiti hai craftato nella tua vita?
 XAERO's WORLD MAP: PREMI[M]
 sqrt(-1) ti ama!
 (MultiMC > Curse) && (Technic > Curse): true
-All you had to do was to follow the damn quest line, CJ!
+Dovevi solo seguire quella dannata questline, CJ!
 Clicca su un oggetto nel libro delle quest per vedere la ricetta nella NEI
 Perché non visitare Nuclear Tech? Abbiamo... bombe all'idrogeno
 Se è troppo faticoso, lo stai facendo nel modo sbagliato

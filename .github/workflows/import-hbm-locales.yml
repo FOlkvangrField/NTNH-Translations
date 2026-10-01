@@ -1,0 +1,152 @@
+name: Import HBM Locale Translations
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [hbm-locales-updated]
+  schedule:
+    - cron: '45 23 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  import:
+    name: Push changed bundled hbm locale files into Crowdin
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout NTNH-Translations repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.UNIVERSAL_FINE }}
+          fetch-depth: 0
+
+      - name: Checkout HBM mod repository
+        uses: actions/checkout@v4
+        with:
+          repository: NTNewHorizons/Hbm-s-Nuclear-Tech-GIT
+          ref: spacetravel-two-pointfive
+          path: hbm-upstream
+          token: ${{ secrets.UNIVERSAL_FINE }}
+          fetch-depth: 1
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Stage locale files and detect changes
+        id: stage
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          SRC_DIR="hbm-upstream/src/main/resources/assets/hbm/lang"
+          DST_DIR="config/txloader/forceload/hbm/lang"
+          LOCK=".github/hbm-locales.lock"
+
+          # Only keys present in the current en_US source are valid Crowdin strings
+          sed '1s/^\xEF\xBB\xBF//' "$SRC_DIR/en_US.lang" | grep -oE '^[^=[:space:]#]+' | sort -u > "$RUNNER_TEMP/source.keys"
+
+          declare -A newhash
+          staged_locales=()
+
+          while IFS= read -r f; do
+            loc="$(basename "$f" .lang)"
+            if [ "$loc" = "en_US" ]; then continue; fi
+
+            target="$DST_DIR/$loc.properties"
+            if [ ! -f "$target" ]; then
+              echo "skip $loc (not a Crowdin target language)"
+              continue
+            fi
+
+            # Keep only key=value lines whose key exists in en_US; drop // comments and stale keys
+            awk -F= -v keysfile="$RUNNER_TEMP/source.keys" '
+              BEGIN { while ((getline k < keysfile) > 0) keys[k] = 1 }
+              { sub(/\r$/, "") }
+              /^[[:space:]]*[#!]/ { next }
+              /^[[:space:]]*\/\// { next }
+              /^[[:space:]]*$/ { next }
+              { key = $1; sub(/[[:space:]]+$/, "", key); if (key in keys) print }' \
+              "$f" > "$target"
+
+            newhash["$loc"]="$(sha256sum "$target" | awk '{print $1}')"
+            staged_locales+=("$loc")
+          done < <(find "$SRC_DIR" -maxdepth 1 -name '*.lang' | sort)
+
+          if [ "${#staged_locales[@]}" -eq 0 ]; then
+            echo "No locale files staged."
+            echo "changed=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          tmp_lock="$RUNNER_TEMP/hbm-locales.lock"
+          : > "$tmp_lock"
+          changed=()
+          while IFS= read -r loc; do
+            echo "$loc ${newhash[$loc]}" >> "$tmp_lock"
+            old="$(awk -v l="$loc" '$1 == l { print $2 }' "$LOCK" 2>/dev/null || true)"
+            if [ "$old" != "${newhash[$loc]}" ]; then
+              changed+=("$loc")
+            fi
+          done < <(printf '%s\n' "${staged_locales[@]}" | sort)
+
+          printf 'changed=%s\n' "${changed[*]:-}" >> "$GITHUB_OUTPUT"
+          echo "Changed locales: ${changed[*]:-none}"
+
+      - name: Install Crowdin CLI
+        if: steps.stage.outputs.changed != ''
+        run: npm install -g @crowdin/cli
+
+      - name: Upload changed translations
+        if: steps.stage.outputs.changed != ''
+        env:
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          DST_DIR="config/txloader/forceload/hbm/lang"
+          read -r -a changed <<< "${{ steps.stage.outputs.changed }}"
+
+          # Temporarily drop unchanged locale files so only changed ones get uploaded
+          for f in "$DST_DIR"/*.properties; do
+            loc="$(basename "$f" .properties)"
+            if [ "$loc" = "en_US" ]; then continue; fi
+            keep=0
+            for c in "${changed[@]}"; do
+              if [ "$c" = "$loc" ]; then keep=1; fi
+            done
+            if [ "$keep" = "0" ]; then rm -f "$f"; fi
+          done
+
+          crowdin upload translations \
+            -c crowdin-hbm.yml \
+            --auto-approve-imported \
+            --no-progress
+
+      - name: Update lockfile
+        if: steps.stage.outputs.changed != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Restore the repo-managed locale files removed before upload
+          git checkout -- config
+
+          cp "$RUNNER_TEMP/hbm-locales.lock" .github/hbm-locales.lock
+
+          git add .github/hbm-locales.lock
+          if git diff --staged --quiet; then
+            echo "Lockfile unchanged."
+          else
+            git commit -m "🔒 Record imported hbm locale hashes"
+            git push origin main
+          fi
